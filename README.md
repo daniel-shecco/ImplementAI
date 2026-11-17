@@ -5,7 +5,7 @@ Website for an AI implementation consultancy serving SMEs in gastronomy, hospita
 ## Live site (Atelier design)
 - `index.html` — main website
 - `landing.html` — landing page for the free 30-minute "AI Quick-Check"
-- `assets/style.css`, `assets/site.js`, `assets/img/` — styles, behaviour, team photos
+- `assets/style.css`, `assets/site.js`, `assets/img/` (when added) — styles, behaviour, images
 
 No build step: deploy the repository root to any static host (GitHub Pages, Netlify, Vercel).
 
@@ -21,7 +21,7 @@ python3 build.py
 
 ## Before going live
 - Replace `hello@implementai.example` (in `index.html`, `landing.html` and `assets/site.js`).
-- Add photos for Tibor and Jean Christoph (`assets/img/`, then swap the `.portrait` initials for an `<img>` like Daniel's).
+- Add team photos: put them in `assets/img/` and add `<img src="assets/img/name.jpg" alt="…">` inside each `.portrait` (add class `has-photo`); styles are ready.
 - Add Imprint and Privacy policy pages (required in DE/AT/CH).
 - Forms currently open the visitor's email app. To collect submissions directly, add `data-endpoint="https://formspree.io/f/…"` (or similar) to each `<form>`.
 - Review the indicative prices and target metrics.
