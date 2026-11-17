@@ -1,0 +1,701 @@
+<!doctype html>
+<html lang="de-AT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ImplementAI — KI-Einführung für Gastronomie, Hotellerie &amp; Ordinationen</title>
+<meta name="description" content="ImplementAI begleitet Restaurants, Hotels sowie private Gesundheits- und Beauty-Ordinationen bei der Einführung von KI: Wir beobachten Ihren Betrieb, empfehlen die passenden Tools, richten sie ein und schulen Ihr Team, bis es sie selbstständig betreuen kann.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+/* Direction B — "Atelier": warm editorial, big serif type, arches, earthy palette */
+:root {
+  --cream: #f5f0e7;
+  --paper: #fbf8f2;
+  --sand: #e9dfcd;
+  --ink: #1e1c17;
+  --ink-2: #5c564b;
+  --ink-3: #8a8274;
+  --line: #ddd3c1;
+  --terra: #c4623f;
+  --terra-d: #a84f30;
+  --olive: #6b7442;
+  --forest: #1f3b33;
+  --blush: #ecc9b7;
+  --butter: #f0d690;
+  --max: 1240px;
+  --serif: "Newsreader", Georgia, serif;
+  --sans: "Manrope", system-ui, sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; overflow-x: clip; }
+body { margin: 0; background: var(--cream); color: var(--ink); font-family: var(--sans); font-size: 17px; line-height: 1.65; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+a { color: inherit; }
+h1, h2, h3 { font-family: var(--serif); font-weight: 400; margin: 0 0 .45em; line-height: 1.02; letter-spacing: -.025em; }
+h1 { font-size: clamp(3rem, 8.4vw, 7.6rem); }
+h2 { font-size: clamp(2.3rem, 5vw, 4.4rem); }
+h3 { font-size: 1.7rem; line-height: 1.15; letter-spacing: -.015em; }
+h1 i, h2 i, h3 i { color: var(--terra); }
+p { margin: 0 0 1em; }
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 28px; }
+section { padding: 120px 0; }
+.muted { color: var(--ink-2); }
+.eyebrow { display: inline-flex; align-items: center; gap: 12px; font-size: .78rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-2); margin-bottom: 24px; }
+.eyebrow b { display: inline-grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--ink); font-size: .72rem; letter-spacing: 0; color: var(--ink); }
+.split-head { display: grid; grid-template-columns: 1.1fr .9fr; gap: 64px; align-items: end; margin-bottom: 72px; }
+.split-head p { font-size: 1.15rem; color: var(--ink-2); margin: 0; }
+
+/* Buttons */
+.btn { display: inline-flex; align-items: center; gap: 12px; padding: 16px 26px; border-radius: 999px; font: 700 .95rem var(--sans); text-decoration: none; cursor: pointer; border: 1.5px solid transparent; transition: background .25s, color .25s, transform .25s; }
+.btn:hover { transform: translateY(-2px); }
+.btn-dark { background: var(--ink); color: var(--cream); }
+.btn-dark:hover { background: var(--terra); }
+.btn-terra { background: var(--terra); color: #fff; }
+.btn-terra:hover { background: var(--terra-d); }
+.btn-line { border-color: var(--ink); color: var(--ink); }
+.btn-line:hover { background: var(--ink); color: var(--cream); }
+.btn-cream { background: var(--cream); color: var(--ink); }
+.btn-cream:hover { background: var(--butter); }
+.btn .dot { width: 26px; height: 26px; border-radius: 50%; background: rgba(255,255,255,.18); display: grid; place-items: center; margin-right: -10px; transition: transform .25s; }
+.btn-line .dot, .btn-cream .dot { background: rgba(0,0,0,.08); }
+.btn:hover .dot { transform: rotate(-45deg); }
+
+/* Announcement + header */
+.announce { background: var(--forest); color: var(--cream); text-align: center; font-size: .86rem; padding: 10px 16px; }
+.announce a { color: var(--butter); font-weight: 700; }
+.header { position: sticky; top: 0; z-index: 100; background: rgba(245, 240, 231, .9); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid transparent; transition: border-color .3s; }
+.header.scrolled { border-bottom-color: var(--line); }
+.nav { display: flex; align-items: center; justify-content: space-between; height: 78px; gap: 20px; }
+.brand { font-family: var(--serif); font-size: 1.75rem; text-decoration: none; letter-spacing: -.03em; display: flex; align-items: center; gap: 10px; }
+.brand-mark { width: 30px; height: 30px; border-radius: 15px 15px 4px 4px; background: var(--terra); position: relative; }
+.brand-mark::after { content: ""; position: absolute; left: 9px; right: 9px; bottom: 0; height: 13px; border-radius: 6px 6px 0 0; background: var(--cream); }
+.brand i { color: var(--terra); }
+.nav-menu { display: flex; align-items: center; gap: 34px; }
+.nav-menu a { text-decoration: none; font-weight: 600; font-size: .93rem; position: relative; }
+.nav-menu a:not(.btn)::after { content: ""; position: absolute; left: 0; right: 100%; bottom: -4px; height: 1.5px; background: var(--terra); transition: right .3s; }
+.nav-menu a:not(.btn):hover::after { right: 0; }
+.nav-menu .btn { padding: 12px 20px; }
+.nav-toggle { display: none; background: none; border: 0; cursor: pointer; padding: 8px; color: var(--ink); }
+
+/* Hero */
+.hero { padding: 72px 0 100px; }
+.hero h1 { max-width: 13ch; margin-bottom: 0; }
+.hero-row { display: grid; grid-template-columns: 1fr 1.5fr; gap: 56px; margin-top: 56px; align-items: end; }
+.hero-copy p { font-size: 1.2rem; color: var(--ink-2); max-width: 440px; }
+.hero-copy .btns { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 30px; }
+.arches { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; align-items: end; }
+.arch { position: relative; border-radius: 999px 999px 18px 18px; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; padding: 22px 18px; color: #fff; min-height: 340px; }
+.arch:nth-child(1) { background: var(--terra); min-height: 380px; }
+.arch:nth-child(2) { background: var(--olive); min-height: 440px; }
+.arch:nth-child(3) { background: var(--forest); min-height: 360px; }
+.arch .pattern { position: absolute; inset: 0; opacity: .14; background-image: radial-gradient(circle at 1px 1px, #fff 1px, transparent 0); background-size: 14px 14px; }
+.arch .glyph { position: absolute; top: 18%; left: 0; right: 0; text-align: center; font-family: var(--serif); font-style: italic; font-size: 4.4rem; line-height: 1; opacity: .95; }
+.arch .note { position: relative; background: rgba(255,255,255,.95); color: var(--ink); border-radius: 14px; padding: 12px 14px; font-size: .8rem; line-height: 1.4; box-shadow: 0 12px 30px -12px rgba(0,0,0,.35); }
+.arch .note b { display: block; font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 4px; }
+.arch .note .ok { color: var(--olive); font-weight: 700; }
+.arch .lbl { position: relative; font-weight: 700; font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; margin-top: 14px; text-align: center; }
+
+/* Stats */
+.stats { border-block: 1px solid var(--ink); display: grid; grid-template-columns: repeat(4, 1fr); }
+.stat { padding: 38px 28px; border-left: 1px solid var(--line); }
+.stat:first-child { border-left: 0; }
+.stat .n { font-family: var(--serif); font-size: clamp(2.8rem, 5vw, 4.4rem); line-height: 1; letter-spacing: -.04em; }
+.stat .n sup { font-size: .45em; color: var(--terra); vertical-align: .9em; margin-left: 2px; }
+.stat p { margin: 10px 0 0; color: var(--ink-2); font-size: .92rem; max-width: 220px; }
+.stats-note { font-size: .78rem; color: var(--ink-3); margin-top: 14px; }
+
+/* Services list */
+.svc { border-top: 1px solid var(--ink); }
+.svc-row { display: grid; grid-template-columns: 90px 1.1fr 1fr 48px; gap: 28px; align-items: center; padding: 34px 0; border-bottom: 1px solid var(--line); transition: background .3s, padding .3s; text-decoration: none; }
+.svc-row:hover { background: var(--paper); padding-inline: 20px; }
+.svc-row .num { font-family: var(--serif); font-style: italic; font-size: 1.4rem; color: var(--terra); }
+.svc-row h3 { margin: 0; font-size: clamp(1.6rem, 3vw, 2.4rem); }
+.svc-row p { margin: 0; color: var(--ink-2); font-size: .98rem; }
+.svc-row .go { width: 48px; height: 48px; border-radius: 50%; border: 1px solid var(--ink); display: grid; place-items: center; transition: background .3s, color .3s, transform .3s; }
+.svc-row:hover .go { background: var(--terra); border-color: var(--terra); color: #fff; transform: rotate(-45deg); }
+
+/* Industries */
+.inds { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.ind { background: var(--paper); border-radius: 220px 220px 24px 24px; padding: 0 0 32px; overflow: hidden; border: 1px solid var(--line); display: flex; flex-direction: column; }
+.ind-top { height: 220px; display: grid; place-items: center; position: relative; }
+.ind:nth-child(1) .ind-top { background: var(--blush); }
+.ind:nth-child(2) .ind-top { background: #d9dcc0; }
+.ind:nth-child(3) .ind-top { background: #c9d6cf; }
+.ind-top svg { width: 84px; height: 84px; color: var(--ink); }
+.ind-body { padding: 30px 32px 0; flex: 1; }
+.ind h3 { font-size: 2.1rem; margin-bottom: 6px; }
+.ind .who { color: var(--ink-3); font-size: .9rem; margin-bottom: 20px; display: block; }
+.ind ul { list-style: none; margin: 0; padding: 0; }
+.ind li { padding: 11px 0; border-top: 1px solid var(--line); font-size: .96rem; display: flex; gap: 12px; }
+.ind li::before { content: "→"; color: var(--terra); }
+
+/* Quote band */
+.quote-band { background: var(--forest); color: var(--cream); padding: 120px 0; position: relative; overflow: hidden; }
+.quote-band blockquote { margin: 0; font-family: var(--serif); font-size: clamp(2rem, 4.4vw, 3.8rem); line-height: 1.12; letter-spacing: -.02em; max-width: 18ch; }
+.quote-band blockquote i { color: var(--butter); }
+.quote-band cite { display: block; margin-top: 32px; font-style: normal; font-size: .9rem; letter-spacing: .14em; text-transform: uppercase; opacity: .7; }
+.quote-band .ring { position: absolute; right: -120px; top: 50%; transform: translateY(-50%); width: 520px; height: 520px; border-radius: 50%; border: 1px solid rgba(245,240,231,.2); }
+.quote-band .ring::before, .quote-band .ring::after { content: ""; position: absolute; inset: 60px; border-radius: 50%; border: 1px solid rgba(245,240,231,.15); }
+.quote-band .ring::after { inset: 130px; background: var(--terra); border: 0; opacity: .9; }
+
+/* Process: sticky stacking cards */
+.stack { display: grid; gap: 0; }
+.stack-card { position: sticky; top: 110px; display: grid; grid-template-columns: 200px 1fr 1fr; gap: 40px; align-items: start; padding: 44px; border-radius: 28px; margin-bottom: 24px; min-height: 260px; box-shadow: 0 -12px 40px -20px rgba(30,28,23,.25); }
+.stack-card:nth-child(1) { background: var(--paper); border: 1px solid var(--line); }
+.stack-card:nth-child(2) { background: var(--sand); top: 130px; }
+.stack-card:nth-child(3) { background: var(--blush); top: 150px; }
+.stack-card:nth-child(4) { background: var(--butter); top: 170px; }
+.stack-card .big { font-family: var(--serif); font-size: 6rem; line-height: .85; letter-spacing: -.05em; }
+.stack-card .when { display: inline-block; font-size: .78rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; border: 1px solid var(--ink); border-radius: 999px; padding: 5px 12px; margin-bottom: 18px; }
+.stack-card h3 { font-size: 2.6rem; }
+.stack-card p { color: var(--ink-2); margin: 0; font-size: 1.05rem; }
+
+/* Team */
+.team { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.member .portrait { aspect-ratio: 4/5; border-radius: 999px 999px 20px 20px; position: relative; overflow: hidden; display: grid; place-items: center; margin-bottom: 24px; }
+.member:nth-child(1) .portrait { background: var(--terra); }
+.member:nth-child(2) .portrait { background: var(--olive); }
+.member:nth-child(3) .portrait { background: var(--forest); }
+.member .portrait::before { content: ""; position: absolute; inset: 0; opacity: .14; background-image: radial-gradient(circle at 1px 1px, #fff 1px, transparent 0); background-size: 14px 14px; }
+.member .portrait span { font-family: var(--serif); font-style: italic; font-size: 6rem; color: var(--cream); position: relative; }
+.member .portrait .ph { position: absolute; bottom: 18px; left: 50%; transform: translateX(-50%); font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: rgba(245,240,231,.75); white-space: nowrap; }
+.member h3 { font-size: 2rem; margin-bottom: 4px; }
+.member .role { font-weight: 700; font-size: .85rem; letter-spacing: .04em; color: var(--terra); display: block; margin-bottom: 14px; }
+.member p { color: var(--ink-2); font-size: .98rem; margin: 0; }
+
+/* Pricing */
+.plans { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--ink); border-radius: 28px; overflow: hidden; }
+.plan { padding: 40px 36px; display: flex; flex-direction: column; border-left: 1px solid var(--ink); background: var(--paper); }
+.plan:first-child { border-left: 0; }
+.plan.feat { background: var(--ink); color: var(--cream); }
+.plan.feat .muted, .plan.feat li { color: rgba(245,240,231,.75); }
+.plan.feat li { border-color: rgba(245,240,231,.15); }
+.plan .tag { font-size: .72rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--terra); margin-bottom: 18px; min-height: 1em; }
+.plan.feat .tag { color: var(--butter); }
+.plan h3 { font-size: 2.2rem; margin-bottom: 4px; }
+.plan .amt { font-family: var(--serif); font-size: 3.2rem; letter-spacing: -.04em; line-height: 1; margin: 26px 0 6px; }
+.plan h3 { font-size: 2rem; }
+.addons { margin: 22px 0 0; text-align: center; color: var(--ink-2); font-size: .95rem; }
+.addons b { color: var(--ink); }
+.plan .amt small { font-family: var(--sans); font-size: .85rem; letter-spacing: 0; opacity: .7; }
+.plan ul { list-style: none; padding: 0; margin: 26px 0 32px; flex: 1; }
+.plan li { padding: 11px 0; border-top: 1px solid var(--line); font-size: .95rem; color: var(--ink-2); }
+.plan .btn { justify-content: center; }
+.plan.feat .btn-terra:hover { background: var(--butter); color: var(--ink); }
+
+/* FAQ */
+.faq-wrap { display: grid; grid-template-columns: .8fr 1.2fr; gap: 72px; }
+.faq details { border-top: 1px solid var(--ink); padding: 26px 0; }
+.faq details:last-child { border-bottom: 1px solid var(--ink); }
+.faq summary { list-style: none; cursor: pointer; font-family: var(--serif); font-size: 1.55rem; line-height: 1.25; display: flex; justify-content: space-between; gap: 24px; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; font-family: var(--sans); font-weight: 300; font-size: 1.8rem; line-height: 1; color: var(--terra); transition: transform .3s; }
+.faq details[open] summary::after { transform: rotate(45deg); }
+.faq details p { color: var(--ink-2); margin: 14px 0 0; max-width: 620px; }
+
+/* CTA */
+.cta { background: var(--terra); color: #fff; border-radius: 36px; padding: 80px 64px; display: grid; grid-template-columns: 1fr 1fr; gap: 56px; position: relative; overflow: hidden; }
+.cta::before { content: ""; position: absolute; width: 560px; height: 560px; border-radius: 50%; border: 1px solid rgba(255,255,255,.25); left: -200px; bottom: -300px; }
+.cta h2 i { color: var(--butter); }
+.cta > div { position: relative; }
+.cta p { color: rgba(255,255,255,.88); font-size: 1.1rem; }
+.cta a { color: #fff; }
+
+/* Form */
+.form { background: var(--paper); color: var(--ink); border-radius: 24px; padding: 32px; display: grid; gap: 16px; position: relative; }
+.form .two { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form label { display: block; font-size: .8rem; font-weight: 700; margin-bottom: 6px; letter-spacing: .02em; }
+.form input, .form select, .form textarea { width: 100%; font: inherit; font-size: .97rem; padding: 12px 0; border: 0; border-bottom: 1.5px solid var(--line); background: transparent; color: var(--ink); border-radius: 0; transition: border-color .2s; }
+.form select { cursor: pointer; }
+.form input:focus, .form select:focus, .form textarea:focus { outline: none; border-color: var(--terra); }
+.form textarea { min-height: 80px; resize: vertical; }
+.form .consent { display: flex; gap: 10px; align-items: flex-start; font-size: .82rem; color: var(--ink-2); font-weight: 500; }
+.form .consent input { width: auto; margin-top: 4px; accent-color: var(--terra); }
+.form .btn { justify-content: center; margin-top: 6px; }
+.form-ok { background: #e4ead3; border-radius: 12px; padding: 14px; font-size: .92rem; }
+
+/* Footer */
+.footer { padding: 90px 0 40px; }
+.footer-big { font-family: var(--serif); font-size: clamp(3rem, 12vw, 12rem); overflow-wrap: anywhere; line-height: .85; letter-spacing: -.05em; margin-bottom: 56px; }
+.footer-big i { color: var(--terra); }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 32px; padding-top: 40px; border-top: 1px solid var(--ink); font-size: .93rem; }
+.footer h4 { font-family: var(--sans); font-size: .76rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 16px; color: var(--ink-3); }
+.footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.footer a { text-decoration: none; }
+.footer a:hover { color: var(--terra); }
+.footer-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-top: 48px; color: var(--ink-3); font-size: .85rem; }
+
+/* Landing */
+.lp-hero { padding: 64px 0 100px; }
+.lp-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 64px; align-items: start; }
+.lp-grid h1 { font-size: clamp(2.8rem, 6.4vw, 5.8rem); }
+.lp-grid .lede { font-size: 1.2rem; color: var(--ink-2); max-width: 540px; }
+.badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+.badges span { font-size: .78rem; font-weight: 700; padding: 7px 14px; border-radius: 999px; background: var(--paper); border: 1px solid var(--line); }
+.badges span:first-child { background: var(--butter); border-color: var(--butter); }
+.gets { list-style: none; padding: 0; margin: 40px 0 0; border-top: 1px solid var(--ink); }
+.gets li { display: grid; grid-template-columns: 56px 1fr; gap: 12px; padding: 22px 0; border-bottom: 1px solid var(--line); }
+.gets .n { font-family: var(--serif); font-style: italic; font-size: 2rem; color: var(--terra); line-height: 1; }
+.gets strong { display: block; font-size: 1.05rem; }
+.gets span { color: var(--ink-2); font-size: .95rem; }
+.lp-form { position: sticky; top: 100px; border: 1px solid var(--line); box-shadow: 0 30px 60px -30px rgba(30,28,23,.25); }
+.lp-form .head { background: var(--forest); color: var(--cream); margin: -32px -32px 8px; padding: 28px 32px; border-radius: 24px 24px 0 0; }
+.lp-form .head h3 { margin: 0 0 4px; font-size: 2rem; }
+.lp-form .head p { margin: 0; opacity: .8; font-size: .92rem; }
+
+.roi { display: grid; grid-template-columns: 1fr 1fr; border-radius: 32px; overflow: hidden; border: 1px solid var(--ink); }
+.roi-in { padding: 48px; background: var(--paper); display: grid; gap: 32px; }
+.roi-in label { display: flex; justify-content: space-between; gap: 16px; font-weight: 600; margin-bottom: 14px; }
+.roi-in label b { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--terra); }
+.roi input[type=range] { width: 100%; accent-color: var(--terra); }
+.roi-out { padding: 48px; background: var(--olive); color: var(--cream); display: flex; flex-direction: column; justify-content: center; }
+.roi-out .v { font-family: var(--serif); font-size: clamp(3.4rem, 7vw, 6rem); line-height: 1; letter-spacing: -.04em; margin: 10px 0 20px; }
+.roi-out small { opacity: .7; font-size: .8rem; margin-top: 20px; }
+
+.cases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.case { padding: 36px 32px; border-radius: 28px; background: var(--paper); border: 1px solid var(--line); }
+.case:nth-child(1) { background: var(--blush); border-color: var(--blush); }
+.case:nth-child(2) { background: #dfe1c8; border-color: #dfe1c8; }
+.case:nth-child(3) { background: #cfdcd5; border-color: #cfdcd5; }
+.case .tag { font-size: .74rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+.case .q { font-family: var(--serif); font-size: 2rem; line-height: 1.1; margin: 18px 0 18px; }
+.case p { margin: 0; color: var(--ink-2); }
+.steps3 { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--ink); }
+.steps3 > div { padding: 36px 32px 0 0; }
+.steps3 > div + div { padding-left: 32px; border-left: 1px solid var(--line); }
+.steps3 .big { font-family: var(--serif); font-size: 5rem; line-height: 1; color: var(--terra); letter-spacing: -.05em; }
+.steps3 .when { font-size: .78rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); }
+.steps3 h3 { margin-top: 10px; font-size: 2rem; }
+.steps3 p { color: var(--ink-2); }
+.mini-team { display: flex; flex-wrap: wrap; gap: 28px; margin-top: 36px; }
+.mini-team div { display: flex; gap: 12px; align-items: center; font-size: .88rem; color: var(--ink-2); line-height: 1.35; }
+.mini-team b { display: block; color: var(--ink); }
+.mini-team .av { width: 44px; height: 44px; border-radius: 22px 22px 8px 8px; display: grid; place-items: center; font-family: var(--serif); font-style: italic; color: var(--cream); font-size: 1.2rem; flex: none; }
+.sticky-cta { position: fixed; left: 14px; right: 14px; bottom: 14px; z-index: 90; display: none; }
+.sticky-cta .btn { width: 100%; justify-content: center; box-shadow: 0 10px 30px -10px rgba(0,0,0,.4); }
+
+/* Reveal */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1); }
+.reveal.in { opacity: 1; transform: none; }
+.d1 { transition-delay: .1s; } .d2 { transition-delay: .2s; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; } .reveal { opacity: 1; transform: none; } }
+
+/* Responsive */
+@media (max-width: 1240px) and (min-width: 1041px) {
+  .plans { grid-template-columns: 1fr 1fr; }
+  .plan:nth-child(3) { border-left: 0; }
+  .plan:nth-child(n+3) { border-top: 1px solid var(--ink); }
+}
+@media (max-width: 1040px) {
+  .hero-row, .split-head, .lp-grid, .faq-wrap, .cta, .roi { grid-template-columns: 1fr; }
+  .stats { grid-template-columns: 1fr 1fr; }
+  .stat:nth-child(3) { border-left: 0; }
+  .stat:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .inds, .team, .plans, .cases, .steps3 { grid-template-columns: 1fr; }
+  .plan { border-left: 0; border-top: 1px solid var(--ink); }
+  .plan:first-child { border-top: 0; }
+  .inds, .team, .cases { max-width: 560px; }
+  .stack-card { grid-template-columns: 1fr; gap: 12px; position: relative; top: 0 !important; }
+  .stack-card .big { font-size: 4rem; }
+  .svc-row { grid-template-columns: 60px 1fr 48px; }
+  .svc-row p { grid-column: 2 / 3; }
+  .svc-row .go { grid-row: 1; grid-column: 3; }
+  .lp-form { position: static; }
+  .steps3 > div + div { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); }
+  .steps3 > div { padding-bottom: 28px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 720px) {
+  section { padding: 80px 0; }
+  .wrap { padding: 0 16px; }
+  .hero { padding: 40px 0 72px; }
+  .lp-hero { padding: 40px 0 72px; }
+  .nav { height: 66px; }
+  .nav-toggle { display: block; }
+  .nav-menu { display: none; position: absolute; top: 66px; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 18px; padding: 20px 16px 28px; background: var(--cream); border-bottom: 1px solid var(--line); }
+  .nav-menu.open { display: flex; }
+  .nav-menu .btn { justify-content: center; }
+  .arches { gap: 8px; }
+  .arch { min-height: 240px !important; padding: 14px 8px; }
+  .arch .glyph { font-size: 2.6rem; }
+  .arch .note { display: none; }
+  .arch .lbl { font-size: .62rem; letter-spacing: .06em; }
+  .stat { padding: 26px 16px; }
+  .svc-row { grid-template-columns: 1fr 44px; gap: 10px 16px; padding: 26px 0; }
+  .svc-row .num { grid-column: 1; }
+  .svc-row h3 { grid-column: 1; }
+  .svc-row p { grid-column: 1 / -1; }
+  .svc-row .go { grid-row: 1 / 3; grid-column: 2; width: 44px; height: 44px; }
+  .svc-row:hover { padding-inline: 0; }
+  .stack-card { padding: 28px 22px; }
+  .cta { padding: 48px 20px; border-radius: 28px; }
+  .form { padding: 24px 20px; }
+  .form .two, .footer-grid { grid-template-columns: 1fr; }
+  .lp-form .head { margin: -24px -20px 8px; padding: 24px 20px; }
+  .roi-in, .roi-out { padding: 30px 22px; }
+  .quote-band { padding: 80px 0; }
+  .quote-band .ring { width: 320px; height: 320px; right: -180px; }
+  .sticky-cta { display: block; }
+  .lp-body { padding-bottom: 80px; }
+}
+
+/* Team photos */
+.member .portrait img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
+.member .portrait.has-photo::before { display: none; }
+img.av { object-fit: cover; object-position: 50% 30%; }
+
+/* Risk-reversal promises */
+.promises { margin-top: 64px; padding: 44px; border-radius: 28px; background: var(--forest); color: var(--cream); }
+.promises h3 { font-size: 2.2rem; margin-bottom: 28px; }
+.promise-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
+.promise-grid > div { border-top: 1px solid rgba(245,240,231,.25); padding-top: 18px; }
+.promise-grid .pn { font-family: var(--serif); font-style: italic; color: var(--butter); font-size: 1.4rem; display: block; margin-bottom: 6px; }
+.promise-grid b { display: block; font-size: 1.05rem; margin-bottom: 6px; }
+.promise-grid p { margin: 0; color: rgba(245,240,231,.78); font-size: .95rem; }
+@media (max-width: 1040px) { .promise-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 720px) { .promise-grid { grid-template-columns: 1fr; } .promises { padding: 30px 22px; } }
+
+/* Language switch */
+.lang { display: inline-grid; place-items: center; min-width: 38px; height: 34px; padding: 0 10px; border-radius: 999px; border: 1px solid var(--line); font-size: .8rem !important; font-weight: 800 !important; letter-spacing: .06em; text-decoration: none; }
+.lang::after { display: none !important; }
+.lang:hover { border-color: var(--ink); }
+.nav-actions { display: flex; align-items: center; gap: 10px; }
+.footer-big-de { font-size: clamp(2.6rem, 8.4vw, 8.2rem); }
+.arch .glyph { font-size: clamp(2.4rem, 4.2vw, 4.4rem); padding: 0 6px; }
+@media (max-width: 720px) { .arch .glyph { font-size: clamp(1.5rem, 6.6vw, 2.6rem); } }
+@media (max-width: 960px) {
+  .nav-toggle { display: block; }
+  .nav-menu { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 18px; padding: 20px 28px 28px; background: var(--cream); border-bottom: 1px solid var(--line); }
+  .nav-menu.open { display: flex; }
+  .nav-menu .btn { justify-content: center; }
+  .nav-menu .lang { justify-self: start; width: max-content; }
+}
+
+</style>
+</head>
+<body>
+
+<div class="announce">Jetzt Termin sichern: kostenloser einstündiger KI-Quick-Check für Gastronomie, Hotellerie &amp; Ordinationen — <a href="implementai-landing-de.html">Termin reservieren →</a></div>
+
+<header class="header">
+  <div class="wrap nav">
+    <a href="#top" class="brand"><span class="brand-mark"></span>Implement<i>AI</i></a>
+    <button class="nav-toggle" aria-label="Menü" aria-expanded="false"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 8h16M4 16h16"/></svg></button>
+    <nav class="nav-menu">
+      <a href="#services">Leistungen</a>
+      <a href="#industries">Branchen</a>
+      <a href="#process">Ablauf</a>
+      <a href="#team">Team</a>
+      <a href="#pricing">Preise</a>
+      <a href="implementai-website.html" class="lang" lang="en" hreflang="en" title="English version">EN</a>
+      <a href="#contact" class="btn btn-dark">Kontakt aufnehmen</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <h1 class="reveal">Gastfreundschaft braucht Menschen. <i>Der Papierkram</i> nicht.</h1>
+    <div class="hero-row">
+      <div class="hero-copy reveal d1">
+        <p>Noch keine Erfahrung mit KI? Umso besser. Wir beobachten, wie Ihr Restaurant, Hotel oder Ihre Ordination arbeitet, empfehlen die passenden Tools — Microsoft Copilot, ChatGPT, Grok und mehr —, richten sie ein und zeigen Ihrem Team, wie man sie nutzt. Wenn wir gehen, laufen sie in Ihren Händen weiter.</p>
+        <div class="btns">
+          <a href="implementai-landing-de.html" class="btn btn-terra">Kostenloser KI-Quick-Check <span class="dot">↗</span></a>
+          <a href="#services" class="btn btn-line">Was wir tun</a>
+        </div>
+      </div>
+      <div class="arches reveal d2">
+        <div class="arch"><div class="pattern"></div><div class="glyph">Essen</div>
+          <div class="note"><b>Reservierungs-Bot</b>Tisch für 4 · Sa 19:30<br><span class="ok">✓ Per WhatsApp bestätigt</span></div>
+          <div class="lbl">Gastronomie</div></div>
+        <div class="arch"><div class="pattern"></div><div class="glyph">Wohnen</div>
+          <div class="note"><b>Gäste-Concierge</b>„Do you have parking?“<br><span class="ok">✓ Auf Englisch beantwortet, 2 Sek.</span></div>
+          <div class="lbl">Hotellerie</div></div>
+        <div class="arch"><div class="pattern"></div><div class="glyph">Pflege</div>
+          <div class="note"><b>Warteliste</b>11:00 abgesagt<br><span class="ok">✓ Automatisch nachbesetzt</span></div>
+          <div class="lbl">Ordinationen</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="wrap">
+  <div class="stats reveal">
+    <div class="stat"><div class="n">1<sup>h</sup></div><p>kostenloses Erstgespräch — unverbindlich und ohne Fachchinesisch</p></div>
+    <div class="stat"><div class="n">2–4<sup>Wo.</sup></div><p>vom ersten Besuch bis Ihr Team die Tools im Alltag nutzt</p></div>
+    <div class="stat"><div class="n">10<sup>h</sup></div><p>weniger Verwaltungsaufwand pro Woche und Standort — unser Ziel</p></div>
+    <div class="stat"><div class="n">0</div><p>Abhängigkeit: Alle Tools und Konten laufen auf Ihren Namen</p></div>
+  </div>
+  <p class="stats-note">Die Zeitersparnis ist ein Ziel, kein Versprechen. Was wir messen, legen wir gemeinsam mit Ihnen vorab fest.</p>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="wrap">
+    <div class="split-head">
+      <div class="reveal"><span class="eyebrow"><b>01</b> Leistungen</span><h2>Wir beobachten. Wir beraten. Wir integrieren. <i>Wir schulen.</i></h2></div>
+      <p class="reveal d1">Wir sind kein Softwareanbieter und verkaufen keine Abos. Wir wählen bewährte Tools, die zu Ihrem Betrieb passen, richten sie sauber ein und machen Ihr Team so sicher, dass es sie ohne uns betreuen kann.</p>
+    </div>
+    <div class="svc">
+      <a href="#process" class="svc-row reveal"><span class="num">i.</span><h3>Beobachten</h3><p>Wir verbringen Zeit in Ihrem Betrieb, begleiten Ihr Team zu Stoß- und Ruhezeiten und halten fest, wo Zeit, Geld und Nerven verloren gehen.</p><span class="go">→</span></a>
+      <a href="#process" class="svc-row reveal"><span class="num">ii.</span><h3>Beraten</h3><p>Herstellerunabhängige Empfehlungen, welche Tools diese Probleme lösen — Microsoft Copilot, ChatGPT, Grok, Gemini, Reservierungs- und Chat-Tools — mit ehrlichen Lizenzkosten.</p><span class="go">→</span></a>
+      <a href="#process" class="svc-row reveal"><span class="num">iii.</span><h3>Integrieren</h3><p>Wir richten die Tools ein, verbinden sie mit E-Mail, Kalender, Reservierungs- oder Ordinationssoftware und konfigurieren den Datenschutz richtig.</p><span class="go">→</span></a>
+      <a href="#process" class="svc-row reveal"><span class="num">iv.</span><h3>Schulen &amp; übergeben</h3><p>Praxisnahe Schulungen in verständlicher Sprache, Schritt-für-Schritt-Anleitungen und ein „KI-Champion“ im eigenen Team — damit Sie alles selbst betreiben und pflegen können.</p><span class="go">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRIES -->
+<section id="industries" style="padding-top:0">
+  <div class="wrap">
+    <div class="split-head">
+      <div class="reveal"><span class="eyebrow"><b>02</b> Branchen</span><h2>Drei Branchen. <i>In- und auswendig</i>.</h2></div>
+      <p class="reveal d1">Persönlicher Service, knappe Margen, Hochbetrieb zu Stoßzeiten. Wir kennen Ihre Tools, Ihren Rhythmus und wissen, wo die Stunden verschwinden.</p>
+    </div>
+    <div class="inds">
+      <article class="ind reveal">
+        <div class="ind-top"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 8v20a6 6 0 0 0 6 6v22M20 8v12M26 8v12M32 8v12M20 20h12M46 8c-5 5-6 12-6 20h6v28"/></svg></div>
+        <div class="ind-body"><h3>Gastronomie</h3><span class="who">Restaurants · Cafés · Bars · Catering</span>
+          <ul><li>Reservierungs-Chatbot für Website &amp; WhatsApp</li><li>Copilot oder ChatGPT für Speisekarten, Dienstpläne &amp; Lieferanten-Mails</li><li>Antworten auf Bewertungen in Sekunden entworfen</li><li>Einfache Umsatz- &amp; Lagerauswertungen aus Kassendaten</li><li>Social-Media-Posts &amp; Speisekarten-Übersetzungen</li></ul></div>
+      </article>
+      <article class="ind reveal d1">
+        <div class="ind-top"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 56V24L32 8l24 16v32M24 56V40h16v16M8 56h48M28 26h8"/></svg></div>
+        <div class="ind-body"><h3>Hotellerie</h3><span class="who">Boutique-Hotels · Pensionen · Apartments</span>
+          <ul><li>Mehrsprachiger Gäste-Chatbot, rund um die Uhr</li><li>Vorlagen für Pre-Arrival- &amp; Upselling-Nachrichten</li><li>Posteingang &amp; Buchungsportal-Nachrichten mit Copilot sortieren</li><li>Checklisten &amp; Dienstpläne fürs Housekeeping</li><li>Entwürfe für Bewertungsantworten &amp; Gästekommunikation</li></ul></div>
+      </article>
+      <article class="ind reveal d2">
+        <div class="ind-top"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M32 56S12 44 12 28a10 10 0 0 1 20-4 10 10 0 0 1 20 4c0 16-20 28-20 28z"/><path d="M32 26v12M26 32h12"/></svg></div>
+        <div class="ind-body"><h3>Ordinationen</h3><span class="who">Privatordinationen · Ästhetik &amp; Zahnmedizin · Spas</span>
+          <ul><li>Online-Terminbuchung, Erinnerungen &amp; Wartelisten</li><li>FAQ-Chatbot für Patient:innen (ohne Gesundheitsdaten)</li><li>Copilot für Briefe, E-Mails &amp; Dokumente</li><li>Vorlagen für Anamnese- &amp; Einwilligungsbögen</li><li>Datenschutzkonforme Einstellungen &amp; Richtlinien fürs Team</li></ul></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<div class="quote-band">
+  <div class="ring"></div>
+  <div class="wrap" style="position:relative">
+    <blockquote class="reveal">Jede Stunde, die Ihr Team am Telefon verbringt, fehlt <i>bei Ihren Gästen</i>. Genau diese Stunde geben wir Ihnen zurück.</blockquote>
+    <cite>— Das ImplementAI-Team</cite>
+  </div>
+</div>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="wrap">
+    <div class="split-head">
+      <div class="reveal"><span class="eyebrow"><b>03</b> Ablauf</span><h2>Vier Schritte. Dann <i>übernehmen Sie</i>.</h2></div>
+      <p class="reveal d1">Ein Problem nach dem anderen, in verständlicher Sprache und mit Ihrem Team vom ersten Tag an. Keine 80-seitigen Strategiepapiere.</p>
+    </div>
+    <div class="stack">
+      <div class="stack-card"><div class="big">01</div><div><span class="when">Woche 1</span><h3>Beobachten</h3></div><p>Wir besuchen Ihren Betrieb, sehen uns an, wie der Alltag wirklich läuft, und sprechen mit den Menschen, die die Arbeit machen. Sie erhalten einen klaren Überblick über Ihre größten Baustellen.</p></div>
+      <div class="stack-card"><div class="big">02</div><div><span class="when">Woche 1–2</span><h3>Beraten</h3></div><p>Ein kurzer, gut lesbarer Bericht: welches Tool welches Problem löst, was die Lizenzen kosten und wie viel Zeit Sie sparen können. Sie entscheiden, was wir umsetzen.</p></div>
+      <div class="stack-card"><div class="big">03</div><div><span class="when">Woche 2–4</span><h3>Integrieren</h3></div><p>Wir installieren und konfigurieren die Tools, verbinden sie mit Ihrer bestehenden Software und testen alles mit echten Aufgaben aus dem Alltag.</p></div>
+      <div class="stack-card"><div class="big">04</div><div><span class="when">Woche 3–6</span><h3>Schulen &amp; übergeben</h3></div><p>Praxisnahe Schulungen, schriftliche Anleitungen und ein geschulter KI-Champion im Team. Nach 30 Tagen melden wir uns noch einmal — danach läuft alles in Ihren Händen, ganz bewusst.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team" style="padding-top:40px">
+  <div class="wrap">
+    <div class="split-head">
+      <div class="reveal"><span class="eyebrow"><b>04</b> Team</span><h2>Kleines Team. <i>Viel</i> Erfahrung.</h2></div>
+      <p class="reveal d1">Ein Ingenieur und zwei Data Scientists. Sie arbeiten immer direkt mit den Menschen, die Ihre Lösung planen und umsetzen.</p>
+    </div>
+    <div class="team">
+      <article class="member reveal">
+        <div class="portrait"><span>DS</span><em class="ph">Foto folgt</em></div>
+        <h3>Daniel Sheccoury</h3>
+        <span class="role">KI-Implementierungsberater · MSc, University of Oxford</span>
+        <p>Technischer Support-Ingenieur. Leitet jedes Projekt vom Erstgespräch bis zum Start — bindet KI in Ihre Systeme ein, sorgt für einen zuverlässigen Betrieb und dafür, dass Ihr Team sicher damit umgeht.</p>
+      </article>
+      <article class="member reveal d1">
+        <div class="portrait"><span>TS</span><em class="ph">Foto folgt</em></div>
+        <h3>Dr. Tibor Sekera</h3>
+        <span class="role">Data Scientist · PhD in Physik</span>
+        <p>Macht aus unübersichtlichen Reservierungs-, Kassen- und Lagerdaten verlässliche Prognosen und Modelle — mit der Genauigkeit eines Physikers, verständlich erklärt.</p>
+      </article>
+      <article class="member reveal d2">
+        <div class="portrait"><span>JL</span><em class="ph">Foto folgt</em></div>
+        <h3>Jean Christoph Leob</h3>
+        <span class="role">Senior Data Scientist · Agentic AI</span>
+        <p>Entwickelt KI-Agenten, die nicht nur antworten, sondern handeln — Termine buchen und verschieben, Anfragen weiterleiten und Ihre Systeme aktualisieren, mit klaren Grenzen und menschlicher Kontrolle.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" style="padding-top:40px">
+  <div class="wrap">
+    <div class="split-head">
+      <div class="reveal"><span class="eyebrow"><b>05</b> Preise</span><h2>Fixpreise. <i>Geringes</i> Risiko.</h2></div>
+      <p class="reveal d1">Starten Sie mit einer kostenlosen Stunde und gehen Sie dann Schritt für Schritt vor — nach jedem Schritt entscheiden Sie, ob es weitergeht. Alle Preise exkl. USt. Tool-Lizenzen verrechnet der Hersteller direkt, auf Ihren Namen.</p>
+    </div>
+    <div class="plans reveal">
+      <div class="plan"><span class="tag">Hier starten</span><h3>Quick-Check</h3><p class="muted">Lohnt sich KI für Sie?</p><div class="amt">€ 0 <small>/ 60 Min.</small></div>
+        <ul><li>Persönlich in Wien oder per Video</li><li>Wir hören uns Ihre Herausforderungen im Alltag an</li><li>Ihre 3 größten Chancen</li><li>Ehrliches Ja oder Nein — kein Verkaufsgespräch</li></ul>
+        <a href="implementai-landing-de.html" class="btn btn-line">Gratis-Stunde buchen</a></div>
+      <div class="plan"><span class="tag">Erster Schritt</span><h3>Analyse</h3><p class="muted">Wir beobachten, dann beraten wir.</p><div class="amt">€ 1.490 <small>einmalig</small></div>
+        <ul><li>Ein ganzer Tag Beobachtung vor Ort</li><li>Übersicht Ihrer größten Baustellen</li><li>Tool-Empfehlungen inkl. Lizenzkosten</li><li>Schriftlicher Bericht &amp; Besprechung</li><li>Voll angerechnet, wenn Sie innerhalb von 30 Tagen weitermachen</li></ul>
+        <a href="#contact" class="btn btn-line">Analyse buchen</a></div>
+      <div class="plan feat"><span class="tag">Am beliebtesten</span><h3>Starter</h3><p class="muted">Ihr größtes Problem gelöst.</p><div class="amt">€ 3.900 <small>einmalig</small></div>
+        <ul><li>Analyse inklusive</li><li>1–2 Tools eingerichtet &amp; verbunden</li><li>2 praxisnahe Schulungen</li><li>Schritt-für-Schritt-Anleitung</li><li>30 Tage Unterstützung per E-Mail &amp; WhatsApp</li></ul>
+        <a href="#contact" class="btn btn-terra">Jetzt starten</a></div>
+      <div class="plan"><span class="tag">Komplett selbstständig</span><h3>Komplett</h3><p class="muted">KI im ganzen Betrieb.</p><div class="amt">€ 8.900 <small>einmalig</small></div>
+        <ul><li>Zwei bis drei Tage Beobachtung</li><li>Bis zu 5 Tools eingerichtet &amp; verbunden</li><li>4 Schulungen, auch rollenspezifisch</li><li>Coaching für Ihren KI-Champion &amp; Anleitungen</li><li>Datenschutz-Richtlinien für Ihr Team</li><li>60 Tage Unterstützung + Check-up nach 3 Monaten</li></ul>
+        <a href="#contact" class="btn btn-line">Gespräch vereinbaren</a></div>
+    </div>
+    <p class="addons reveal">Später, nur wenn Sie möchten: <b>Zusatzschulung</b> € 490 pro Halbtag (bis 10 Personen) · <b>Unterstützung nach Stunden</b> € 150 — niemals ein Abo.</p>
+
+    <div class="promises reveal">
+      <h3>So nehmen wir Ihnen das Risiko ab</h3>
+      <div class="promise-grid">
+        <div><span class="pn">i.</span><b>Eine Gratis-Stunde zum Start</b><p>Lernen Sie uns kennen, fragen Sie alles und erhalten Sie eine ehrliche Einschätzung, bevor Sie einen Cent ausgeben.</p></div>
+        <div><span class="pn">ii.</span><b>Nach jedem Schritt aussteigen</b><p>Jeder Schritt hat einen Fixpreis. Nach der Analyse gehört der Bericht Ihnen — Sie können aufhören oder selbst umsetzen.</p></div>
+        <div><span class="pn">iii.</span><b>Die Hälfte erst bei Übergabe</b><p>Bei Starter und Komplett zahlen Sie 50 % zu Beginn und 50 % erst, wenn Ihr Team geschult ist und die Tools laufen.</p></div>
+        <div><span class="pn">iv.</span><b>Wir schulen, bis es sitzt</b><p>Kann Ihr Team die vereinbarten Aufgaben bei der Übergabe noch nicht selbstständig erledigen, kommen wir ohne Aufpreis wieder.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" style="padding-top:40px">
+  <div class="wrap faq-wrap">
+    <div class="reveal"><span class="eyebrow"><b>06</b> FAQ</span><h2>Fragen, die wir <i>oft</i> hören.</h2></div>
+    <div class="faq reveal d1">
+      <details open><summary>Wir haben noch nie KI genutzt. Ist das etwas für uns?</summary><p>Ja — die meisten unserer Kund:innen fangen bei null an. Wir beginnen mit einem echten Problem, erklären alles verständlich und gehen erst weiter, wenn sich Ihr Team sicher fühlt.</p></details>
+      <details><summary>Mit welchen Tools arbeiten Sie?</summary><p>Mit dem, was am besten passt: Microsoft Copilot, ChatGPT, Grok, Gemini sowie spezialisierte Reservierungs-, Chat- und Terminplanungs-Tools. Wir sind herstellerunabhängig, nehmen keine Provisionen und alle Lizenzen laufen auf Ihren Namen.</p></details>
+      <details><summary>Sind wir danach von Ihnen abhängig?</summary><p>Nein — genau darum geht es. Sie erhalten Anleitungen, einen geschulten KI-Champion im eigenen Team und Administratorzugang zu allem. Wenn Sie später doch Hilfe brauchen, gibt es sie nach Stunden — ein Abo brauchen Sie nicht.</p></details>
+      <details><summary>Wie steht es um Datenschutz und Patient:innendaten?</summary><p>Wir wählen Business-Tarife und Einstellungen, bei denen Ihre Daten nicht zum Training verwendet werden, legen klare Regeln fest, was in KI-Tools eingegeben werden darf, und halten Patient:innendaten aus allgemeinen KI-Tools heraus. Alles wird DSGVO-konform aufgesetzt.</p></details>
+      <details><summary>Was, wenn es für uns nicht funktioniert?</summary><p>Sie sind nie gebunden. Jeder Schritt hat einen Fixpreis, nach der Analyse können Sie aufhören und behalten den Bericht, die Hälfte des Umsetzungshonorars ist erst fällig, wenn Ihr Team startklar ist, und wir schulen ohne Aufpreis nach, bis Ihr Team die vereinbarten Aufgaben selbstständig erledigt.</p></details>
+      <details><summary>Ersetzt KI mein Personal?</summary><p>Das ist nicht das Ziel. Die Tools übernehmen wiederkehrende Aufgaben, damit sich Ihr Team auf Gastfreundschaft und Betreuung konzentrieren kann.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="contact" style="padding-top:40px">
+  <div class="wrap">
+    <div class="cta reveal">
+      <div>
+        <span class="eyebrow" style="color:#fff"><b style="border-color:#fff;color:#fff">07</b> Kontakt</span>
+        <h2>Finden wir Ihren <i>ersten KI-Erfolg</i>.</h2>
+        <p>Erzählen Sie uns von Ihrem Betrieb — wir melden uns innerhalb eines Werktags und vereinbaren einen kostenlosen einstündigen Quick-Check, persönlich in Wien oder per Video.</p>
+        <p>Oder schreiben Sie an <a href="mailto:hello@implementai.example">hello@implementai.example</a></p>
+      </div>
+      <form class="form" data-contact data-subject="Anfrage über die Website">
+        <div class="two">
+          <div><label for="n">Name</label><input id="n" name="name" required autocomplete="name"></div>
+          <div><label for="e">E-Mail</label><input id="e" name="email" type="email" required autocomplete="email"></div>
+        </div>
+        <div><label for="i">Branche</label><select id="i" name="branche"><option>Gastronomie</option><option>Hotellerie</option><option>Gesundheits- / Beauty-Ordination</option><option>Andere</option></select></div>
+        <div><label for="m">Was möchten Sie verbessern?</label><textarea id="m" name="nachricht"></textarea></div>
+        <label class="consent"><input type="checkbox" name="consent" required> Ich bin einverstanden, dass meine Angaben zur Beantwortung meiner Anfrage verwendet werden.</label>
+        <button class="btn btn-dark" type="submit">Anfrage senden <span class="dot">↗</span></button>
+        <div class="form-ok" hidden>Danke! Ihr E-Mail-Programm sollte sich mit Ihrer Nachricht öffnen — einfach absenden.</div>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-big footer-big-de">Weniger Papierkram.<br><i>Mehr Zeit für Gäste.</i></div>
+    <div class="footer-grid">
+      <div><a href="#top" class="brand"><span class="brand-mark"></span>Implement<i>AI</i></a><p class="muted" style="margin-top:14px;max-width:320px">KI-Einführung für kleine und mittlere Restaurants, Hotels sowie private Gesundheits- und Beauty-Ordinationen.</p></div>
+      <div><h4>Leistungen</h4><ul><li><a href="#services">Beobachten &amp; beraten</a></li><li><a href="#services">Integrieren</a></li><li><a href="#services">Schulen &amp; übergeben</a></li></ul></div>
+      <div><h4>Unternehmen</h4><ul><li><a href="#team">Team</a></li><li><a href="#pricing">Preise</a></li><li><a href="implementai-landing-de.html">Quick-Check</a></li><li><a href="implementai-website.html" lang="en">English</a></li></ul></div>
+      <div><h4>Rechtliches</h4><ul><li><a href="#">Impressum</a></li><li><a href="#">Datenschutz</a></li><li><a href="mailto:hello@implementai.example">Kontakt</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© <span data-year></span> ImplementAI</span><span>Für alle, die lieber bei ihren Gästen sind.</span></div>
+  </div>
+</footer>
+
+<script>
+// Shared behaviour for the design mockups: nav, reveal-on-scroll, tabs, ROI calculator, forms.
+(() => {
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+
+  // Mobile nav
+  const toggle = $('.nav-toggle'), menu = $('.nav-menu');
+  if (toggle && menu) {
+    toggle.addEventListener('click', () => toggle.setAttribute('aria-expanded', String(menu.classList.toggle('open'))));
+    $$('a', menu).forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
+  }
+
+  // Header shadow on scroll
+  const header = $('.header');
+  const onScroll = () => header && header.classList.toggle('scrolled', scrollY > 12);
+  addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+  // Reveal
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    }), { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    $$('.reveal').forEach(el => io.observe(el));
+  } else $$('.reveal').forEach(el => el.classList.add('in'));
+
+  // Tabs
+  $$('[data-tabs]').forEach(root => {
+    const tabs = $$('[role="tab"]', root), panels = $$('[role="tabpanel"]', root);
+    tabs.forEach((t, i) => t.addEventListener('click', () => {
+      tabs.forEach((x, j) => x.setAttribute('aria-selected', String(i === j)));
+      panels.forEach((p, j) => p.hidden = i !== j);
+    }));
+  });
+
+  // ROI calculator
+  $$('[data-roi]').forEach(root => {
+    const calls = $('[name="calls"]', root), value = $('[name="value"]', root), hours = $('[name="hours"]', root);
+    const out = $('[data-roi-out]', root), outH = $('[data-roi-hours]', root);
+    const lbl = n => $(`[data-for="${n}"]`, root);
+    const de = (document.documentElement.lang || '').startsWith('de');
+    const group = n => String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, de ? '.' : ',');
+    const fmt = n => de ? '€ ' + group(n) : '€' + group(n);
+    const hrs = n => Math.round(n) + (de ? ' Std.' : ' h');
+    const run = () => {
+      // Assumption: AI assistant recovers ~60% of missed enquiries and saves ~60% of admin hours.
+      const recovered = calls.value * 0.6 * value.value * 52 / 12;
+      const saved = hours.value * 0.6;
+      lbl('calls').textContent = calls.value;
+      lbl('value').textContent = fmt(value.value);
+      lbl('hours').textContent = hrs(hours.value);
+      out.textContent = fmt(recovered);
+      outH.textContent = hrs(saved * 4.3);
+    };
+    [calls, value, hours].forEach(i => i.addEventListener('input', run)); run();
+  });
+
+  // Forms: mailto fallback until a form backend is configured via data-endpoint.
+  const EMAIL = 'hello@implementai.example';
+  $$('form[data-contact]').forEach(form => form.addEventListener('submit', async e => {
+    e.preventDefault();
+    const data = new FormData(form), ok = $('.form-ok', form);
+    if (form.dataset.endpoint) {
+      try {
+        const r = await fetch(form.dataset.endpoint, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
+        if (r.ok) { form.reset(); if (ok) ok.hidden = false; return; }
+      } catch {}
+    }
+    const body = [...data.entries()].filter(([k, v]) => k !== 'consent' && v).map(([k, v]) => `${k}: ${v}`).join('\n');
+    location.href = `mailto:${EMAIL}?subject=${encodeURIComponent(form.dataset.subject || 'Website enquiry')}&body=${encodeURIComponent(body)}`;
+    if (ok) ok.hidden = false;
+  }));
+
+  $$('[data-year]').forEach(el => el.textContent = new Date().getFullYear());
+})();
+
+</script>
+</body>
+</html>

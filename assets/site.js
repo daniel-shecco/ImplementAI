@@ -37,16 +37,19 @@
     const calls = $('[name="calls"]', root), value = $('[name="value"]', root), hours = $('[name="hours"]', root);
     const out = $('[data-roi-out]', root), outH = $('[data-roi-hours]', root);
     const lbl = n => $(`[data-for="${n}"]`, root);
-    const fmt = n => '€' + Math.round(n).toLocaleString('en-US');
+    const de = (document.documentElement.lang || '').startsWith('de');
+    const group = n => String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, de ? '.' : ',');
+    const fmt = n => de ? '€ ' + group(n) : '€' + group(n);
+    const hrs = n => Math.round(n) + (de ? ' Std.' : ' h');
     const run = () => {
       // Assumption: AI assistant recovers ~60% of missed enquiries and saves ~60% of admin hours.
       const recovered = calls.value * 0.6 * value.value * 52 / 12;
       const saved = hours.value * 0.6;
       lbl('calls').textContent = calls.value;
       lbl('value').textContent = fmt(value.value);
-      lbl('hours').textContent = hours.value + ' h';
+      lbl('hours').textContent = hrs(hours.value);
       out.textContent = fmt(recovered);
-      outH.textContent = Math.round(saved * 4.3) + ' h';
+      outH.textContent = hrs(saved * 4.3);
     };
     [calls, value, hours].forEach(i => i.addEventListener('input', run)); run();
   });

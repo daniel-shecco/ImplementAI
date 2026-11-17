@@ -15,8 +15,18 @@ OUT = ROOT / "standalone"
 
 # (source page, output name, {original href -> bundled href})
 PAGES = [
-    ("index.html",                    "implementai-website.html", {"landing.html": "implementai-landing.html"}),
-    ("landing.html",                  "implementai-landing.html", {"index.html": "implementai-website.html"}),
+    ("index.html",      "implementai-website.html",    {"landing.html": "implementai-landing.html",
+                                                        "de/index.html": "implementai-website-de.html",
+                                                        "de/landing.html": "implementai-landing-de.html"}),
+    ("landing.html",    "implementai-landing.html",    {"index.html": "implementai-website.html",
+                                                        "de/index.html": "implementai-website-de.html",
+                                                        "de/landing.html": "implementai-landing-de.html"}),
+    ("de/index.html",   "implementai-website-de.html", {"landing.html": "implementai-landing-de.html",
+                                                        "../index.html": "implementai-website.html",
+                                                        "../landing.html": "implementai-landing.html"}),
+    ("de/landing.html", "implementai-landing-de.html", {"index.html": "implementai-website-de.html",
+                                                        "../index.html": "implementai-website.html",
+                                                        "../landing.html": "implementai-landing.html"}),
     ("designs/midnight/index.html",   "midnight-website.html", {"landing.html": "midnight-landing.html"}),
     ("designs/midnight/landing.html", "midnight-landing.html", {"index.html": "midnight-website.html"}),
     ("designs/classic/index.html",    "classic-website.html",  {"landing.html": "classic-landing.html"}),
@@ -40,6 +50,7 @@ def bundle(src: Path, links: dict) -> str:
         return f'src="data:{mime};base64,{base64.b64encode(f.read_bytes()).decode()}"'
 
     html = re.sub(r'src="(?!https?:|data:)([^"]+\.(?:jpe?g|png|webp|gif|svg))"', img, html)
+    html = re.sub(r'<link rel="alternate"[^>]*>\n?', '', html)  # hreflang hints only make sense on a hosted site
     for old, new in links.items():
         html = html.replace(f'href="{old}', f'href="{new}')
     return html

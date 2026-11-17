@@ -3,8 +3,9 @@
 Website for an AI implementation consultancy serving SMEs in gastronomy, hospitality and private health & beauty clinics.
 
 ## Live site (Atelier design)
-- `index.html` — main website
-- `landing.html` — landing page for the free 30-minute "AI Quick-Check"
+- `index.html` — main website (English)
+- `landing.html` — landing page for the free one-hour "AI Quick-Check" (English)
+- `de/index.html`, `de/landing.html` — German (Austrian) versions; every page has an EN/DE switch
 - `assets/style.css`, `assets/site.js`, `assets/img/` (when added) — styles, behaviour, images
 
 No build step: deploy the repository root to any static host (GitHub Pages, Netlify, Vercel).
@@ -16,11 +17,12 @@ No build step: deploy the repository root to any static host (GitHub Pages, Netl
 python3 build.py
 ```
 
-- `implementai-website.html`, `implementai-landing.html` — the chosen Atelier design
+- `implementai-website.html`, `implementai-landing.html` — the chosen Atelier design (English)
+- `implementai-website-de.html`, `implementai-landing-de.html` — German versions
 - `midnight-*.html`, `classic-*.html` — alternative design directions (sources in `designs/`)
 
 ## Before going live
-- Replace `hello@implementai.example` (in `index.html`, `landing.html` and `assets/site.js`).
+- Replace `hello@implementai.example` (in the English and German pages and `assets/site.js`).
 - Add team photos: put them in `assets/img/` and add `<img src="assets/img/name.jpg" alt="…">` inside each `.portrait` (add class `has-photo`); styles are ready.
 - Add Imprint and Privacy policy pages (required in DE/AT/CH).
 - Forms currently open the visitor's email app. To collect submissions directly, add `data-endpoint="https://formspree.io/f/…"` (or similar) to each `<form>`.

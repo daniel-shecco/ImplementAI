@@ -356,6 +356,22 @@ img.av { object-fit: cover; object-position: 50% 30%; }
 @media (max-width: 1040px) { .promise-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 720px) { .promise-grid { grid-template-columns: 1fr; } .promises { padding: 30px 22px; } }
 
+/* Language switch */
+.lang { display: inline-grid; place-items: center; min-width: 38px; height: 34px; padding: 0 10px; border-radius: 999px; border: 1px solid var(--line); font-size: .8rem !important; font-weight: 800 !important; letter-spacing: .06em; text-decoration: none; }
+.lang::after { display: none !important; }
+.lang:hover { border-color: var(--ink); }
+.nav-actions { display: flex; align-items: center; gap: 10px; }
+.footer-big-de { font-size: clamp(2.6rem, 8.4vw, 8.2rem); }
+.arch .glyph { font-size: clamp(2.4rem, 4.2vw, 4.4rem); padding: 0 6px; }
+@media (max-width: 720px) { .arch .glyph { font-size: clamp(1.5rem, 6.6vw, 2.6rem); } }
+@media (max-width: 960px) {
+  .nav-toggle { display: block; }
+  .nav-menu { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 18px; padding: 20px 28px 28px; background: var(--cream); border-bottom: 1px solid var(--line); }
+  .nav-menu.open { display: flex; }
+  .nav-menu .btn { justify-content: center; }
+  .nav-menu .lang { justify-self: start; width: max-content; }
+}
+
 </style>
 </head>
 <body class="lp-body">
@@ -363,7 +379,10 @@ img.av { object-fit: cover; object-position: 50% 30%; }
 <header class="header">
   <div class="wrap nav">
     <a href="implementai-website.html" class="brand"><span class="brand-mark"></span>Implement<i>AI</i></a>
-    <a href="#book" class="btn btn-dark" style="padding:12px 20px">Book free call</a>
+    <div class="nav-actions">
+      <a href="implementai-landing-de.html" class="lang" lang="de" hreflang="de-AT" title="Deutsche Version">DE</a>
+      <a href="#book" class="btn btn-dark" style="padding:12px 20px">Book free call</a>
+    </div>
   </div>
 </header>
 
@@ -471,7 +490,7 @@ img.av { object-fit: cover; object-position: 50% 30%; }
 </main>
 
 <footer class="footer" style="padding-top:0">
-  <div class="wrap footer-bottom" style="border-top:1px solid var(--ink);padding-top:28px"><span>© <span data-year></span> ImplementAI · <a href="implementai-website.html">Main website</a></span><span><a href="#">Imprint</a> · <a href="#">Privacy</a></span></div>
+  <div class="wrap footer-bottom" style="border-top:1px solid var(--ink);padding-top:28px"><span>© <span data-year></span> ImplementAI · <a href="implementai-website.html">Main website</a> · <a href="implementai-landing-de.html" lang="de">Deutsch</a></span><span><a href="#">Imprint</a> · <a href="#">Privacy</a></span></div>
 </footer>
 
 <div class="sticky-cta"><a href="#book" class="btn btn-terra">Book free Quick-Check ↗</a></div>
@@ -515,16 +534,19 @@ img.av { object-fit: cover; object-position: 50% 30%; }
     const calls = $('[name="calls"]', root), value = $('[name="value"]', root), hours = $('[name="hours"]', root);
     const out = $('[data-roi-out]', root), outH = $('[data-roi-hours]', root);
     const lbl = n => $(`[data-for="${n}"]`, root);
-    const fmt = n => '€' + Math.round(n).toLocaleString('en-US');
+    const de = (document.documentElement.lang || '').startsWith('de');
+    const group = n => String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, de ? '.' : ',');
+    const fmt = n => de ? '€ ' + group(n) : '€' + group(n);
+    const hrs = n => Math.round(n) + (de ? ' Std.' : ' h');
     const run = () => {
       // Assumption: AI assistant recovers ~60% of missed enquiries and saves ~60% of admin hours.
       const recovered = calls.value * 0.6 * value.value * 52 / 12;
       const saved = hours.value * 0.6;
       lbl('calls').textContent = calls.value;
       lbl('value').textContent = fmt(value.value);
-      lbl('hours').textContent = hours.value + ' h';
+      lbl('hours').textContent = hrs(hours.value);
       out.textContent = fmt(recovered);
-      outH.textContent = Math.round(saved * 4.3) + ' h';
+      outH.textContent = hrs(saved * 4.3);
     };
     [calls, value, hours].forEach(i => i.addEventListener('input', run)); run();
   });
