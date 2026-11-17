@@ -6,6 +6,22 @@ Static website for an AI implementation consultancy serving SMEs in gastronomy, 
 - `landing.html` — conversion landing page for the free 30-minute "AI Quick-Check"
 - `assets/styles.css`, `assets/main.js` — shared styles and scripts
 
+## Design directions
+| Folder | Style |
+|---|---|
+| `designs/midnight/` | **Midnight** — dark, premium, glowing gradients, animated booking-agent chat, bento grid, industry tabs, ROI calculator |
+| `designs/atelier/` | **Atelier** — warm editorial, large serif type, arch shapes, earthy palette, stacking process cards, ROI calculator |
+| root `index.html` / `landing.html` | **Classic** — the first version |
+
+Each has a website (`index.html`) and a landing page (`landing.html`); `designs/shared/site.js` holds the shared behaviour.
+
+## Standalone single-file HTML
+`standalone/` contains every page bundled into one self-contained `.html` file (CSS and JS inlined, links between website and landing page rewritten). Regenerate after edits with:
+
+```
+python3 build.py
+```
+
 No build step: open `index.html` in a browser, or deploy the folder to any static host (GitHub Pages, Netlify, Vercel).
 
 ## Before going live

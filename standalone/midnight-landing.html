@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Free AI Quick-Check — ImplementAI</title>
+<meta name="description" content="In 30 minutes, find out where AI can save your restaurant, hotel or clinic time and money. Free and without obligation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+/* Direction A — "Midnight": dark, premium, luminous accents, product-UI mockups */
+:root {
+  --bg: #07090f;
+  --bg-2: #0c0f18;
+  --panel: rgba(255, 255, 255, .035);
+  --panel-solid: #11141f;
+  --line: rgba(255, 255, 255, .08);
+  --line-2: rgba(255, 255, 255, .14);
+  --ink: #f4f5f8;
+  --ink-2: #a3a8b8;
+  --ink-3: #6b7185;
+  --mint: #5eead4;
+  --violet: #a78bfa;
+  --amber: #fbbf77;
+  --rose: #f9a8d4;
+  --grad: linear-gradient(100deg, #5eead4 0%, #a78bfa 55%, #f9a8d4 100%);
+  --radius: 20px;
+  --max: 1200px;
+  --sans: "Geist", "Inter", system-ui, sans-serif;
+  --serif: "Instrument Serif", Georgia, serif;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; overflow-x: clip; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 16.5px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+a { color: inherit; }
+h1, h2, h3, h4 { margin: 0 0 .5em; line-height: 1.05; letter-spacing: -.035em; font-weight: 600; }
+h1 { font-size: clamp(2.6rem, 6.4vw, 5.4rem); }
+h2 { font-size: clamp(2rem, 4.2vw, 3.4rem); }
+h3 { font-size: 1.2rem; letter-spacing: -.02em; line-height: 1.25; }
+p { margin: 0 0 1em; }
+em, .serif { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spacing: -.01em; }
+.grad { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+section { padding: 120px 0; position: relative; }
+.muted { color: var(--ink-2); }
+.kicker { display: inline-flex; align-items: center; gap: 10px; font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-2); margin-bottom: 22px; font-weight: 500; }
+.kicker::before { content: ""; width: 22px; height: 1px; background: var(--grad); }
+.head { max-width: 760px; margin-bottom: 64px; }
+.head p { font-size: 1.15rem; color: var(--ink-2); max-width: 600px; }
+.center { text-align: center; margin-inline: auto; }
+.center .kicker { justify-content: center; }
+
+/* Buttons */
+.btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 22px; border-radius: 999px; font: 600 .98rem var(--sans); text-decoration: none; border: 1px solid transparent; cursor: pointer; transition: transform .2s, box-shadow .2s, background .2s; white-space: nowrap; }
+.btn:hover { transform: translateY(-2px); }
+.btn-primary { background: var(--ink); color: var(--bg); box-shadow: 0 0 0 1px rgba(255,255,255,.2), 0 10px 40px -10px rgba(167, 139, 250, .6); }
+.btn-primary:hover { box-shadow: 0 0 0 1px rgba(255,255,255,.3), 0 14px 50px -8px rgba(94, 234, 212, .6); }
+.btn-ghost { border-color: var(--line-2); color: var(--ink); background: rgba(255,255,255,.03); }
+.btn-ghost:hover { background: rgba(255,255,255,.07); }
+.btn .arrow { transition: transform .2s; }
+.btn:hover .arrow { transform: translateX(3px); }
+
+/* Header */
+.header { position: fixed; inset: 16px 0 auto; z-index: 100; pointer-events: none; }
+.nav { pointer-events: auto; max-width: 1080px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 10px 10px 10px 20px; border-radius: 999px; background: rgba(12, 15, 24, .55); border: 1px solid var(--line); backdrop-filter: blur(18px) saturate(140%); -webkit-backdrop-filter: blur(18px) saturate(140%); transition: background .3s; }
+.header.scrolled .nav { background: rgba(12, 15, 24, .85); }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 600; letter-spacing: -.02em; font-size: 1.08rem; }
+.brand-mark { width: 28px; height: 28px; border-radius: 8px; background: var(--grad); position: relative; box-shadow: 0 0 24px rgba(167,139,250,.5); }
+.brand-mark::after { content: ""; position: absolute; inset: 7px; border-radius: 50%; background: var(--bg); }
+.nav-menu { display: flex; align-items: center; gap: 4px; }
+.nav-menu a { text-decoration: none; color: var(--ink-2); font-size: .93rem; padding: 8px 14px; border-radius: 999px; transition: color .2s, background .2s; }
+.nav-menu a:hover { color: var(--ink); background: rgba(255,255,255,.05); }
+.nav-menu .btn { color: var(--bg); padding: 10px 18px; margin-left: 6px; }
+.nav-menu .btn:hover { color: var(--bg); background: var(--ink); }
+.nav-toggle { display: none; background: none; border: 0; color: var(--ink); padding: 8px; cursor: pointer; }
+
+/* Backdrop */
+.aurora { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
+.aurora::before, .aurora::after, .aurora i { content: ""; position: absolute; border-radius: 50%; filter: blur(90px); opacity: .55; }
+.aurora::before { width: 620px; height: 620px; background: #3b2a8f; top: -220px; left: -120px; animation: drift 18s ease-in-out infinite alternate; }
+.aurora::after { width: 540px; height: 540px; background: #0f6b62; top: -120px; right: -160px; animation: drift 22s ease-in-out infinite alternate-reverse; }
+.aurora i { width: 380px; height: 380px; background: #7a2f62; top: 260px; left: 40%; opacity: .35; animation: drift 26s ease-in-out infinite alternate; }
+@keyframes drift { to { transform: translate(60px, 40px) scale(1.1); } }
+.grid-lines { position: absolute; inset: 0; background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px); background-size: 72px 72px; mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000 30%, transparent 75%); -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000 30%, transparent 75%); opacity: .6; }
+
+/* Hero */
+.hero { padding: 180px 0 100px; }
+.hero > .wrap { position: relative; z-index: 1; }
+.hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 64px; align-items: center; }
+.pill { display: inline-flex; align-items: center; gap: 10px; padding: 6px 14px 6px 6px; border-radius: 999px; border: 1px solid var(--line-2); background: rgba(255,255,255,.04); font-size: .86rem; color: var(--ink-2); margin-bottom: 28px; text-decoration: none; }
+.pill b { background: var(--grad); color: var(--bg); padding: 3px 10px; border-radius: 999px; font-size: .74rem; letter-spacing: .02em; }
+.hero h1 em { font-size: 1.08em; }
+.hero .lede { font-size: 1.2rem; color: var(--ink-2); max-width: 560px; margin: 26px 0 36px; }
+.cta-row { display: flex; flex-wrap: wrap; gap: 12px; }
+.trust { display: flex; flex-wrap: wrap; gap: 10px 26px; margin-top: 44px; color: var(--ink-3); font-size: .9rem; }
+.trust span { display: inline-flex; align-items: center; gap: 8px; }
+.trust svg { color: var(--mint); }
+
+/* Chat mock */
+.device { position: relative; }
+.chat { position: relative; border-radius: 28px; background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.02)); border: 1px solid var(--line-2); padding: 20px; backdrop-filter: blur(20px); box-shadow: 0 40px 120px -40px rgba(124, 92, 255, .55), inset 0 1px 0 rgba(255,255,255,.08); }
+.chat-head { display: flex; align-items: center; gap: 12px; padding-bottom: 16px; border-bottom: 1px solid var(--line); margin-bottom: 18px; }
+.chat-av { width: 38px; height: 38px; border-radius: 12px; background: var(--grad); display: grid; place-items: center; color: var(--bg); font-weight: 700; font-size: .9rem; }
+.chat-head small { display: block; color: var(--mint); font-size: .78rem; }
+.chat-head small::before { content: "●"; margin-right: 6px; font-size: .6rem; vertical-align: 2px; }
+.msg { max-width: 82%; padding: 11px 15px; border-radius: 18px; font-size: .92rem; margin-bottom: 10px; line-height: 1.45; opacity: 0; transform: translateY(8px); animation: pop .5s forwards; }
+.msg.in { background: rgba(255,255,255,.07); border-bottom-left-radius: 6px; }
+.msg.out { background: linear-gradient(135deg, #6d5bd0, #3aa597); margin-left: auto; border-bottom-right-radius: 6px; }
+.msg:nth-of-type(1) { animation-delay: .3s; } .msg:nth-of-type(2) { animation-delay: 1s; } .msg:nth-of-type(3) { animation-delay: 1.7s; } .msg:nth-of-type(4) { animation-delay: 2.4s; }
+@keyframes pop { to { opacity: 1; transform: none; } }
+.booked { margin-top: 14px; display: flex; gap: 14px; align-items: center; padding: 14px; border-radius: 16px; background: rgba(94, 234, 212, .08); border: 1px solid rgba(94, 234, 212, .25); opacity: 0; animation: pop .5s 3.1s forwards; }
+.booked .tick { width: 36px; height: 36px; border-radius: 50%; background: var(--mint); color: var(--bg); display: grid; place-items: center; font-weight: 800; flex: none; }
+.booked small { color: var(--ink-2); display: block; font-size: .8rem; }
+.float { position: absolute; padding: 12px 16px; border-radius: 16px; background: rgba(17, 20, 31, .85); border: 1px solid var(--line-2); backdrop-filter: blur(14px); font-size: .82rem; color: var(--ink-2); box-shadow: 0 20px 50px -20px rgba(0,0,0,.8); animation: bob 6s ease-in-out infinite; }
+.float strong { display: block; font-size: 1.35rem; color: var(--ink); letter-spacing: -.03em; }
+.float.f1 { top: -26px; right: -18px; }
+.float.f2 { bottom: 40px; left: -46px; animation-delay: -3s; }
+.float .up { color: var(--mint); }
+@keyframes bob { 50% { transform: translateY(-10px); } }
+
+/* Marquee */
+.marquee { border-block: 1px solid var(--line); padding: 26px 0; overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 15%, #000 85%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 15%, #000 85%, transparent); }
+.marquee-track { display: flex; gap: 56px; width: max-content; animation: scroll 40s linear infinite; }
+.marquee span { font-family: var(--serif); font-style: italic; font-size: 1.7rem; color: var(--ink-3); white-space: nowrap; display: inline-flex; align-items: center; gap: 56px; }
+.marquee span::after { content: "✦"; font-style: normal; font-size: .9rem; color: var(--violet); }
+@keyframes scroll { to { transform: translateX(-50%); } }
+
+/* Bento */
+.bento { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; }
+.tile { position: relative; overflow: hidden; border-radius: var(--radius); background: var(--panel); border: 1px solid var(--line); padding: 28px; transition: border-color .3s, transform .3s; }
+.tile:hover { border-color: var(--line-2); transform: translateY(-3px); }
+.tile::before { content: ""; position: absolute; inset: 0; background: radial-gradient(600px circle at var(--mx, 50%) -20%, rgba(167,139,250,.12), transparent 40%); pointer-events: none; }
+.tile p { color: var(--ink-2); font-size: .95rem; margin: 0; }
+.t-wide { grid-column: span 4; } .t-mid { grid-column: span 3; } .t-small { grid-column: span 2; }
+.tile .label { font-size: .75rem; text-transform: uppercase; letter-spacing: .12em; color: var(--ink-3); margin-bottom: 14px; display: block; }
+.viz { margin-top: 26px; }
+.bars { display: flex; align-items: flex-end; gap: 8px; height: 130px; }
+.bars div { flex: 1; border-radius: 6px 6px 2px 2px; background: rgba(255,255,255,.08); position: relative; }
+.bars div.f { background: linear-gradient(180deg, rgba(167,139,250,.9), rgba(94,234,212,.5)); }
+.bars div span { position: absolute; bottom: -22px; left: 0; right: 0; text-align: center; font-size: .7rem; color: var(--ink-3); }
+.legend { display: flex; gap: 18px; font-size: .78rem; color: var(--ink-3); margin-top: 34px; }
+.legend i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
+.slots { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+.slots div { height: 30px; border-radius: 8px; background: rgba(255,255,255,.05); font-size: .7rem; display: grid; place-items: center; color: var(--ink-3); }
+.slots .b { background: rgba(167,139,250,.25); color: var(--ink); }
+.slots .r { background: rgba(94,234,212,.22); color: var(--ink); outline: 1px dashed var(--mint); }
+.stars { display: flex; gap: 4px; color: var(--amber); font-size: 1.1rem; margin-bottom: 10px; }
+.review { padding: 14px; border-radius: 14px; background: rgba(255,255,255,.04); font-size: .85rem; color: var(--ink-2); }
+.review + .review { margin-top: 8px; border-left: 2px solid var(--violet); }
+.bignum { font-size: 3.6rem; font-weight: 600; letter-spacing: -.05em; line-height: 1; margin: 18px 0 8px; }
+.langs { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 20px; }
+.langs span { padding: 5px 11px; border-radius: 999px; border: 1px solid var(--line-2); font-size: .8rem; color: var(--ink-2); }
+
+/* Industry tabs */
+.tabs { display: inline-flex; gap: 4px; padding: 5px; border-radius: 999px; background: var(--panel); border: 1px solid var(--line); margin-bottom: 40px; flex-wrap: wrap; }
+.tabs button { font: 500 .95rem var(--sans); color: var(--ink-2); background: none; border: 0; padding: 10px 20px; border-radius: 999px; cursor: pointer; transition: all .25s; }
+.tabs button[aria-selected="true"] { background: var(--ink); color: var(--bg); }
+.panel { display: grid; grid-template-columns: .9fr 1.1fr; gap: 48px; align-items: center; animation: fade .5s; }
+.panel[hidden] { display: none; }
+@keyframes fade { from { opacity: 0; transform: translateY(10px); } }
+.panel h3 { font-size: 2.2rem; letter-spacing: -.035em; line-height: 1.1; }
+.feature-list { list-style: none; padding: 0; margin: 28px 0 0; display: grid; gap: 2px; }
+.feature-list li { padding: 16px 0; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; gap: 16px; color: var(--ink); }
+.feature-list li span { color: var(--ink-3); font-size: .88rem; text-align: right; }
+.scene { aspect-ratio: 5/4; border-radius: 28px; position: relative; overflow: hidden; border: 1px solid var(--line-2); }
+.scene.g { background: radial-gradient(circle at 30% 30%, #f59e0b55, transparent 50%), radial-gradient(circle at 80% 80%, #a78bfa55, transparent 50%), #120f1a; }
+.scene.h { background: radial-gradient(circle at 70% 20%, #5eead455, transparent 50%), radial-gradient(circle at 20% 90%, #3b82f655, transparent 50%), #0b1418; }
+.scene.c { background: radial-gradient(circle at 30% 70%, #f9a8d455, transparent 50%), radial-gradient(circle at 80% 20%, #a78bfa55, transparent 50%), #150f18; }
+.scene .card-ui { position: absolute; left: 8%; right: 8%; bottom: 8%; padding: 20px; border-radius: 20px; background: rgba(10,12,20,.7); border: 1px solid var(--line-2); backdrop-filter: blur(14px); }
+.scene .card-ui .row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--line); font-size: .88rem; color: var(--ink-2); }
+.scene .card-ui .row:last-child { border: 0; }
+.scene .card-ui .row b { color: var(--ink); font-weight: 600; }
+.scene .big-icon { position: absolute; top: 12%; left: 10%; font-family: var(--serif); font-style: italic; font-size: clamp(3rem, 7vw, 5.5rem); line-height: 1; opacity: .9; }
+.ok { color: var(--mint) !important; }
+
+/* Process */
+.process { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; counter-reset: s; }
+.proc { padding: 28px; border-radius: var(--radius); border: 1px solid var(--line); background: linear-gradient(180deg, rgba(255,255,255,.04), transparent); position: relative; }
+.proc::before { counter-increment: s; content: "0" counter(s); font-family: var(--serif); font-style: italic; font-size: 3rem; line-height: 1; display: block; margin-bottom: 40px; background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.proc .when { font-size: .78rem; text-transform: uppercase; letter-spacing: .1em; color: var(--ink-3); display: block; margin-bottom: 8px; }
+.proc p { color: var(--ink-2); font-size: .94rem; margin: 0; }
+
+/* Pricing */
+.prices { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; align-items: stretch; }
+.price { border-radius: 24px; border: 1px solid var(--line); background: var(--panel); padding: 32px; display: flex; flex-direction: column; }
+.price.hot { background: linear-gradient(var(--panel-solid), var(--panel-solid)) padding-box, var(--grad) border-box; border: 1px solid transparent; box-shadow: 0 30px 80px -30px rgba(167,139,250,.5); position: relative; }
+.price.hot .flag { position: absolute; top: 20px; right: 20px; font-size: .72rem; padding: 4px 10px; border-radius: 999px; background: var(--grad); color: var(--bg); font-weight: 700; }
+.price .amt { font-size: 2.6rem; font-weight: 600; letter-spacing: -.04em; margin: 14px 0 4px; }
+.price .amt small { font-size: .9rem; color: var(--ink-3); font-weight: 400; letter-spacing: 0; }
+.price ul { list-style: none; padding: 0; margin: 24px 0 30px; flex: 1; }
+.price li { padding: 10px 0 10px 28px; position: relative; color: var(--ink-2); font-size: .95rem; border-top: 1px solid var(--line); }
+.price li::before { content: ""; position: absolute; left: 2px; top: 17px; width: 12px; height: 7px; border-left: 2px solid var(--mint); border-bottom: 2px solid var(--mint); transform: rotate(-45deg); }
+.price .btn { justify-content: center; }
+
+/* Team */
+.team { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.member { border-radius: 24px; border: 1px solid var(--line); background: var(--panel); overflow: hidden; }
+.portrait { aspect-ratio: 4/3; position: relative; display: grid; place-items: center; overflow: hidden; }
+.portrait::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 50%, rgba(7,9,15,.9)); }
+.portrait span { font-family: var(--serif); font-style: italic; font-size: 5rem; position: relative; z-index: 1; color: rgba(255,255,255,.9); }
+.portrait.p1 { background: radial-gradient(circle at 30% 30%, #5eead4, transparent 60%), radial-gradient(circle at 80% 70%, #3b82f6, transparent 60%), #0b1220; }
+.portrait.p2 { background: radial-gradient(circle at 70% 30%, #a78bfa, transparent 60%), radial-gradient(circle at 20% 80%, #f472b6, transparent 60%), #140c1f; }
+.portrait.p3 { background: radial-gradient(circle at 30% 70%, #fbbf77, transparent 60%), radial-gradient(circle at 80% 20%, #a78bfa, transparent 60%), #1a1010; }
+.member .body { padding: 24px 26px 28px; }
+.member h3 { font-size: 1.35rem; margin-bottom: 4px; }
+.member .role { font-size: .85rem; color: var(--mint); display: block; margin-bottom: 14px; }
+.member p { color: var(--ink-2); font-size: .94rem; margin: 0; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 18px; }
+.chips span { font-size: .75rem; padding: 4px 10px; border-radius: 999px; background: rgba(255,255,255,.05); color: var(--ink-2); border: 1px solid var(--line); }
+
+/* FAQ */
+.faq-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 64px; }
+.faq details { border-bottom: 1px solid var(--line); padding: 22px 0; }
+.faq summary { list-style: none; cursor: pointer; font-size: 1.1rem; font-weight: 500; display: flex; justify-content: space-between; gap: 20px; letter-spacing: -.01em; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; width: 28px; height: 28px; flex: none; border-radius: 50%; border: 1px solid var(--line-2); display: grid; place-items: center; color: var(--ink-2); transition: transform .3s; font-weight: 300; }
+.faq details[open] summary::after { transform: rotate(45deg); }
+.faq details p { color: var(--ink-2); margin: 14px 0 0; max-width: 620px; }
+
+/* CTA */
+.cta { position: relative; border-radius: 36px; overflow: hidden; padding: 80px 56px; border: 1px solid var(--line-2); background: radial-gradient(ellipse at 20% 0%, rgba(124,92,255,.45), transparent 55%), radial-gradient(ellipse at 90% 100%, rgba(45,212,191,.35), transparent 55%), var(--panel-solid); display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: center; }
+.cta h2 { font-size: clamp(2.2rem, 4.4vw, 3.6rem); }
+
+/* Forms */
+.form { display: grid; gap: 14px; padding: 28px; border-radius: 24px; background: rgba(7,9,15,.6); border: 1px solid var(--line-2); backdrop-filter: blur(16px); }
+.form .two { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.form label { display: block; font-size: .8rem; color: var(--ink-2); margin-bottom: 6px; }
+.form input, .form select, .form textarea { width: 100%; padding: 13px 15px; border-radius: 12px; border: 1px solid var(--line-2); background: rgba(255,255,255,.04); color: var(--ink); font: inherit; font-size: .95rem; transition: border-color .2s, background .2s; }
+.form select option { background: var(--panel-solid); }
+.form input:focus, .form select:focus, .form textarea:focus { outline: none; border-color: var(--violet); background: rgba(167,139,250,.06); }
+.form textarea { min-height: 96px; resize: vertical; }
+.form .consent { display: flex; gap: 10px; font-size: .8rem; color: var(--ink-3); align-items: flex-start; }
+.form .consent input { width: auto; margin-top: 3px; accent-color: var(--violet); }
+.form .btn { justify-content: center; width: 100%; }
+.form-ok { padding: 14px; border-radius: 12px; background: rgba(94,234,212,.1); border: 1px solid rgba(94,234,212,.3); font-size: .9rem; }
+
+/* Footer */
+.footer { border-top: 1px solid var(--line); padding: 64px 0 40px; color: var(--ink-3); font-size: .9rem; }
+.footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 32px; margin-bottom: 56px; }
+.footer h4 { color: var(--ink); font-size: .85rem; font-weight: 500; margin-bottom: 14px; letter-spacing: 0; }
+.footer ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+.footer a { text-decoration: none; color: var(--ink-3); transition: color .2s; }
+.footer a:hover { color: var(--ink); }
+.footer-word { font-size: clamp(4rem, 15vw, 13rem); font-weight: 600; letter-spacing: -.06em; line-height: .8; background: linear-gradient(180deg, rgba(255,255,255,.12), transparent 85%); -webkit-background-clip: text; background-clip: text; color: transparent; text-align: center; user-select: none; margin-bottom: 32px; }
+.footer-bottom { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+/* Landing extras */
+.lp-hero { padding: 160px 0 80px; }
+.lp-hero > .wrap { position: relative; z-index: 1; }
+.lp-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 56px; align-items: start; }
+.gets { list-style: none; padding: 0; margin: 36px 0; display: grid; gap: 14px; }
+.gets li { display: flex; gap: 16px; padding: 18px; border-radius: 18px; border: 1px solid var(--line); background: var(--panel); }
+.gets .n { font-family: var(--serif); font-style: italic; font-size: 1.8rem; line-height: 1; width: 32px; flex: none; }
+.gets strong { display: block; font-weight: 600; margin-bottom: 2px; }
+.gets span { color: var(--ink-2); font-size: .92rem; }
+.roi { display: grid; grid-template-columns: 1.1fr .9fr; gap: 0; border-radius: 28px; overflow: hidden; border: 1px solid var(--line-2); }
+.roi-in { padding: 40px; background: var(--panel); display: grid; gap: 28px; }
+.roi-in label { display: flex; justify-content: space-between; font-size: .95rem; margin-bottom: 12px; color: var(--ink-2); }
+.roi-in label b { color: var(--ink); font-weight: 600; }
+.roi input[type=range] { width: 100%; accent-color: var(--violet); }
+.roi-out { padding: 40px; background: radial-gradient(circle at 80% 0%, rgba(167,139,250,.35), transparent 60%), radial-gradient(circle at 0% 100%, rgba(94,234,212,.25), transparent 60%), var(--panel-solid); display: flex; flex-direction: column; justify-content: center; }
+.roi-out .v { font-size: clamp(2.8rem, 5vw, 4.2rem); font-weight: 600; letter-spacing: -.05em; line-height: 1; margin: 8px 0 18px; }
+.roi-out small { color: var(--ink-3); font-size: .78rem; margin-top: 16px; display: block; }
+.cases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.case { padding: 30px; border-radius: 24px; border: 1px solid var(--line); background: var(--panel); }
+.case .q { font-family: var(--serif); font-style: italic; font-size: 1.7rem; line-height: 1.15; margin: 14px 0 16px; }
+.case p { color: var(--ink-2); font-size: .94rem; margin: 0; }
+.case .tag { font-size: .72rem; text-transform: uppercase; letter-spacing: .12em; color: var(--mint); }
+.steps3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.sticky-cta { position: fixed; left: 16px; right: 16px; bottom: 16px; z-index: 90; display: none; }
+.sticky-cta .btn { width: 100%; justify-content: center; }
+
+/* Reveal */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1); }
+.reveal.in { opacity: 1; transform: none; }
+.d1 { transition-delay: .08s; } .d2 { transition-delay: .16s; } .d3 { transition-delay: .24s; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } .reveal, .msg, .booked { opacity: 1; transform: none; } }
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .hero-grid, .lp-grid, .panel, .cta, .faq-grid, .roi { grid-template-columns: 1fr; }
+  .process, .footer-top { grid-template-columns: 1fr 1fr; }
+  .prices, .team, .cases, .steps3 { grid-template-columns: 1fr; max-width: 560px; }
+  .t-wide, .t-mid, .t-small { grid-column: span 6; }
+  .float.f2 { left: -8px; }
+  .float.f1 { right: -4px; }
+}
+@media (max-width: 760px) {
+  section { padding: 80px 0; }
+  .hero { padding: 130px 0 70px; }
+  .lp-hero { padding: 120px 0 60px; }
+  .wrap { padding: 0 16px; }
+  .header { inset: 10px 0 auto; padding: 0 10px; }
+  .nav-toggle { display: block; }
+  .nav-menu { display: none; position: absolute; top: 64px; left: 10px; right: 10px; flex-direction: column; align-items: stretch; padding: 12px; border-radius: 24px; background: rgba(12,15,24,.96); border: 1px solid var(--line); }
+  .nav-menu.open { display: flex; }
+  .nav-menu .btn { margin: 6px 0 0; justify-content: center; }
+  .process, .footer-top, .form .two { grid-template-columns: 1fr; }
+  .cta { padding: 48px 22px; border-radius: 28px; }
+  .roi-in, .roi-out { padding: 28px 22px; }
+  .float { display: none; }
+  .sticky-cta { display: block; }
+  .lp-body { padding-bottom: 80px; }
+  .hero h1 br { display: none; }
+}
+
+</style>
+</head>
+<body class="lp-body">
+
+<header class="header">
+  <nav class="nav">
+    <a href="midnight-website.html" class="brand"><span class="brand-mark"></span>ImplementAI</a>
+    <a href="#book" class="btn btn-primary" style="padding:10px 18px">Book free call</a>
+  </nav>
+</header>
+
+<main>
+<section class="lp-hero" id="book">
+  <div class="aurora"><i></i></div>
+  <div class="grid-lines"></div>
+  <div class="wrap lp-grid">
+    <div>
+      <span class="pill"><b>FREE</b> 30 minutes · no obligation</span>
+      <h1>Find your first <em class="grad">AI win</em> in 30 minutes.</h1>
+      <p class="lede muted" style="font-size:1.18rem;margin-top:24px">The AI Quick-Check for restaurants, hotels and private health &amp; beauty clinics. We look at how you work today and tell you — honestly — where AI saves time and money, and where it doesn't.</p>
+      <ul class="gets">
+        <li><span class="n grad">1</span><div><strong>Your top 3 AI opportunities</strong><span>Tailored to your business, team and existing tools.</span></div></li>
+        <li><span class="n grad">2</span><div><strong>Effort &amp; savings estimate</strong><span>Know whether it's worth pursuing before spending a cent.</span></div></li>
+        <li><span class="n grad">3</span><div><strong>A written summary</strong><span>Within two working days — yours to keep.</span></div></li>
+      </ul>
+    </div>
+    <form class="form reveal" data-contact data-subject="AI Quick-Check request" style="padding:32px">
+      <div><h3 style="font-size:1.5rem;margin-bottom:4px">Book your Quick-Check</h3><p class="muted" style="font-size:.9rem;margin:0">We reply within one working day with time slots.</p></div>
+      <div class="two">
+        <div><label for="ln">Name</label><input id="ln" name="name" required autocomplete="name"></div>
+        <div><label for="lb">Business</label><input id="lb" name="business" required autocomplete="organization"></div>
+      </div>
+      <div class="two">
+        <div><label for="le">Email</label><input id="le" name="email" type="email" required autocomplete="email"></div>
+        <div><label for="lp">Phone (optional)</label><input id="lp" name="phone" type="tel" autocomplete="tel"></div>
+      </div>
+      <div class="two">
+        <div><label for="li">Industry</label><select id="li" name="industry" required><option value="">Choose…</option><option>Restaurant / café / bar</option><option>Hotel / guesthouse</option><option>Health clinic / practice</option><option>Beauty / aesthetic / spa</option><option>Other</option></select></div>
+        <div><label for="ls">Team size</label><select id="ls" name="team_size"><option>1–10</option><option>11–50</option><option>51–250</option><option>250+</option></select></div>
+      </div>
+      <div><label for="lm">Biggest time-waster right now?</label><textarea id="lm" name="challenge" placeholder="Booking calls, no-shows, ordering stock, rota planning…"></textarea></div>
+      <label class="consent"><input type="checkbox" name="consent" required> I agree my details are used to arrange the Quick-Check. No newsletter, no spam.</label>
+      <button class="btn btn-primary" type="submit">Request my free Quick-Check <span class="arrow">→</span></button>
+      <div class="form-ok" hidden>Thank you! Your email app should open with your request — just hit send.</div>
+    </form>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Restaurants</span><span>Boutique hotels</span><span>Aesthetic clinics</span><span>Cafés &amp; bars</span><span>Private practices</span><span>Guesthouses</span><span>Spas</span>
+    <span>Restaurants</span><span>Boutique hotels</span><span>Aesthetic clinics</span><span>Cafés &amp; bars</span><span>Private practices</span><span>Guesthouses</span><span>Spas</span>
+  </div>
+</div>
+
+<!-- ROI -->
+<section>
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="kicker">Quick maths</span>
+      <h2>What are missed calls <em>costing</em> you?</h2>
+      <p>Move the sliders. It's a rough estimate — the Quick-Check gives you the real number.</p>
+    </div>
+    <div class="roi reveal" data-roi>
+      <div class="roi-in">
+        <div><label>Missed calls &amp; enquiries per week <b data-for="calls"></b></label><input type="range" name="calls" min="0" max="100" value="25"></div>
+        <div><label>Average booking value <b data-for="value"></b></label><input type="range" name="value" min="20" max="500" step="10" value="90"></div>
+        <div><label>Admin hours per week on phone, email &amp; scheduling <b data-for="hours"></b></label><input type="range" name="hours" min="0" max="60" value="15"></div>
+      </div>
+      <div class="roi-out">
+        <span class="muted">Potential revenue recovered per month</span>
+        <div class="v grad" data-roi-out>€0</div>
+        <span class="muted">Staff time freed per month: <b data-roi-hours style="color:var(--ink)">0 h</b></span>
+        <small>Assumes an AI assistant recovers ~60% of missed enquiries and automates ~60% of routine admin. Illustrative only.</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASES -->
+<section style="padding-top:20px">
+  <div class="wrap">
+    <div class="head reveal"><span class="kicker">What we typically find</span><h2>Quick wins that <em>pay for themselves</em>.</h2></div>
+    <div class="cases">
+      <div class="case reveal"><span class="tag">Gastronomy</span><div class="q">"We miss calls during service."</div><p>An AI booking agent takes reservations by phone, web and WhatsApp, writes them into your system and handles changes — even at 9pm on a Saturday.</p></div>
+      <div class="case reveal d1"><span class="tag">Hospitality</span><div class="q">"Guests ask the same things."</div><p>A multilingual concierge answers check-in, parking and breakfast questions instantly and sends pre-arrival messages that sell upgrades.</p></div>
+      <div class="case reveal d2"><span class="tag">Clinics</span><div class="q">"No-shows cost us every week."</div><p>Smart reminders, self-rescheduling and an automatic waitlist fill gaps in the calendar — set up compliantly.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW -->
+<section style="padding-top:40px">
+  <div class="wrap">
+    <div class="head reveal"><span class="kicker">How it works</span><h2>Three steps. <em>Zero</em> obligation.</h2></div>
+    <div class="steps3 process">
+      <div class="proc reveal"><span class="when">2 minutes</span><h3>Send the form</h3><p>Tell us about your business and your biggest headache.</p></div>
+      <div class="proc reveal d1"><span class="when">30 minutes</span><h3>Video call</h3><p>Talk to one of our consultants. Bring your questions — and your scepticism.</p></div>
+      <div class="proc reveal d2"><span class="when">2 days</span><h3>Your summary</h3><p>Top 3 opportunities with effort and savings, in writing.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM STRIP -->
+<section style="padding-top:40px">
+  <div class="wrap">
+    <div class="head reveal"><span class="kicker">Who you'll talk to</span><h2>Senior people. <em>No</em> sales reps.</h2></div>
+    <div class="team">
+      <article class="member reveal"><div class="portrait p1" style="aspect-ratio:16/9"><span>YN</span></div><div class="body"><h3>[Your Name]</h3><span class="role">AI Implementation Consultant · MSc Oxford</span><p>Technical support engineer who makes AI work inside your existing systems.</p></div></article>
+      <article class="member reveal d1"><div class="portrait p2" style="aspect-ratio:16/9"><span>TS</span></div><div class="body"><h3>Dr. Tibor Sekera</h3><span class="role">Data Scientist · PhD in Physics</span><p>Forecasts and models you can trust, explained in plain language.</p></div></article>
+      <article class="member reveal d2"><div class="portrait p3" style="aspect-ratio:16/9"><span>JL</span></div><div class="body"><h3>Jean Christoph Leob</h3><span class="role">Senior Data Scientist · Agentic AI</span><p>AI agents that book, reschedule and route — with human oversight.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section style="padding-top:40px">
+  <div class="wrap faq-grid">
+    <div class="reveal"><span class="kicker">FAQ</span><h2>Before you <em>ask</em>.</h2><a href="#book" class="btn btn-primary" style="margin-top:20px">Book my Quick-Check <span class="arrow">→</span></a></div>
+    <div class="faq reveal d1">
+      <details open><summary>Is it really free?</summary><p>Yes. No cost, no obligation, no hard sell. If AI isn't a fit right now, we'll tell you.</p></details>
+      <details><summary>Do I need to prepare anything?</summary><p>No. It helps to know which software you use for bookings, POS or appointments — that's it.</p></details>
+      <details><summary>What happens after the call?</summary><p>You get a short written summary. If you want to go further, we offer a Readiness Audit (from €2,900, credited against implementation) or a direct implementation.</p></details>
+      <details><summary>Is my data safe?</summary><p>We only use what you share to prepare your summary. Every solution is GDPR-first, with EU hosting and data processing agreements.</p></details>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer" style="padding-top:40px">
+  <div class="wrap footer-bottom"><span>© <span data-year></span> ImplementAI · <a href="midnight-website.html">Main website</a></span><span><a href="#">Imprint</a> · <a href="#">Privacy</a></span></div>
+</footer>
+
+<div class="sticky-cta"><a href="#book" class="btn btn-primary">Book free Quick-Check →</a></div>
+<script>
+// Shared behaviour for the design mockups: nav, reveal-on-scroll, tabs, ROI calculator, forms.
+(() => {
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+
+  // Mobile nav
+  const toggle = $('.nav-toggle'), menu = $('.nav-menu');
+  if (toggle && menu) {
+    toggle.addEventListener('click', () => toggle.setAttribute('aria-expanded', String(menu.classList.toggle('open'))));
+    $$('a', menu).forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
+  }
+
+  // Header shadow on scroll
+  const header = $('.header');
+  const onScroll = () => header && header.classList.toggle('scrolled', scrollY > 12);
+  addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+  // Reveal
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    }), { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    $$('.reveal').forEach(el => io.observe(el));
+  } else $$('.reveal').forEach(el => el.classList.add('in'));
+
+  // Tabs
+  $$('[data-tabs]').forEach(root => {
+    const tabs = $$('[role="tab"]', root), panels = $$('[role="tabpanel"]', root);
+    tabs.forEach((t, i) => t.addEventListener('click', () => {
+      tabs.forEach((x, j) => x.setAttribute('aria-selected', String(i === j)));
+      panels.forEach((p, j) => p.hidden = i !== j);
+    }));
+  });
+
+  // ROI calculator
+  $$('[data-roi]').forEach(root => {
+    const calls = $('[name="calls"]', root), value = $('[name="value"]', root), hours = $('[name="hours"]', root);
+    const out = $('[data-roi-out]', root), outH = $('[data-roi-hours]', root);
+    const lbl = n => $(`[data-for="${n}"]`, root);
+    const fmt = n => '€' + Math.round(n).toLocaleString('en-US');
+    const run = () => {
+      // Assumption: AI assistant recovers ~60% of missed enquiries and saves ~60% of admin hours.
+      const recovered = calls.value * 0.6 * value.value * 52 / 12;
+      const saved = hours.value * 0.6;
+      lbl('calls').textContent = calls.value;
+      lbl('value').textContent = fmt(value.value);
+      lbl('hours').textContent = hours.value + ' h';
+      out.textContent = fmt(recovered);
+      outH.textContent = Math.round(saved * 4.3) + ' h';
+    };
+    [calls, value, hours].forEach(i => i.addEventListener('input', run)); run();
+  });
+
+  // Forms: mailto fallback until a form backend is configured via data-endpoint.
+  const EMAIL = 'hello@implementai.example';
+  $$('form[data-contact]').forEach(form => form.addEventListener('submit', async e => {
+    e.preventDefault();
+    const data = new FormData(form), ok = $('.form-ok', form);
+    if (form.dataset.endpoint) {
+      try {
+        const r = await fetch(form.dataset.endpoint, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
+        if (r.ok) { form.reset(); if (ok) ok.hidden = false; return; }
+      } catch {}
+    }
+    const body = [...data.entries()].filter(([k, v]) => k !== 'consent' && v).map(([k, v]) => `${k}: ${v}`).join('\n');
+    location.href = `mailto:${EMAIL}?subject=${encodeURIComponent(form.dataset.subject || 'Website enquiry')}&body=${encodeURIComponent(body)}`;
+    if (ok) ok.hidden = false;
+  }));
+
+  $$('[data-year]').forEach(el => el.textContent = new Date().getFullYear());
+})();
+
+</script>
+</body>
+</html>

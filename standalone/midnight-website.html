@@ -1,0 +1,721 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ImplementAI — AI implementation for restaurants, hotels &amp; clinics</title>
+<meta name="description" content="ImplementAI puts AI to work in small and mid-sized restaurants, hotels and private health & beauty clinics — implemented, integrated and measured.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+/* Direction A — "Midnight": dark, premium, luminous accents, product-UI mockups */
+:root {
+  --bg: #07090f;
+  --bg-2: #0c0f18;
+  --panel: rgba(255, 255, 255, .035);
+  --panel-solid: #11141f;
+  --line: rgba(255, 255, 255, .08);
+  --line-2: rgba(255, 255, 255, .14);
+  --ink: #f4f5f8;
+  --ink-2: #a3a8b8;
+  --ink-3: #6b7185;
+  --mint: #5eead4;
+  --violet: #a78bfa;
+  --amber: #fbbf77;
+  --rose: #f9a8d4;
+  --grad: linear-gradient(100deg, #5eead4 0%, #a78bfa 55%, #f9a8d4 100%);
+  --radius: 20px;
+  --max: 1200px;
+  --sans: "Geist", "Inter", system-ui, sans-serif;
+  --serif: "Instrument Serif", Georgia, serif;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; overflow-x: clip; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans); font-size: 16.5px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+a { color: inherit; }
+h1, h2, h3, h4 { margin: 0 0 .5em; line-height: 1.05; letter-spacing: -.035em; font-weight: 600; }
+h1 { font-size: clamp(2.6rem, 6.4vw, 5.4rem); }
+h2 { font-size: clamp(2rem, 4.2vw, 3.4rem); }
+h3 { font-size: 1.2rem; letter-spacing: -.02em; line-height: 1.25; }
+p { margin: 0 0 1em; }
+em, .serif { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spacing: -.01em; }
+.grad { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+section { padding: 120px 0; position: relative; }
+.muted { color: var(--ink-2); }
+.kicker { display: inline-flex; align-items: center; gap: 10px; font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-2); margin-bottom: 22px; font-weight: 500; }
+.kicker::before { content: ""; width: 22px; height: 1px; background: var(--grad); }
+.head { max-width: 760px; margin-bottom: 64px; }
+.head p { font-size: 1.15rem; color: var(--ink-2); max-width: 600px; }
+.center { text-align: center; margin-inline: auto; }
+.center .kicker { justify-content: center; }
+
+/* Buttons */
+.btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 22px; border-radius: 999px; font: 600 .98rem var(--sans); text-decoration: none; border: 1px solid transparent; cursor: pointer; transition: transform .2s, box-shadow .2s, background .2s; white-space: nowrap; }
+.btn:hover { transform: translateY(-2px); }
+.btn-primary { background: var(--ink); color: var(--bg); box-shadow: 0 0 0 1px rgba(255,255,255,.2), 0 10px 40px -10px rgba(167, 139, 250, .6); }
+.btn-primary:hover { box-shadow: 0 0 0 1px rgba(255,255,255,.3), 0 14px 50px -8px rgba(94, 234, 212, .6); }
+.btn-ghost { border-color: var(--line-2); color: var(--ink); background: rgba(255,255,255,.03); }
+.btn-ghost:hover { background: rgba(255,255,255,.07); }
+.btn .arrow { transition: transform .2s; }
+.btn:hover .arrow { transform: translateX(3px); }
+
+/* Header */
+.header { position: fixed; inset: 16px 0 auto; z-index: 100; pointer-events: none; }
+.nav { pointer-events: auto; max-width: 1080px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 10px 10px 10px 20px; border-radius: 999px; background: rgba(12, 15, 24, .55); border: 1px solid var(--line); backdrop-filter: blur(18px) saturate(140%); -webkit-backdrop-filter: blur(18px) saturate(140%); transition: background .3s; }
+.header.scrolled .nav { background: rgba(12, 15, 24, .85); }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 600; letter-spacing: -.02em; font-size: 1.08rem; }
+.brand-mark { width: 28px; height: 28px; border-radius: 8px; background: var(--grad); position: relative; box-shadow: 0 0 24px rgba(167,139,250,.5); }
+.brand-mark::after { content: ""; position: absolute; inset: 7px; border-radius: 50%; background: var(--bg); }
+.nav-menu { display: flex; align-items: center; gap: 4px; }
+.nav-menu a { text-decoration: none; color: var(--ink-2); font-size: .93rem; padding: 8px 14px; border-radius: 999px; transition: color .2s, background .2s; }
+.nav-menu a:hover { color: var(--ink); background: rgba(255,255,255,.05); }
+.nav-menu .btn { color: var(--bg); padding: 10px 18px; margin-left: 6px; }
+.nav-menu .btn:hover { color: var(--bg); background: var(--ink); }
+.nav-toggle { display: none; background: none; border: 0; color: var(--ink); padding: 8px; cursor: pointer; }
+
+/* Backdrop */
+.aurora { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
+.aurora::before, .aurora::after, .aurora i { content: ""; position: absolute; border-radius: 50%; filter: blur(90px); opacity: .55; }
+.aurora::before { width: 620px; height: 620px; background: #3b2a8f; top: -220px; left: -120px; animation: drift 18s ease-in-out infinite alternate; }
+.aurora::after { width: 540px; height: 540px; background: #0f6b62; top: -120px; right: -160px; animation: drift 22s ease-in-out infinite alternate-reverse; }
+.aurora i { width: 380px; height: 380px; background: #7a2f62; top: 260px; left: 40%; opacity: .35; animation: drift 26s ease-in-out infinite alternate; }
+@keyframes drift { to { transform: translate(60px, 40px) scale(1.1); } }
+.grid-lines { position: absolute; inset: 0; background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px); background-size: 72px 72px; mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000 30%, transparent 75%); -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000 30%, transparent 75%); opacity: .6; }
+
+/* Hero */
+.hero { padding: 180px 0 100px; }
+.hero > .wrap { position: relative; z-index: 1; }
+.hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 64px; align-items: center; }
+.pill { display: inline-flex; align-items: center; gap: 10px; padding: 6px 14px 6px 6px; border-radius: 999px; border: 1px solid var(--line-2); background: rgba(255,255,255,.04); font-size: .86rem; color: var(--ink-2); margin-bottom: 28px; text-decoration: none; }
+.pill b { background: var(--grad); color: var(--bg); padding: 3px 10px; border-radius: 999px; font-size: .74rem; letter-spacing: .02em; }
+.hero h1 em { font-size: 1.08em; }
+.hero .lede { font-size: 1.2rem; color: var(--ink-2); max-width: 560px; margin: 26px 0 36px; }
+.cta-row { display: flex; flex-wrap: wrap; gap: 12px; }
+.trust { display: flex; flex-wrap: wrap; gap: 10px 26px; margin-top: 44px; color: var(--ink-3); font-size: .9rem; }
+.trust span { display: inline-flex; align-items: center; gap: 8px; }
+.trust svg { color: var(--mint); }
+
+/* Chat mock */
+.device { position: relative; }
+.chat { position: relative; border-radius: 28px; background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.02)); border: 1px solid var(--line-2); padding: 20px; backdrop-filter: blur(20px); box-shadow: 0 40px 120px -40px rgba(124, 92, 255, .55), inset 0 1px 0 rgba(255,255,255,.08); }
+.chat-head { display: flex; align-items: center; gap: 12px; padding-bottom: 16px; border-bottom: 1px solid var(--line); margin-bottom: 18px; }
+.chat-av { width: 38px; height: 38px; border-radius: 12px; background: var(--grad); display: grid; place-items: center; color: var(--bg); font-weight: 700; font-size: .9rem; }
+.chat-head small { display: block; color: var(--mint); font-size: .78rem; }
+.chat-head small::before { content: "●"; margin-right: 6px; font-size: .6rem; vertical-align: 2px; }
+.msg { max-width: 82%; padding: 11px 15px; border-radius: 18px; font-size: .92rem; margin-bottom: 10px; line-height: 1.45; opacity: 0; transform: translateY(8px); animation: pop .5s forwards; }
+.msg.in { background: rgba(255,255,255,.07); border-bottom-left-radius: 6px; }
+.msg.out { background: linear-gradient(135deg, #6d5bd0, #3aa597); margin-left: auto; border-bottom-right-radius: 6px; }
+.msg:nth-of-type(1) { animation-delay: .3s; } .msg:nth-of-type(2) { animation-delay: 1s; } .msg:nth-of-type(3) { animation-delay: 1.7s; } .msg:nth-of-type(4) { animation-delay: 2.4s; }
+@keyframes pop { to { opacity: 1; transform: none; } }
+.booked { margin-top: 14px; display: flex; gap: 14px; align-items: center; padding: 14px; border-radius: 16px; background: rgba(94, 234, 212, .08); border: 1px solid rgba(94, 234, 212, .25); opacity: 0; animation: pop .5s 3.1s forwards; }
+.booked .tick { width: 36px; height: 36px; border-radius: 50%; background: var(--mint); color: var(--bg); display: grid; place-items: center; font-weight: 800; flex: none; }
+.booked small { color: var(--ink-2); display: block; font-size: .8rem; }
+.float { position: absolute; padding: 12px 16px; border-radius: 16px; background: rgba(17, 20, 31, .85); border: 1px solid var(--line-2); backdrop-filter: blur(14px); font-size: .82rem; color: var(--ink-2); box-shadow: 0 20px 50px -20px rgba(0,0,0,.8); animation: bob 6s ease-in-out infinite; }
+.float strong { display: block; font-size: 1.35rem; color: var(--ink); letter-spacing: -.03em; }
+.float.f1 { top: -26px; right: -18px; }
+.float.f2 { bottom: 40px; left: -46px; animation-delay: -3s; }
+.float .up { color: var(--mint); }
+@keyframes bob { 50% { transform: translateY(-10px); } }
+
+/* Marquee */
+.marquee { border-block: 1px solid var(--line); padding: 26px 0; overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 15%, #000 85%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 15%, #000 85%, transparent); }
+.marquee-track { display: flex; gap: 56px; width: max-content; animation: scroll 40s linear infinite; }
+.marquee span { font-family: var(--serif); font-style: italic; font-size: 1.7rem; color: var(--ink-3); white-space: nowrap; display: inline-flex; align-items: center; gap: 56px; }
+.marquee span::after { content: "✦"; font-style: normal; font-size: .9rem; color: var(--violet); }
+@keyframes scroll { to { transform: translateX(-50%); } }
+
+/* Bento */
+.bento { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; }
+.tile { position: relative; overflow: hidden; border-radius: var(--radius); background: var(--panel); border: 1px solid var(--line); padding: 28px; transition: border-color .3s, transform .3s; }
+.tile:hover { border-color: var(--line-2); transform: translateY(-3px); }
+.tile::before { content: ""; position: absolute; inset: 0; background: radial-gradient(600px circle at var(--mx, 50%) -20%, rgba(167,139,250,.12), transparent 40%); pointer-events: none; }
+.tile p { color: var(--ink-2); font-size: .95rem; margin: 0; }
+.t-wide { grid-column: span 4; } .t-mid { grid-column: span 3; } .t-small { grid-column: span 2; }
+.tile .label { font-size: .75rem; text-transform: uppercase; letter-spacing: .12em; color: var(--ink-3); margin-bottom: 14px; display: block; }
+.viz { margin-top: 26px; }
+.bars { display: flex; align-items: flex-end; gap: 8px; height: 130px; }
+.bars div { flex: 1; border-radius: 6px 6px 2px 2px; background: rgba(255,255,255,.08); position: relative; }
+.bars div.f { background: linear-gradient(180deg, rgba(167,139,250,.9), rgba(94,234,212,.5)); }
+.bars div span { position: absolute; bottom: -22px; left: 0; right: 0; text-align: center; font-size: .7rem; color: var(--ink-3); }
+.legend { display: flex; gap: 18px; font-size: .78rem; color: var(--ink-3); margin-top: 34px; }
+.legend i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
+.slots { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+.slots div { height: 30px; border-radius: 8px; background: rgba(255,255,255,.05); font-size: .7rem; display: grid; place-items: center; color: var(--ink-3); }
+.slots .b { background: rgba(167,139,250,.25); color: var(--ink); }
+.slots .r { background: rgba(94,234,212,.22); color: var(--ink); outline: 1px dashed var(--mint); }
+.stars { display: flex; gap: 4px; color: var(--amber); font-size: 1.1rem; margin-bottom: 10px; }
+.review { padding: 14px; border-radius: 14px; background: rgba(255,255,255,.04); font-size: .85rem; color: var(--ink-2); }
+.review + .review { margin-top: 8px; border-left: 2px solid var(--violet); }
+.bignum { font-size: 3.6rem; font-weight: 600; letter-spacing: -.05em; line-height: 1; margin: 18px 0 8px; }
+.langs { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 20px; }
+.langs span { padding: 5px 11px; border-radius: 999px; border: 1px solid var(--line-2); font-size: .8rem; color: var(--ink-2); }
+
+/* Industry tabs */
+.tabs { display: inline-flex; gap: 4px; padding: 5px; border-radius: 999px; background: var(--panel); border: 1px solid var(--line); margin-bottom: 40px; flex-wrap: wrap; }
+.tabs button { font: 500 .95rem var(--sans); color: var(--ink-2); background: none; border: 0; padding: 10px 20px; border-radius: 999px; cursor: pointer; transition: all .25s; }
+.tabs button[aria-selected="true"] { background: var(--ink); color: var(--bg); }
+.panel { display: grid; grid-template-columns: .9fr 1.1fr; gap: 48px; align-items: center; animation: fade .5s; }
+.panel[hidden] { display: none; }
+@keyframes fade { from { opacity: 0; transform: translateY(10px); } }
+.panel h3 { font-size: 2.2rem; letter-spacing: -.035em; line-height: 1.1; }
+.feature-list { list-style: none; padding: 0; margin: 28px 0 0; display: grid; gap: 2px; }
+.feature-list li { padding: 16px 0; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; gap: 16px; color: var(--ink); }
+.feature-list li span { color: var(--ink-3); font-size: .88rem; text-align: right; }
+.scene { aspect-ratio: 5/4; border-radius: 28px; position: relative; overflow: hidden; border: 1px solid var(--line-2); }
+.scene.g { background: radial-gradient(circle at 30% 30%, #f59e0b55, transparent 50%), radial-gradient(circle at 80% 80%, #a78bfa55, transparent 50%), #120f1a; }
+.scene.h { background: radial-gradient(circle at 70% 20%, #5eead455, transparent 50%), radial-gradient(circle at 20% 90%, #3b82f655, transparent 50%), #0b1418; }
+.scene.c { background: radial-gradient(circle at 30% 70%, #f9a8d455, transparent 50%), radial-gradient(circle at 80% 20%, #a78bfa55, transparent 50%), #150f18; }
+.scene .card-ui { position: absolute; left: 8%; right: 8%; bottom: 8%; padding: 20px; border-radius: 20px; background: rgba(10,12,20,.7); border: 1px solid var(--line-2); backdrop-filter: blur(14px); }
+.scene .card-ui .row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--line); font-size: .88rem; color: var(--ink-2); }
+.scene .card-ui .row:last-child { border: 0; }
+.scene .card-ui .row b { color: var(--ink); font-weight: 600; }
+.scene .big-icon { position: absolute; top: 12%; left: 10%; font-family: var(--serif); font-style: italic; font-size: clamp(3rem, 7vw, 5.5rem); line-height: 1; opacity: .9; }
+.ok { color: var(--mint) !important; }
+
+/* Process */
+.process { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; counter-reset: s; }
+.proc { padding: 28px; border-radius: var(--radius); border: 1px solid var(--line); background: linear-gradient(180deg, rgba(255,255,255,.04), transparent); position: relative; }
+.proc::before { counter-increment: s; content: "0" counter(s); font-family: var(--serif); font-style: italic; font-size: 3rem; line-height: 1; display: block; margin-bottom: 40px; background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.proc .when { font-size: .78rem; text-transform: uppercase; letter-spacing: .1em; color: var(--ink-3); display: block; margin-bottom: 8px; }
+.proc p { color: var(--ink-2); font-size: .94rem; margin: 0; }
+
+/* Pricing */
+.prices { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; align-items: stretch; }
+.price { border-radius: 24px; border: 1px solid var(--line); background: var(--panel); padding: 32px; display: flex; flex-direction: column; }
+.price.hot { background: linear-gradient(var(--panel-solid), var(--panel-solid)) padding-box, var(--grad) border-box; border: 1px solid transparent; box-shadow: 0 30px 80px -30px rgba(167,139,250,.5); position: relative; }
+.price.hot .flag { position: absolute; top: 20px; right: 20px; font-size: .72rem; padding: 4px 10px; border-radius: 999px; background: var(--grad); color: var(--bg); font-weight: 700; }
+.price .amt { font-size: 2.6rem; font-weight: 600; letter-spacing: -.04em; margin: 14px 0 4px; }
+.price .amt small { font-size: .9rem; color: var(--ink-3); font-weight: 400; letter-spacing: 0; }
+.price ul { list-style: none; padding: 0; margin: 24px 0 30px; flex: 1; }
+.price li { padding: 10px 0 10px 28px; position: relative; color: var(--ink-2); font-size: .95rem; border-top: 1px solid var(--line); }
+.price li::before { content: ""; position: absolute; left: 2px; top: 17px; width: 12px; height: 7px; border-left: 2px solid var(--mint); border-bottom: 2px solid var(--mint); transform: rotate(-45deg); }
+.price .btn { justify-content: center; }
+
+/* Team */
+.team { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.member { border-radius: 24px; border: 1px solid var(--line); background: var(--panel); overflow: hidden; }
+.portrait { aspect-ratio: 4/3; position: relative; display: grid; place-items: center; overflow: hidden; }
+.portrait::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 50%, rgba(7,9,15,.9)); }
+.portrait span { font-family: var(--serif); font-style: italic; font-size: 5rem; position: relative; z-index: 1; color: rgba(255,255,255,.9); }
+.portrait.p1 { background: radial-gradient(circle at 30% 30%, #5eead4, transparent 60%), radial-gradient(circle at 80% 70%, #3b82f6, transparent 60%), #0b1220; }
+.portrait.p2 { background: radial-gradient(circle at 70% 30%, #a78bfa, transparent 60%), radial-gradient(circle at 20% 80%, #f472b6, transparent 60%), #140c1f; }
+.portrait.p3 { background: radial-gradient(circle at 30% 70%, #fbbf77, transparent 60%), radial-gradient(circle at 80% 20%, #a78bfa, transparent 60%), #1a1010; }
+.member .body { padding: 24px 26px 28px; }
+.member h3 { font-size: 1.35rem; margin-bottom: 4px; }
+.member .role { font-size: .85rem; color: var(--mint); display: block; margin-bottom: 14px; }
+.member p { color: var(--ink-2); font-size: .94rem; margin: 0; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 18px; }
+.chips span { font-size: .75rem; padding: 4px 10px; border-radius: 999px; background: rgba(255,255,255,.05); color: var(--ink-2); border: 1px solid var(--line); }
+
+/* FAQ */
+.faq-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 64px; }
+.faq details { border-bottom: 1px solid var(--line); padding: 22px 0; }
+.faq summary { list-style: none; cursor: pointer; font-size: 1.1rem; font-weight: 500; display: flex; justify-content: space-between; gap: 20px; letter-spacing: -.01em; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; width: 28px; height: 28px; flex: none; border-radius: 50%; border: 1px solid var(--line-2); display: grid; place-items: center; color: var(--ink-2); transition: transform .3s; font-weight: 300; }
+.faq details[open] summary::after { transform: rotate(45deg); }
+.faq details p { color: var(--ink-2); margin: 14px 0 0; max-width: 620px; }
+
+/* CTA */
+.cta { position: relative; border-radius: 36px; overflow: hidden; padding: 80px 56px; border: 1px solid var(--line-2); background: radial-gradient(ellipse at 20% 0%, rgba(124,92,255,.45), transparent 55%), radial-gradient(ellipse at 90% 100%, rgba(45,212,191,.35), transparent 55%), var(--panel-solid); display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: center; }
+.cta h2 { font-size: clamp(2.2rem, 4.4vw, 3.6rem); }
+
+/* Forms */
+.form { display: grid; gap: 14px; padding: 28px; border-radius: 24px; background: rgba(7,9,15,.6); border: 1px solid var(--line-2); backdrop-filter: blur(16px); }
+.form .two { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.form label { display: block; font-size: .8rem; color: var(--ink-2); margin-bottom: 6px; }
+.form input, .form select, .form textarea { width: 100%; padding: 13px 15px; border-radius: 12px; border: 1px solid var(--line-2); background: rgba(255,255,255,.04); color: var(--ink); font: inherit; font-size: .95rem; transition: border-color .2s, background .2s; }
+.form select option { background: var(--panel-solid); }
+.form input:focus, .form select:focus, .form textarea:focus { outline: none; border-color: var(--violet); background: rgba(167,139,250,.06); }
+.form textarea { min-height: 96px; resize: vertical; }
+.form .consent { display: flex; gap: 10px; font-size: .8rem; color: var(--ink-3); align-items: flex-start; }
+.form .consent input { width: auto; margin-top: 3px; accent-color: var(--violet); }
+.form .btn { justify-content: center; width: 100%; }
+.form-ok { padding: 14px; border-radius: 12px; background: rgba(94,234,212,.1); border: 1px solid rgba(94,234,212,.3); font-size: .9rem; }
+
+/* Footer */
+.footer { border-top: 1px solid var(--line); padding: 64px 0 40px; color: var(--ink-3); font-size: .9rem; }
+.footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 32px; margin-bottom: 56px; }
+.footer h4 { color: var(--ink); font-size: .85rem; font-weight: 500; margin-bottom: 14px; letter-spacing: 0; }
+.footer ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+.footer a { text-decoration: none; color: var(--ink-3); transition: color .2s; }
+.footer a:hover { color: var(--ink); }
+.footer-word { font-size: clamp(4rem, 15vw, 13rem); font-weight: 600; letter-spacing: -.06em; line-height: .8; background: linear-gradient(180deg, rgba(255,255,255,.12), transparent 85%); -webkit-background-clip: text; background-clip: text; color: transparent; text-align: center; user-select: none; margin-bottom: 32px; }
+.footer-bottom { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+/* Landing extras */
+.lp-hero { padding: 160px 0 80px; }
+.lp-hero > .wrap { position: relative; z-index: 1; }
+.lp-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 56px; align-items: start; }
+.gets { list-style: none; padding: 0; margin: 36px 0; display: grid; gap: 14px; }
+.gets li { display: flex; gap: 16px; padding: 18px; border-radius: 18px; border: 1px solid var(--line); background: var(--panel); }
+.gets .n { font-family: var(--serif); font-style: italic; font-size: 1.8rem; line-height: 1; width: 32px; flex: none; }
+.gets strong { display: block; font-weight: 600; margin-bottom: 2px; }
+.gets span { color: var(--ink-2); font-size: .92rem; }
+.roi { display: grid; grid-template-columns: 1.1fr .9fr; gap: 0; border-radius: 28px; overflow: hidden; border: 1px solid var(--line-2); }
+.roi-in { padding: 40px; background: var(--panel); display: grid; gap: 28px; }
+.roi-in label { display: flex; justify-content: space-between; font-size: .95rem; margin-bottom: 12px; color: var(--ink-2); }
+.roi-in label b { color: var(--ink); font-weight: 600; }
+.roi input[type=range] { width: 100%; accent-color: var(--violet); }
+.roi-out { padding: 40px; background: radial-gradient(circle at 80% 0%, rgba(167,139,250,.35), transparent 60%), radial-gradient(circle at 0% 100%, rgba(94,234,212,.25), transparent 60%), var(--panel-solid); display: flex; flex-direction: column; justify-content: center; }
+.roi-out .v { font-size: clamp(2.8rem, 5vw, 4.2rem); font-weight: 600; letter-spacing: -.05em; line-height: 1; margin: 8px 0 18px; }
+.roi-out small { color: var(--ink-3); font-size: .78rem; margin-top: 16px; display: block; }
+.cases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.case { padding: 30px; border-radius: 24px; border: 1px solid var(--line); background: var(--panel); }
+.case .q { font-family: var(--serif); font-style: italic; font-size: 1.7rem; line-height: 1.15; margin: 14px 0 16px; }
+.case p { color: var(--ink-2); font-size: .94rem; margin: 0; }
+.case .tag { font-size: .72rem; text-transform: uppercase; letter-spacing: .12em; color: var(--mint); }
+.steps3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.sticky-cta { position: fixed; left: 16px; right: 16px; bottom: 16px; z-index: 90; display: none; }
+.sticky-cta .btn { width: 100%; justify-content: center; }
+
+/* Reveal */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1); }
+.reveal.in { opacity: 1; transform: none; }
+.d1 { transition-delay: .08s; } .d2 { transition-delay: .16s; } .d3 { transition-delay: .24s; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } .reveal, .msg, .booked { opacity: 1; transform: none; } }
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .hero-grid, .lp-grid, .panel, .cta, .faq-grid, .roi { grid-template-columns: 1fr; }
+  .process, .footer-top { grid-template-columns: 1fr 1fr; }
+  .prices, .team, .cases, .steps3 { grid-template-columns: 1fr; max-width: 560px; }
+  .t-wide, .t-mid, .t-small { grid-column: span 6; }
+  .float.f2 { left: -8px; }
+  .float.f1 { right: -4px; }
+}
+@media (max-width: 760px) {
+  section { padding: 80px 0; }
+  .hero { padding: 130px 0 70px; }
+  .lp-hero { padding: 120px 0 60px; }
+  .wrap { padding: 0 16px; }
+  .header { inset: 10px 0 auto; padding: 0 10px; }
+  .nav-toggle { display: block; }
+  .nav-menu { display: none; position: absolute; top: 64px; left: 10px; right: 10px; flex-direction: column; align-items: stretch; padding: 12px; border-radius: 24px; background: rgba(12,15,24,.96); border: 1px solid var(--line); }
+  .nav-menu.open { display: flex; }
+  .nav-menu .btn { margin: 6px 0 0; justify-content: center; }
+  .process, .footer-top, .form .two { grid-template-columns: 1fr; }
+  .cta { padding: 48px 22px; border-radius: 28px; }
+  .roi-in, .roi-out { padding: 28px 22px; }
+  .float { display: none; }
+  .sticky-cta { display: block; }
+  .lp-body { padding-bottom: 80px; }
+  .hero h1 br { display: none; }
+}
+
+</style>
+</head>
+<body>
+
+<header class="header">
+  <nav class="nav">
+    <a href="#top" class="brand"><span class="brand-mark"></span>ImplementAI</a>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 8h16M4 16h16"/></svg></button>
+    <div class="nav-menu">
+      <a href="#solutions">Solutions</a>
+      <a href="#industries">Industries</a>
+      <a href="#process">Process</a>
+      <a href="#team">Team</a>
+      <a href="#pricing">Pricing</a>
+      <a href="midnight-landing.html" class="btn btn-primary">Free Quick-Check</a>
+    </div>
+  </nav>
+</header>
+
+<main id="top">
+<!-- HERO -->
+<section class="hero">
+  <div class="aurora"><i></i></div>
+  <div class="grid-lines"></div>
+  <div class="wrap hero-grid">
+    <div>
+      <a href="midnight-landing.html" class="pill"><b>NEW</b> Free 30-min AI Quick-Check →</a>
+      <h1>AI that works the <em class="grad">floor</em>, the <em class="grad">front desk</em><br> and the back office.</h1>
+      <p class="lede">We implement practical AI for restaurants, hotels and private health &amp; beauty clinics — booking agents, guest messaging, forecasting and admin automation. Built into the tools you already use. Measured in hours saved.</p>
+      <div class="cta-row">
+        <a href="midnight-landing.html" class="btn btn-primary">Book your free Quick-Check <span class="arrow">→</span></a>
+        <a href="#solutions" class="btn btn-ghost">Explore solutions</a>
+      </div>
+      <div class="trust">
+        <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7"/></svg>GDPR-first, EU hosting</span>
+        <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7"/></svg>Fixed-price projects</span>
+        <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5L20 7"/></svg>Live in 4–8 weeks</span>
+      </div>
+    </div>
+
+    <div class="device reveal">
+      <div class="chat">
+        <div class="chat-head">
+          <div class="chat-av">AI</div>
+          <div><strong>Trattoria Rossi · Booking agent</strong><small>Online · replies instantly</small></div>
+        </div>
+        <div class="msg in">Hi! Do you have a table for 4 this Saturday around 7:30? One of us is vegan 🌱</div>
+        <div class="msg out">Ciao! Saturday 19:30 for 4 is available on the terrace. I've noted the vegan guest — our chef has three plant-based mains. Shall I book it?</div>
+        <div class="msg in">Perfect, yes please. Name is Weber.</div>
+        <div class="msg out">Done ✨ You'll get a confirmation by SMS and a reminder on Saturday morning.</div>
+        <div class="booked"><div class="tick">✓</div><div><strong>Booked · Sat 19:30 · 4 guests</strong><small>Synced to reservation system · note: 1× vegan</small></div></div>
+      </div>
+      <div class="float f1"><strong><span class="up">↓</span> 30%</strong>no-shows</div>
+      <div class="float f2"><strong>24/7</strong>bookings answered</div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Restaurants</span><span>Boutique hotels</span><span>Aesthetic clinics</span><span>Cafés &amp; bars</span><span>Private practices</span><span>Guesthouses</span><span>Dental clinics</span><span>Spas</span>
+    <span>Restaurants</span><span>Boutique hotels</span><span>Aesthetic clinics</span><span>Cafés &amp; bars</span><span>Private practices</span><span>Guesthouses</span><span>Dental clinics</span><span>Spas</span>
+  </div>
+</div>
+
+<!-- SOLUTIONS BENTO -->
+<section id="solutions">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="kicker">Solutions</span>
+      <h2>Less admin. <em>More</em> hospitality.</h2>
+      <p>Every solution is built around one question: which hours can we give back to your team — and to your guests and patients?</p>
+    </div>
+    <div class="bento">
+      <div class="tile t-wide reveal">
+        <span class="label">Forecasting</span>
+        <h3>Know Saturday before Saturday.</h3>
+        <p>Demand forecasts from your POS, booking and weather data — so you order, prep and staff for what's actually coming.</p>
+        <div class="viz">
+          <div class="bars">
+            <div style="height:38%"><span>Mon</span></div><div style="height:30%"><span>Tue</span></div><div style="height:45%"><span>Wed</span></div><div style="height:55%"><span>Thu</span></div><div class="f" style="height:82%"><span>Fri</span></div><div class="f" style="height:100%"><span>Sat</span></div><div class="f" style="height:64%"><span>Sun</span></div>
+          </div>
+          <div class="legend"><span><i style="background:rgba(255,255,255,.12)"></i>Actual covers</span><span><i style="background:linear-gradient(#a78bfa,#5eead4)"></i>AI forecast</span></div>
+        </div>
+      </div>
+      <div class="tile t-small reveal d1">
+        <span class="label">Guest concierge</span>
+        <h3>Every language. Every hour.</h3>
+        <p>Answers questions, sells upgrades, handles changes.</p>
+        <div class="langs"><span>EN</span><span>DE</span><span>FR</span><span>IT</span><span>ES</span><span>NL</span><span>+40</span></div>
+        <div class="bignum grad">24/7</div>
+      </div>
+      <div class="tile t-mid reveal">
+        <span class="label">Appointments</span>
+        <h3>Fewer gaps in the calendar.</h3>
+        <p>Smart reminders, self-rescheduling and an automatic waitlist that fills cancellations.</p>
+        <div class="viz slots">
+          <div class="b">09:00</div><div>09:30</div><div class="b">10:00</div><div class="b">10:30</div>
+          <div class="r">11:00 ↻</div><div class="b">11:30</div><div>12:00</div><div class="b">12:30</div>
+        </div>
+      </div>
+      <div class="tile t-mid reveal d1">
+        <span class="label">Reputation</span>
+        <h3>Reviews, handled.</h3>
+        <p>Monitoring across Google, TripAdvisor &amp; Booking with on-brand reply drafts.</p>
+        <div class="viz">
+          <div class="review"><div class="stars">★★★★★</div>"Best risotto in town, lovely staff!"</div>
+          <div class="review">AI draft: "Grazie mille, Anna! We'll tell the kitchen…"</div>
+        </div>
+      </div>
+      <div class="tile t-small reveal">
+        <span class="label">Agentic AI</span>
+        <h3>Assistants that act.</h3>
+        <p>Not just chat: agents that book, reschedule, route and update your systems — with human oversight.</p>
+      </div>
+      <div class="tile t-small reveal d1">
+        <span class="label">Back office</span>
+        <h3>Inbox &amp; paperwork.</h3>
+        <p>Email triage, invoice capture, intake forms and documentation support.</p>
+      </div>
+      <div class="tile t-small reveal d2">
+        <span class="label">Training</span>
+        <h3>Teams that trust it.</h3>
+        <p>Hands-on workshops and playbooks so your staff actually use what we build.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRIES -->
+<section id="industries" style="padding-top:40px">
+  <div class="wrap" data-tabs>
+    <div class="head reveal">
+      <span class="kicker">Industries</span>
+      <h2>Deep know-how in <em>three</em> industries.</h2>
+    </div>
+    <div class="tabs" role="tablist">
+      <button role="tab" aria-selected="true">Gastronomy</button>
+      <button role="tab" aria-selected="false">Hospitality</button>
+      <button role="tab" aria-selected="false">Health &amp; beauty clinics</button>
+    </div>
+
+    <div class="panel" role="tabpanel">
+      <div>
+        <h3>Restaurants, cafés, bars &amp; catering.</h3>
+        <p class="muted">Tight margins and peak-hour chaos. We take the phone off the hook and put numbers behind your gut feeling.</p>
+        <ul class="feature-list">
+          <li>AI reservation agent — phone, web, WhatsApp <span>−60% calls</span></li>
+          <li>Demand &amp; purchasing forecasts <span>−20% waste</span></li>
+          <li>Staff scheduling by predicted covers <span>right-sized shifts</span></li>
+          <li>Menu engineering from POS data <span>margin per dish</span></li>
+        </ul>
+      </div>
+      <div class="scene g"><div class="big-icon grad">Tonight</div>
+        <div class="card-ui"><div class="row">Forecast covers <b>142</b></div><div class="row">Bookings via AI agent <b>38</b></div><div class="row">Suggested prep: risotto base <b>+25%</b></div><div class="row">Staffing <b class="ok">On target</b></div></div>
+      </div>
+    </div>
+
+    <div class="panel" role="tabpanel" hidden>
+      <div>
+        <h3>Boutique hotels, guesthouses &amp; apartments.</h3>
+        <p class="muted">Guests expect instant answers in their language. Your front desk can't be awake 24/7 — your AI concierge can.</p>
+        <ul class="feature-list">
+          <li>Multilingual guest concierge <span>24/7</span></li>
+          <li>Pre-arrival messages &amp; upsells <span>+ revenue / stay</span></li>
+          <li>Occupancy &amp; pricing forecasts <span>smarter rates</span></li>
+          <li>Housekeeping planning &amp; OTA inbox triage <span>hours saved</span></li>
+        </ul>
+      </div>
+      <div class="scene h"><div class="big-icon grad">Check-in</div>
+        <div class="card-ui"><div class="row">Arrivals today <b>17</b></div><div class="row">Pre-arrival messages sent <b class="ok">17 / 17</b></div><div class="row">Upsells accepted <b>5 · €420</b></div><div class="row">Questions answered by AI <b>63</b></div></div>
+      </div>
+    </div>
+
+    <div class="panel" role="tabpanel" hidden>
+      <div>
+        <h3>Private practices, aesthetic &amp; dental clinics, spas.</h3>
+        <p class="muted">Every empty slot costs money. Every patient deserves a personal touch. We automate the logistics around care — compliantly.</p>
+        <ul class="feature-list">
+          <li>Smart booking, reminders &amp; waitlist <span>−30% no-shows</span></li>
+          <li>Intake forms &amp; documentation assistance <span>less typing</span></li>
+          <li>Follow-ups &amp; treatment-plan reminders <span>more rebookings</span></li>
+          <li>Privacy-compliant setup for health data <span>GDPR-first</span></li>
+        </ul>
+      </div>
+      <div class="scene c"><div class="big-icon grad">Calendar</div>
+        <div class="card-ui"><div class="row">Appointments this week <b>214</b></div><div class="row">Cancellations refilled <b class="ok">11 / 13</b></div><div class="row">Follow-ups due <b>28</b></div><div class="row">Intake forms pre-filled <b>96%</b></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="kicker">How we work</span>
+      <h2>From first call to <em>running system</em>.</h2>
+      <p>Short cycles, real data, your team involved from day one. No 80-page strategy decks.</p>
+    </div>
+    <div class="process">
+      <div class="proc reveal"><span class="when">Week 1</span><h3>Discover</h3><p>We shadow your team on-site or remotely and map where the hours go.</p></div>
+      <div class="proc reveal d1"><span class="when">Week 2</span><h3>Prioritise</h3><p>A roadmap with costs, savings and risks. You choose what we build.</p></div>
+      <div class="proc reveal d2"><span class="when">Weeks 3–8</span><h3>Implement</h3><p>We build, integrate and test with your systems and real data.</p></div>
+      <div class="proc reveal d3"><span class="when">Ongoing</span><h3>Measure</h3><p>KPIs tracked from day one. We train, tune and improve.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" style="padding-top:40px">
+  <div class="wrap">
+    <div class="head center reveal">
+      <span class="kicker">Pricing</span>
+      <h2>Clear scope. <em>Fixed</em> price.</h2>
+      <p class="center">Indicative prices excl. VAT. Every engagement starts with a free Quick-Check.</p>
+    </div>
+    <div class="prices">
+      <div class="price reveal">
+        <h3>Quick-Check</h3><p class="muted">Is AI worth it for you?</p>
+        <div class="amt">€0 <small>/ 30 min</small></div>
+        <ul><li>Video call with a consultant</li><li>Top 3 opportunities</li><li>Written summary</li></ul>
+        <a href="midnight-landing.html" class="btn btn-ghost">Book a call</a>
+      </div>
+      <div class="price hot reveal d1">
+        <span class="flag">MOST POPULAR</span>
+        <h3>Readiness Audit</h3><p class="muted">Your roadmap, costed.</p>
+        <div class="amt">€2,900 <small>from</small></div>
+        <ul><li>Process &amp; tool analysis, on-site possible</li><li>Data &amp; GDPR assessment</li><li>Prioritised roadmap with ROI</li><li>Fee credited against implementation</li></ul>
+        <a href="#contact" class="btn btn-primary">Request audit</a>
+      </div>
+      <div class="price reveal d2">
+        <h3>Implementation</h3><p class="muted">Your first use case, live.</p>
+        <div class="amt">€7,500 <small>from</small></div>
+        <ul><li>Integration with existing systems</li><li>Staff training &amp; documentation</li><li>KPI dashboard</li><li>Optional monthly care plan</li></ul>
+        <a href="#contact" class="btn btn-ghost">Talk to us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="kicker">Team</span>
+      <h2>Engineers and scientists who <em>ship</em>.</h2>
+      <p>A small, senior team. You always work directly with the people who design and build your solution.</p>
+    </div>
+    <div class="team">
+      <article class="member reveal">
+        <div class="portrait p1"><span>YN</span></div>
+        <div class="body">
+          <h3>[Your Name]</h3>
+          <span class="role">AI Implementation Consultant · MSc Oxford</span>
+          <p>Technical support engineer by background. Leads every engagement from first call to go-live — integrating AI with your systems and making sure your team is confident using it.</p>
+          <div class="chips"><span>Integration</span><span>Reliability</span><span>Training</span></div>
+        </div>
+      </article>
+      <article class="member reveal d1">
+        <div class="portrait p2"><span>TS</span></div>
+        <div class="body">
+          <h3>Dr. Tibor Sekera</h3>
+          <span class="role">Data Scientist · PhD in Physics</span>
+          <p>Turns messy booking, POS and inventory data into reliable forecasts and models — with a physicist's rigour, explained in plain language.</p>
+          <div class="chips"><span>Forecasting</span><span>Modelling</span><span>Analytics</span></div>
+        </div>
+      </article>
+      <article class="member reveal d2">
+        <div class="portrait p3"><span>JL</span></div>
+        <div class="body">
+          <h3>Jean Christoph Leob</h3>
+          <span class="role">Senior Data Scientist · Agentic AI</span>
+          <p>Builds AI agents that take action — booking, rescheduling, routing and updating systems — with clear guardrails and human oversight.</p>
+          <div class="chips"><span>AI agents</span><span>LLMs</span><span>Automation</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" style="padding-top:40px">
+  <div class="wrap faq-grid">
+    <div class="reveal">
+      <span class="kicker">FAQ</span>
+      <h2>Good <em>questions</em>.</h2>
+      <p class="muted">Something else on your mind? <a href="#contact">Ask us directly.</a></p>
+    </div>
+    <div class="faq reveal d1">
+      <details open><summary>We're a small business. Is AI really worth it?</summary><p>Often yes — small teams feel every saved hour. But not always, and the free Quick-Check exists to give you an honest answer before you spend anything.</p></details>
+      <details><summary>Do we need to replace our software?</summary><p>No. We connect AI to the reservation system, PMS, POS or practice software you already use. We only recommend switching if it clearly pays off.</p></details>
+      <details><summary>What about data protection and patient data?</summary><p>Every solution is GDPR-first: EU hosting, data processing agreements, minimal data and clear access rules. Health data never goes into general-purpose AI tools without a compliant setup.</p></details>
+      <details><summary>Will AI replace my staff?</summary><p>That's not the goal. We automate the repetitive work so your people can focus on hospitality and care.</p></details>
+      <details><summary>How fast will we see results?</summary><p>A first use case is typically live 4–8 weeks after the audit, with KPIs agreed upfront.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="contact" style="padding-top:40px">
+  <div class="wrap">
+    <div class="cta reveal">
+      <div>
+        <span class="kicker">Get started</span>
+        <h2>Let's find your <em>first AI win</em>.</h2>
+        <p class="muted">Tell us about your business — we'll reply within one working day to schedule a free 30-minute Quick-Check.</p>
+        <p class="muted">Or email <a href="mailto:hello@implementai.example">hello@implementai.example</a></p>
+      </div>
+      <form class="form" data-contact data-subject="Website enquiry">
+        <div class="two">
+          <div><label for="n">Name</label><input id="n" name="name" required autocomplete="name"></div>
+          <div><label for="e">Email</label><input id="e" name="email" type="email" required autocomplete="email"></div>
+        </div>
+        <div><label for="i">Industry</label><select id="i" name="industry"><option>Gastronomy</option><option>Hospitality</option><option>Health / beauty clinic</option><option>Other</option></select></div>
+        <div><label for="m">What would you like to improve?</label><textarea id="m" name="message"></textarea></div>
+        <label class="consent"><input type="checkbox" name="consent" required> I agree that my details are used to respond to my enquiry.</label>
+        <button class="btn btn-primary" type="submit">Send enquiry <span class="arrow">→</span></button>
+        <div class="form-ok" hidden>Thanks! Your email app should open with your message — just hit send.</div>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div><a href="#top" class="brand"><span class="brand-mark"></span>ImplementAI</a><p style="margin-top:16px;max-width:320px">AI implementation for small and mid-sized restaurants, hotels and private health &amp; beauty clinics.</p></div>
+      <div><h4>Solutions</h4><ul><li><a href="#solutions">Booking agents</a></li><li><a href="#solutions">Forecasting</a></li><li><a href="#solutions">Guest concierge</a></li></ul></div>
+      <div><h4>Company</h4><ul><li><a href="#team">Team</a></li><li><a href="#pricing">Pricing</a></li><li><a href="midnight-landing.html">Quick-Check</a></li></ul></div>
+      <div><h4>Legal</h4><ul><li><a href="#">Imprint</a></li><li><a href="#">Privacy</a></li><li><a href="mailto:hello@implementai.example">Contact</a></li></ul></div>
+    </div>
+    <div class="footer-word">ImplementAI</div>
+    <div class="footer-bottom"><span>© <span data-year></span> ImplementAI</span><span>Made for people who'd rather be with their guests.</span></div>
+  </div>
+</footer>
+
+<script>
+// Shared behaviour for the design mockups: nav, reveal-on-scroll, tabs, ROI calculator, forms.
+(() => {
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+
+  // Mobile nav
+  const toggle = $('.nav-toggle'), menu = $('.nav-menu');
+  if (toggle && menu) {
+    toggle.addEventListener('click', () => toggle.setAttribute('aria-expanded', String(menu.classList.toggle('open'))));
+    $$('a', menu).forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
+  }
+
+  // Header shadow on scroll
+  const header = $('.header');
+  const onScroll = () => header && header.classList.toggle('scrolled', scrollY > 12);
+  addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+  // Reveal
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    }), { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    $$('.reveal').forEach(el => io.observe(el));
+  } else $$('.reveal').forEach(el => el.classList.add('in'));
+
+  // Tabs
+  $$('[data-tabs]').forEach(root => {
+    const tabs = $$('[role="tab"]', root), panels = $$('[role="tabpanel"]', root);
+    tabs.forEach((t, i) => t.addEventListener('click', () => {
+      tabs.forEach((x, j) => x.setAttribute('aria-selected', String(i === j)));
+      panels.forEach((p, j) => p.hidden = i !== j);
+    }));
+  });
+
+  // ROI calculator
+  $$('[data-roi]').forEach(root => {
+    const calls = $('[name="calls"]', root), value = $('[name="value"]', root), hours = $('[name="hours"]', root);
+    const out = $('[data-roi-out]', root), outH = $('[data-roi-hours]', root);
+    const lbl = n => $(`[data-for="${n}"]`, root);
+    const fmt = n => '€' + Math.round(n).toLocaleString('en-US');
+    const run = () => {
+      // Assumption: AI assistant recovers ~60% of missed enquiries and saves ~60% of admin hours.
+      const recovered = calls.value * 0.6 * value.value * 52 / 12;
+      const saved = hours.value * 0.6;
+      lbl('calls').textContent = calls.value;
+      lbl('value').textContent = fmt(value.value);
+      lbl('hours').textContent = hours.value + ' h';
+      out.textContent = fmt(recovered);
+      outH.textContent = Math.round(saved * 4.3) + ' h';
+    };
+    [calls, value, hours].forEach(i => i.addEventListener('input', run)); run();
+  });
+
+  // Forms: mailto fallback until a form backend is configured via data-endpoint.
+  const EMAIL = 'hello@implementai.example';
+  $$('form[data-contact]').forEach(form => form.addEventListener('submit', async e => {
+    e.preventDefault();
+    const data = new FormData(form), ok = $('.form-ok', form);
+    if (form.dataset.endpoint) {
+      try {
+        const r = await fetch(form.dataset.endpoint, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
+        if (r.ok) { form.reset(); if (ok) ok.hidden = false; return; }
+      } catch {}
+    }
+    const body = [...data.entries()].filter(([k, v]) => k !== 'consent' && v).map(([k, v]) => `${k}: ${v}`).join('\n');
+    location.href = `mailto:${EMAIL}?subject=${encodeURIComponent(form.dataset.subject || 'Website enquiry')}&body=${encodeURIComponent(body)}`;
+    if (ok) ok.hidden = false;
+  }));
+
+  $$('[data-year]').forEach(el => el.textContent = new Date().getFullYear());
+})();
+
+</script>
+</body>
+</html>

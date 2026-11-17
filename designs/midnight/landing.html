@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Free AI Quick-Check — ImplementAI</title>
+<meta name="description" content="In 30 minutes, find out where AI can save your restaurant, hotel or clinic time and money. Free and without obligation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="lp-body">
+
+<header class="header">
+  <nav class="nav">
+    <a href="index.html" class="brand"><span class="brand-mark"></span>ImplementAI</a>
+    <a href="#book" class="btn btn-primary" style="padding:10px 18px">Book free call</a>
+  </nav>
+</header>
+
+<main>
+<section class="lp-hero" id="book">
+  <div class="aurora"><i></i></div>
+  <div class="grid-lines"></div>
+  <div class="wrap lp-grid">
+    <div>
+      <span class="pill"><b>FREE</b> 30 minutes · no obligation</span>
+      <h1>Find your first <em class="grad">AI win</em> in 30 minutes.</h1>
+      <p class="lede muted" style="font-size:1.18rem;margin-top:24px">The AI Quick-Check for restaurants, hotels and private health &amp; beauty clinics. We look at how you work today and tell you — honestly — where AI saves time and money, and where it doesn't.</p>
+      <ul class="gets">
+        <li><span class="n grad">1</span><div><strong>Your top 3 AI opportunities</strong><span>Tailored to your business, team and existing tools.</span></div></li>
+        <li><span class="n grad">2</span><div><strong>Effort &amp; savings estimate</strong><span>Know whether it's worth pursuing before spending a cent.</span></div></li>
+        <li><span class="n grad">3</span><div><strong>A written summary</strong><span>Within two working days — yours to keep.</span></div></li>
+      </ul>
+    </div>
+    <form class="form reveal" data-contact data-subject="AI Quick-Check request" style="padding:32px">
+      <div><h3 style="font-size:1.5rem;margin-bottom:4px">Book your Quick-Check</h3><p class="muted" style="font-size:.9rem;margin:0">We reply within one working day with time slots.</p></div>
+      <div class="two">
+        <div><label for="ln">Name</label><input id="ln" name="name" required autocomplete="name"></div>
+        <div><label for="lb">Business</label><input id="lb" name="business" required autocomplete="organization"></div>
+      </div>
+      <div class="two">
+        <div><label for="le">Email</label><input id="le" name="email" type="email" required autocomplete="email"></div>
+        <div><label for="lp">Phone (optional)</label><input id="lp" name="phone" type="tel" autocomplete="tel"></div>
+      </div>
+      <div class="two">
+        <div><label for="li">Industry</label><select id="li" name="industry" required><option value="">Choose…</option><option>Restaurant / café / bar</option><option>Hotel / guesthouse</option><option>Health clinic / practice</option><option>Beauty / aesthetic / spa</option><option>Other</option></select></div>
+        <div><label for="ls">Team size</label><select id="ls" name="team_size"><option>1–10</option><option>11–50</option><option>51–250</option><option>250+</option></select></div>
+      </div>
+      <div><label for="lm">Biggest time-waster right now?</label><textarea id="lm" name="challenge" placeholder="Booking calls, no-shows, ordering stock, rota planning…"></textarea></div>
+      <label class="consent"><input type="checkbox" name="consent" required> I agree my details are used to arrange the Quick-Check. No newsletter, no spam.</label>
+      <button class="btn btn-primary" type="submit">Request my free Quick-Check <span class="arrow">→</span></button>
+      <div class="form-ok" hidden>Thank you! Your email app should open with your request — just hit send.</div>
+    </form>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Restaurants</span><span>Boutique hotels</span><span>Aesthetic clinics</span><span>Cafés &amp; bars</span><span>Private practices</span><span>Guesthouses</span><span>Spas</span>
+    <span>Restaurants</span><span>Boutique hotels</span><span>Aesthetic clinics</span><span>Cafés &amp; bars</span><span>Private practices</span><span>Guesthouses</span><span>Spas</span>
+  </div>
+</div>
+
+<!-- ROI -->
+<section>
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="kicker">Quick maths</span>
+      <h2>What are missed calls <em>costing</em> you?</h2>
+      <p>Move the sliders. It's a rough estimate — the Quick-Check gives you the real number.</p>
+    </div>
+    <div class="roi reveal" data-roi>
+      <div class="roi-in">
+        <div><label>Missed calls &amp; enquiries per week <b data-for="calls"></b></label><input type="range" name="calls" min="0" max="100" value="25"></div>
+        <div><label>Average booking value <b data-for="value"></b></label><input type="range" name="value" min="20" max="500" step="10" value="90"></div>
+        <div><label>Admin hours per week on phone, email &amp; scheduling <b data-for="hours"></b></label><input type="range" name="hours" min="0" max="60" value="15"></div>
+      </div>
+      <div class="roi-out">
+        <span class="muted">Potential revenue recovered per month</span>
+        <div class="v grad" data-roi-out>€0</div>
+        <span class="muted">Staff time freed per month: <b data-roi-hours style="color:var(--ink)">0 h</b></span>
+        <small>Assumes an AI assistant recovers ~60% of missed enquiries and automates ~60% of routine admin. Illustrative only.</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASES -->
+<section style="padding-top:20px">
+  <div class="wrap">
+    <div class="head reveal"><span class="kicker">What we typically find</span><h2>Quick wins that <em>pay for themselves</em>.</h2></div>
+    <div class="cases">
+      <div class="case reveal"><span class="tag">Gastronomy</span><div class="q">"We miss calls during service."</div><p>An AI booking agent takes reservations by phone, web and WhatsApp, writes them into your system and handles changes — even at 9pm on a Saturday.</p></div>
+      <div class="case reveal d1"><span class="tag">Hospitality</span><div class="q">"Guests ask the same things."</div><p>A multilingual concierge answers check-in, parking and breakfast questions instantly and sends pre-arrival messages that sell upgrades.</p></div>
+      <div class="case reveal d2"><span class="tag">Clinics</span><div class="q">"No-shows cost us every week."</div><p>Smart reminders, self-rescheduling and an automatic waitlist fill gaps in the calendar — set up compliantly.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW -->
+<section style="padding-top:40px">
+  <div class="wrap">
+    <div class="head reveal"><span class="kicker">How it works</span><h2>Three steps. <em>Zero</em> obligation.</h2></div>
+    <div class="steps3 process">
+      <div class="proc reveal"><span class="when">2 minutes</span><h3>Send the form</h3><p>Tell us about your business and your biggest headache.</p></div>
+      <div class="proc reveal d1"><span class="when">30 minutes</span><h3>Video call</h3><p>Talk to one of our consultants. Bring your questions — and your scepticism.</p></div>
+      <div class="proc reveal d2"><span class="when">2 days</span><h3>Your summary</h3><p>Top 3 opportunities with effort and savings, in writing.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM STRIP -->
+<section style="padding-top:40px">
+  <div class="wrap">
+    <div class="head reveal"><span class="kicker">Who you'll talk to</span><h2>Senior people. <em>No</em> sales reps.</h2></div>
+    <div class="team">
+      <article class="member reveal"><div class="portrait p1" style="aspect-ratio:16/9"><span>YN</span></div><div class="body"><h3>[Your Name]</h3><span class="role">AI Implementation Consultant · MSc Oxford</span><p>Technical support engineer who makes AI work inside your existing systems.</p></div></article>
+      <article class="member reveal d1"><div class="portrait p2" style="aspect-ratio:16/9"><span>TS</span></div><div class="body"><h3>Dr. Tibor Sekera</h3><span class="role">Data Scientist · PhD in Physics</span><p>Forecasts and models you can trust, explained in plain language.</p></div></article>
+      <article class="member reveal d2"><div class="portrait p3" style="aspect-ratio:16/9"><span>JL</span></div><div class="body"><h3>Jean Christoph Leob</h3><span class="role">Senior Data Scientist · Agentic AI</span><p>AI agents that book, reschedule and route — with human oversight.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section style="padding-top:40px">
+  <div class="wrap faq-grid">
+    <div class="reveal"><span class="kicker">FAQ</span><h2>Before you <em>ask</em>.</h2><a href="#book" class="btn btn-primary" style="margin-top:20px">Book my Quick-Check <span class="arrow">→</span></a></div>
+    <div class="faq reveal d1">
+      <details open><summary>Is it really free?</summary><p>Yes. No cost, no obligation, no hard sell. If AI isn't a fit right now, we'll tell you.</p></details>
+      <details><summary>Do I need to prepare anything?</summary><p>No. It helps to know which software you use for bookings, POS or appointments — that's it.</p></details>
+      <details><summary>What happens after the call?</summary><p>You get a short written summary. If you want to go further, we offer a Readiness Audit (from €2,900, credited against implementation) or a direct implementation.</p></details>
+      <details><summary>Is my data safe?</summary><p>We only use what you share to prepare your summary. Every solution is GDPR-first, with EU hosting and data processing agreements.</p></details>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer" style="padding-top:40px">
+  <div class="wrap footer-bottom"><span>© <span data-year></span> ImplementAI · <a href="index.html">Main website</a></span><span><a href="#">Imprint</a> · <a href="#">Privacy</a></span></div>
+</footer>
+
+<div class="sticky-cta"><a href="#book" class="btn btn-primary">Book free Quick-Check →</a></div>
+<script src="../shared/site.js"></script>
+</body>
+</html>
