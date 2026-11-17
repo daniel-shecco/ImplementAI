@@ -372,6 +372,18 @@ img.av { object-fit: cover; object-position: 50% 30%; }
   .nav-menu .lang { justify-self: start; width: max-content; }
 }
 
+/* Languages */
+.hero-langs { margin: 22px 0 0 !important; font-size: .9rem !important; font-weight: 700; letter-spacing: .02em; color: var(--ink) !important; }
+.hero-langs span { font-weight: 500; color: var(--ink-3); margin-right: 6px; }
+.lang-band { margin-top: 56px; display: grid; grid-template-columns: 1.2fr .8fr; gap: 48px; align-items: center; padding: 44px; border-radius: 28px; background: var(--paper); border: 1px solid var(--line); }
+.lang-band h3 { font-size: 2.3rem; }
+.lang-band p { margin: 0; color: var(--ink-2); }
+.lang-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.lang-list li { display: flex; align-items: baseline; gap: 12px; padding: 16px 18px; border-radius: 16px; background: var(--cream); border: 1px solid var(--line); font-weight: 600; }
+.lang-list b { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 1.8rem; color: var(--terra); line-height: 1; }
+@media (max-width: 1040px) { .lang-band { grid-template-columns: 1fr; gap: 28px; } }
+@media (max-width: 720px) { .lang-band { padding: 28px 20px; } .lang-band h3 { font-size: 1.9rem; } .lang-list li { padding: 12px 14px; } }
+
 </style>
 </head>
 <body>
@@ -406,6 +418,7 @@ img.av { object-fit: cover; object-position: 50% 30%; }
           <a href="implementai-landing-de.html" class="btn btn-terra">Kostenloser KI-Quick-Check <span class="dot">↗</span></a>
           <a href="#services" class="btn btn-line">Was wir tun</a>
         </div>
+        <p class="hero-langs"><span>Wir arbeiten auf</span> Deutsch · English · Français · Slovenčina</p>
       </div>
       <div class="arches reveal d2">
         <div class="arch"><div class="pattern"></div><div class="glyph">Essen</div>
@@ -506,7 +519,7 @@ img.av { object-fit: cover; object-position: 50% 30%; }
   <div class="wrap">
     <div class="split-head">
       <div class="reveal"><span class="eyebrow"><b>04</b> Team</span><h2>Kleines Team. <i>Viel</i> Erfahrung.</h2></div>
-      <p class="reveal d1">Ein Ingenieur und zwei Data Scientists. Sie arbeiten immer direkt mit den Menschen, die Ihre Lösung planen und umsetzen.</p>
+      <p class="reveal d1">Ein Ingenieur und zwei Data Scientists — wir arbeiten mit Ihnen auf Deutsch, Englisch, Französisch oder Slowakisch. Sie sprechen immer direkt mit den Menschen, die Ihre Lösung planen und umsetzen.</p>
     </div>
     <div class="team">
       <article class="member reveal">
@@ -528,6 +541,10 @@ img.av { object-fit: cover; object-position: 50% 30%; }
         <p>Entwickelt KI-Agenten, die nicht nur antworten, sondern handeln — Termine buchen und verschieben, Anfragen weiterleiten und Ihre Systeme aktualisieren, mit klaren Grenzen und menschlicher Kontrolle.</p>
       </article>
     </div>
+    <div class="lang-band reveal">
+      <div><h3>Wir sprechen die <i>Sprache</i> Ihres Teams.</h3><p>Beratung, Schulungen und Anleitungen auf Deutsch, Englisch, Französisch oder Slowakisch — damit alle in Ihrem Team, von der Küche bis zur Rezeption, in der Sprache lernen, in der sie sich am wohlsten fühlen. Und die Tools, die wir einrichten, sprechen mit Ihren Gästen und Patient:innen in deren Sprache.</p></div>
+      <ul class="lang-list"><li><b>DE</b>Deutsch</li><li><b>EN</b>English</li><li><b>FR</b>Français</li><li><b>SK</b>Slovenčina</li></ul>
+    </div>
   </div>
 </section>
 
@@ -540,7 +557,7 @@ img.av { object-fit: cover; object-position: 50% 30%; }
     </div>
     <div class="plans reveal">
       <div class="plan"><span class="tag">Hier starten</span><h3>Quick-Check</h3><p class="muted">Lohnt sich KI für Sie?</p><div class="amt">€ 0 <small>/ 60 Min.</small></div>
-        <ul><li>Persönlich in Wien oder per Video</li><li>Wir hören uns Ihre Herausforderungen im Alltag an</li><li>Ihre 3 größten Chancen</li><li>Ehrliches Ja oder Nein — kein Verkaufsgespräch</li></ul>
+        <ul><li>Persönlich in Wien oder per Video</li><li>Auf Deutsch, Englisch, Französisch oder Slowakisch</li><li>Wir hören uns Ihre Herausforderungen im Alltag an</li><li>Ihre 3 größten Chancen</li><li>Ehrliches Ja oder Nein — kein Verkaufsgespräch</li></ul>
         <a href="implementai-landing-de.html" class="btn btn-line">Gratis-Stunde buchen</a></div>
       <div class="plan"><span class="tag">Erster Schritt</span><h3>Analyse</h3><p class="muted">Wir beobachten, dann beraten wir.</p><div class="amt">€ 1.490 <small>einmalig</small></div>
         <ul><li>Ein ganzer Tag Beobachtung vor Ort</li><li>Übersicht Ihrer größten Baustellen</li><li>Tool-Empfehlungen inkl. Lizenzkosten</li><li>Schriftlicher Bericht &amp; Besprechung</li><li>Voll angerechnet, wenn Sie innerhalb von 30 Tagen weitermachen</li></ul>
@@ -573,6 +590,7 @@ img.av { object-fit: cover; object-position: 50% 30%; }
     <div class="faq reveal d1">
       <details open><summary>Wir haben noch nie KI genutzt. Ist das etwas für uns?</summary><p>Ja — die meisten unserer Kund:innen fangen bei null an. Wir beginnen mit einem echten Problem, erklären alles verständlich und gehen erst weiter, wenn sich Ihr Team sicher fühlt.</p></details>
       <details><summary>Mit welchen Tools arbeiten Sie?</summary><p>Mit dem, was am besten passt: Microsoft Copilot, ChatGPT, Grok, Gemini sowie spezialisierte Reservierungs-, Chat- und Terminplanungs-Tools. Wir sind herstellerunabhängig, nehmen keine Provisionen und alle Lizenzen laufen auf Ihren Namen.</p></details>
+      <details><summary>In welchen Sprachen arbeiten Sie?</summary><p>Auf Deutsch, Englisch, Französisch und Slowakisch. Gespräche, Schulungen und schriftliche Anleitungen sind in jeder dieser Sprachen möglich — oder gemischt, wenn Ihr Team mehrsprachig ist. Chatbots und Nachrichtenvorlagen für Ihre Gäste und Patient:innen richten wir in vielen weiteren Sprachen ein.</p></details>
       <details><summary>Sind wir danach von Ihnen abhängig?</summary><p>Nein — genau darum geht es. Sie erhalten Anleitungen, einen geschulten KI-Champion im eigenen Team und Administratorzugang zu allem. Wenn Sie später doch Hilfe brauchen, gibt es sie nach Stunden — ein Abo brauchen Sie nicht.</p></details>
       <details><summary>Wie steht es um Datenschutz und Patient:innendaten?</summary><p>Wir wählen Business-Tarife und Einstellungen, bei denen Ihre Daten nicht zum Training verwendet werden, legen klare Regeln fest, was in KI-Tools eingegeben werden darf, und halten Patient:innendaten aus allgemeinen KI-Tools heraus. Alles wird DSGVO-konform aufgesetzt.</p></details>
       <details><summary>Was, wenn es für uns nicht funktioniert?</summary><p>Sie sind nie gebunden. Jeder Schritt hat einen Fixpreis, nach der Analyse können Sie aufhören und behalten den Bericht, die Hälfte des Umsetzungshonorars ist erst fällig, wenn Ihr Team startklar ist, und wir schulen ohne Aufpreis nach, bis Ihr Team die vereinbarten Aufgaben selbstständig erledigt.</p></details>
@@ -589,7 +607,7 @@ img.av { object-fit: cover; object-position: 50% 30%; }
         <span class="eyebrow" style="color:#fff"><b style="border-color:#fff;color:#fff">07</b> Kontakt</span>
         <h2>Finden wir Ihren <i>ersten KI-Erfolg</i>.</h2>
         <p>Erzählen Sie uns von Ihrem Betrieb — wir melden uns innerhalb eines Werktags und vereinbaren einen kostenlosen einstündigen Quick-Check, persönlich in Wien oder per Video.</p>
-        <p>Oder schreiben Sie an <a href="mailto:hello@implementai.example">hello@implementai.example</a></p>
+        <p>Oder schreiben Sie an <a href="mailto:hello@implementai.example">hello@implementai.example</a> — auf Deutsch, English, Français oder Slovenčina.</p>
       </div>
       <form class="form" data-contact data-subject="Anfrage über die Website">
         <div class="two">
