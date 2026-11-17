@@ -165,7 +165,7 @@ section { padding: 120px 0; }
 .member p { color: var(--ink-2); font-size: .98rem; margin: 0; }
 
 /* Pricing */
-.plans { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--ink); border-radius: 28px; overflow: hidden; }
+.plans { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--ink); border-radius: 28px; overflow: hidden; }
 .plan { padding: 40px 36px; display: flex; flex-direction: column; border-left: 1px solid var(--ink); background: var(--paper); }
 .plan:first-child { border-left: 0; }
 .plan.feat { background: var(--ink); color: var(--cream); }
@@ -174,7 +174,10 @@ section { padding: 120px 0; }
 .plan .tag { font-size: .72rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--terra); margin-bottom: 18px; min-height: 1em; }
 .plan.feat .tag { color: var(--butter); }
 .plan h3 { font-size: 2.2rem; margin-bottom: 4px; }
-.plan .amt { font-family: var(--serif); font-size: 3.8rem; letter-spacing: -.04em; line-height: 1; margin: 26px 0 6px; }
+.plan .amt { font-family: var(--serif); font-size: 3.2rem; letter-spacing: -.04em; line-height: 1; margin: 26px 0 6px; }
+.plan h3 { font-size: 2rem; }
+.addons { margin: 22px 0 0; text-align: center; color: var(--ink-2); font-size: .95rem; }
+.addons b { color: var(--ink); }
 .plan .amt small { font-family: var(--sans); font-size: .85rem; letter-spacing: 0; opacity: .7; }
 .plan ul { list-style: none; padding: 0; margin: 26px 0 32px; flex: 1; }
 .plan li { padding: 11px 0; border-top: 1px solid var(--line); font-size: .95rem; color: var(--ink-2); }
@@ -279,6 +282,11 @@ section { padding: 120px 0; }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; } .reveal { opacity: 1; transform: none; } }
 
 /* Responsive */
+@media (max-width: 1240px) and (min-width: 1041px) {
+  .plans { grid-template-columns: 1fr 1fr; }
+  .plan:nth-child(3) { border-left: 0; }
+  .plan:nth-child(n+3) { border-top: 1px solid var(--ink); }
+}
 @media (max-width: 1040px) {
   .hero-row, .split-head, .lp-grid, .faq-wrap, .cta, .roi { grid-template-columns: 1fr; }
   .stats { grid-template-columns: 1fr 1fr; }
@@ -443,7 +451,8 @@ img.av { object-fit: cover; object-position: 50% 30%; }
     <div class="faq reveal d1">
       <details open><summary>Is it really free?</summary><p>Yes. No cost, no obligation, no hard sell. If AI isn't a fit right now, we'll tell you.</p></details>
       <details><summary>Do I need to prepare anything?</summary><p>No. It helps to know which software you use for bookings, POS or appointments — that's it.</p></details>
-      <details><summary>What happens after the call?</summary><p>You get a short written summary. If you'd like to go further, we offer a Readiness Audit (from €2,900, credited against implementation) or a direct implementation.</p></details>
+      <details><summary>What happens after the call?</summary><p>You get a short written summary. If you'd like to go further, start with a Discovery visit (€590, fully credited if you continue) or our Starter package (€1,490): we set up one or two tools and teach your team to use them.</p></details>
+      <details><summary>We've never used AI. Is that a problem?</summary><p>Not at all — most of our clients are first-timers. We explain everything in plain language, and our goal is that your team can run the tools on their own.</p></details>
       <details><summary>Is my data safe?</summary><p>We only use what you share to prepare your summary. Every solution is GDPR-first, with EU hosting and data processing agreements.</p></details>
     </div>
   </div>
