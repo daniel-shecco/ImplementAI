@@ -320,3 +320,8 @@ section { padding: 120px 0; }
   .sticky-cta { display: block; }
   .lp-body { padding-bottom: 80px; }
 }
+
+/* Team photos */
+.member .portrait img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
+.member .portrait.has-photo::before { display: none; }
+img.av { object-fit: cover; object-position: 50% 30%; }
