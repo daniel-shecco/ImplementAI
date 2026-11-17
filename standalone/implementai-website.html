@@ -345,11 +345,22 @@ section { padding: 120px 0; }
 .member .portrait.has-photo::before { display: none; }
 img.av { object-fit: cover; object-position: 50% 30%; }
 
+/* Risk-reversal promises */
+.promises { margin-top: 64px; padding: 44px; border-radius: 28px; background: var(--forest); color: var(--cream); }
+.promises h3 { font-size: 2.2rem; margin-bottom: 28px; }
+.promise-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
+.promise-grid > div { border-top: 1px solid rgba(245,240,231,.25); padding-top: 18px; }
+.promise-grid .pn { font-family: var(--serif); font-style: italic; color: var(--butter); font-size: 1.4rem; display: block; margin-bottom: 6px; }
+.promise-grid b { display: block; font-size: 1.05rem; margin-bottom: 6px; }
+.promise-grid p { margin: 0; color: rgba(245,240,231,.78); font-size: .95rem; }
+@media (max-width: 1040px) { .promise-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 720px) { .promise-grid { grid-template-columns: 1fr; } .promises { padding: 30px 22px; } }
+
 </style>
 </head>
 <body>
 
-<div class="announce">Now booking: free 30-minute AI Quick-Checks for restaurants, hotels &amp; clinics — <a href="implementai-landing.html">reserve a slot →</a></div>
+<div class="announce">Now booking: free one-hour AI Quick-Checks for restaurants, hotels &amp; clinics — <a href="implementai-landing.html">reserve a slot →</a></div>
 
 <header class="header">
   <div class="wrap nav">
@@ -397,7 +408,7 @@ img.av { object-fit: cover; object-position: 50% 30%; }
 <!-- STATS -->
 <div class="wrap">
   <div class="stats reveal">
-    <div class="stat"><div class="n">€0</div><p>for the first conversation — no obligation, no jargon</p></div>
+    <div class="stat"><div class="n">1<sup>h</sup></div><p>free first meeting — no obligation, no jargon</p></div>
     <div class="stat"><div class="n">2–4<sup>wk</sup></div><p>from first visit to your team using the tools</p></div>
     <div class="stat"><div class="n">10<sup>h</sup></div><p>admin hours we aim to free up per week, per location</p></div>
     <div class="stat"><div class="n">0</div><p>lock-in: every tool and account is in your name</p></div>
@@ -507,24 +518,34 @@ img.av { object-fit: cover; object-position: 50% 30%; }
 <section id="pricing" style="padding-top:40px">
   <div class="wrap">
     <div class="split-head">
-      <div class="reveal"><span class="eyebrow"><b>05</b> Pricing</span><h2>Start small. <i>Fixed</i> prices.</h2></div>
-      <p class="reveal d1">Built for first-time AI users: start with one problem and grow only if it works for you. All prices excl. VAT. Tool licences are billed directly by the vendor, in your name.</p>
+      <div class="reveal"><span class="eyebrow"><b>05</b> Pricing</span><h2>Fixed prices. <i>Low</i> risk.</h2></div>
+      <p class="reveal d1">Start with a free hour, then go one step at a time — you decide after each step whether to continue. All prices excl. VAT. Tool licences are billed directly by the vendor, in your name.</p>
     </div>
     <div class="plans reveal">
-      <div class="plan"><span class="tag">Start here</span><h3>Quick-Check</h3><p class="muted">Is AI worth it for you?</p><div class="amt">€0 <small>/ 30 min</small></div>
-        <ul><li>Video or phone call</li><li>Your top 3 opportunities</li><li>Honest yes or no — no sales pitch</li></ul>
-        <a href="implementai-landing.html" class="btn btn-line">Book a call</a></div>
-      <div class="plan"><span class="tag">Low-risk first step</span><h3>Discovery</h3><p class="muted">We observe, then advise.</p><div class="amt">€590 <small>one-off</small></div>
-        <ul><li>Half-day on-site observation</li><li>Map of your biggest pains</li><li>Tool recommendations with licence costs</li><li>Written report &amp; walkthrough call</li><li>Fully credited if you continue</li></ul>
+      <div class="plan"><span class="tag">Start here</span><h3>Quick-Check</h3><p class="muted">Is AI worth it for you?</p><div class="amt">€0 <small>/ 60 min</small></div>
+        <ul><li>In person in Vienna or by video</li><li>We listen to your day-to-day pains</li><li>Your top 3 opportunities</li><li>Honest yes or no — no sales pitch</li></ul>
+        <a href="implementai-landing.html" class="btn btn-line">Book a free hour</a></div>
+      <div class="plan"><span class="tag">First step</span><h3>Discovery</h3><p class="muted">We observe, then advise.</p><div class="amt">€1,490 <small>one-off</small></div>
+        <ul><li>A full day observing on-site</li><li>Map of your biggest pains</li><li>Tool recommendations with licence costs</li><li>Written report &amp; walkthrough meeting</li><li>Fully credited if you continue within 30 days</li></ul>
         <a href="#contact" class="btn btn-line">Book Discovery</a></div>
-      <div class="plan feat"><span class="tag">Most popular</span><h3>Starter</h3><p class="muted">Fix your biggest pain.</p><div class="amt">€1,490 <small>one-off</small></div>
-        <ul><li>Discovery included</li><li>1–2 tools set up &amp; connected</li><li>2-hour hands-on team training</li><li>Step-by-step playbook</li><li>30 days of help by email &amp; WhatsApp</li></ul>
+      <div class="plan feat"><span class="tag">Most popular</span><h3>Starter</h3><p class="muted">Fix your biggest pain.</p><div class="amt">€3,900 <small>one-off</small></div>
+        <ul><li>Discovery included</li><li>1–2 tools set up &amp; connected</li><li>2 hands-on training sessions</li><li>Step-by-step playbook</li><li>30 days of help by email &amp; WhatsApp</li></ul>
         <a href="#contact" class="btn btn-terra">Get started</a></div>
-      <div class="plan"><span class="tag">Fully self-sufficient</span><h3>Complete</h3><p class="muted">AI across the business.</p><div class="amt">€3,900 <small>one-off</small></div>
-        <ul><li>Two days of observation</li><li>Up to 4 tools set up &amp; connected</li><li>3 training sessions, incl. role-specific</li><li>AI champion coaching &amp; playbooks</li><li>Privacy guidelines for your team</li><li>60 days of help + 3-month check-up</li></ul>
+      <div class="plan"><span class="tag">Fully self-sufficient</span><h3>Complete</h3><p class="muted">AI across the business.</p><div class="amt">€8,900 <small>one-off</small></div>
+        <ul><li>Two to three days of observation</li><li>Up to 5 tools set up &amp; connected</li><li>4 training sessions, incl. role-specific</li><li>AI champion coaching &amp; playbooks</li><li>Privacy guidelines for your team</li><li>60 days of help + 3-month check-up</li></ul>
         <a href="#contact" class="btn btn-line">Talk to us</a></div>
     </div>
-    <p class="addons reveal">Need a bit more later? <b>Extra training session</b> €290 (2 h, up to 8 people) · <b>Hourly help</b> €120 — no subscription, ever.</p>
+    <p class="addons reveal">Later on, only if you want it: <b>extra training</b> €490 per half day (up to 10 people) · <b>hourly help</b> €150 — no subscription, ever.</p>
+
+    <div class="promises reveal">
+      <h3>How we take the risk off you</h3>
+      <div class="promise-grid">
+        <div><span class="pn">i.</span><b>A free first hour</b><p>Meet us, ask anything, and get an honest view before spending a cent.</p></div>
+        <div><span class="pn">ii.</span><b>Stop after any step</b><p>Every step has a fixed price. After Discovery you own the report and can stop — or implement it yourselves.</p></div>
+        <div><span class="pn">iii.</span><b>Pay half at handover</b><p>For Starter and Complete you pay 50% at the start and 50% only once your team is trained and the tools are running.</p></div>
+        <div><span class="pn">iv.</span><b>We train until it sticks</b><p>If your team can't yet do the agreed tasks on their own at handover, we come back and retrain at no extra cost.</p></div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -537,6 +558,7 @@ img.av { object-fit: cover; object-position: 50% 30%; }
       <details><summary>Which tools do you work with?</summary><p>Whatever fits best: Microsoft Copilot, ChatGPT, Grok, Gemini and specialised booking, chat and scheduling tools. We're vendor-neutral, earn no commissions, and every licence is in your name.</p></details>
       <details><summary>Will we depend on you afterwards?</summary><p>No — that's the point. You get playbooks, a trained in-house AI champion and admin access to everything. If you ever want help again, it's there by the hour, but you won't need a subscription.</p></details>
       <details><summary>What about data protection and patient data?</summary><p>We choose business plans and settings that don't train on your data, set clear rules for what may go into AI tools, and keep patient data out of general-purpose AI. Everything is set up GDPR-first.</p></details>
+      <details><summary>What if it doesn't work for us?</summary><p>You're never locked in. Every step has a fixed price, you can stop after Discovery and keep the report, half of the implementation fee is only due once your team is up and running, and we retrain at no cost until your team can do the agreed tasks on their own.</p></details>
       <details><summary>Will AI replace my staff?</summary><p>That's not the goal. The tools take over repetitive work so your people can focus on hospitality and care.</p></details>
     </div>
   </div>
@@ -549,7 +571,7 @@ img.av { object-fit: cover; object-position: 50% 30%; }
       <div>
         <span class="eyebrow" style="color:#fff"><b style="border-color:#fff;color:#fff">07</b> Contact</span>
         <h2>Let's find your <i>first AI win</i>.</h2>
-        <p>Tell us about your business — we'll reply within one working day to schedule a free 30-minute Quick-Check.</p>
+        <p>Tell us about your business — we'll reply within one working day to schedule a free one-hour Quick-Check — in person in Vienna or by video.</p>
         <p>Or write to <a href="mailto:hello@implementai.example">hello@implementai.example</a></p>
       </div>
       <form class="form" data-contact data-subject="Website enquiry">
