@@ -5,7 +5,8 @@ Website for an AI implementation consultancy serving SMEs in gastronomy, hospita
 ## Live site (Atelier design)
 - `index.html` — main website (English)
 - `landing.html` — landing page for the free one-hour "AI Quick-Check" (English)
-- `de/index.html`, `de/landing.html` — German (Austrian) versions; every page has an EN/DE switch
+- `pilot.html` — pilot programme: free Starter pack for 10 selected businesses, with a use-case application form
+- `de/index.html`, `de/landing.html`, `de/pilot.html` — German (Austrian) versions; every page has an EN/DE switch
 - `assets/style.css`, `assets/site.js`, `assets/img/` (when added) — styles, behaviour, images
 
 No build step: deploy the repository root to any static host (GitHub Pages, Netlify, Vercel).
@@ -19,6 +20,7 @@ python3 build.py
 
 - `implementai-website.html`, `implementai-landing.html` — the chosen Atelier design (English)
 - `implementai-website-de.html`, `implementai-landing-de.html` — German versions
+- `implementai-pilot.html`, `implementai-pilot-de.html` — pilot programme page (English, German)
 - `midnight-*.html`, `classic-*.html` — alternative design directions (sources in `designs/`)
 
 ## Before going live
