@@ -49,11 +49,12 @@ Run the ads with a lead form (Objective: Leads, Instant Form), so people can app
 |---|---|
 | Form type | Higher intent (adds a review step, fewer but better applications) |
 | Intro headline | EN: "Your biggest daily headache, analysed free" · DE: "Ihr größtes Alltagsproblem, kostenlos analysiert" |
-| Intro text | EN: "10 businesses get our Discovery Pack free (normally €1,490). Describe one real problem that costs you time every week." · DE: "10 Betriebe erhalten unser Analyse-Paket gratis (regulär € 1.490). Beschreiben Sie ein echtes Problem, das Sie jede Woche Zeit kostet." |
+| Status line (first line of the intro) | EN: "Launching in Vienna in 2027. Register your interest now." · DE: "Start in Wien 2027. Jetzt Interesse anmelden." |
+| Intro text | EN: "When we launch, 10 businesses get our Discovery Pack free (planned price €1,490). Describe one real problem that costs you time every week." · DE: "Zum Start erhalten 10 Betriebe unser Analyse-Paket gratis (geplanter Preis € 1.490). Beschreiben Sie ein echtes Problem, das Sie jede Woche Zeit kostet." |
 | Prefilled questions | Full name, Email, Phone (optional) |
-| Custom questions | Business name (short answer) · Industry (multiple choice: Gastronomy, Hospitality, Wellness & Beauty, Other) · Team size (multiple choice: 1–10, 11–50, 51–250) · What's the problem? · How often does it happen? · Who deals with it? · What does it cost you? (all short answer) |
+| Custom questions | Business name (short answer) · Industry (multiple choice: Gastronomy, Hospitality, Wellness & Beauty, Other) · Team size (multiple choice: 1–10, 11–50, 51–250) · What's the problem? · How often does it happen? · Who deals with it? · What does it cost you? (all short answer) · When would you like this problem solved? (multiple choice: As soon as possible, In the next 3 months, This year, Just curious for now) · Reserve my founding-client benefits: first in line when we start, a free follow-up visit 3 months after the analysis, a founding-client rate for later implementation (multiple choice: Yes, No) |
 | Privacy policy | Link to your privacy policy page. **Required by Facebook; the website page is still a placeholder.** |
-| Thank-you screen | EN: "Thank you! Check your inbox: we've sent you a confirmation. We reply to every application within 2 working days." · DE: "Danke! Wir haben Ihnen eine Bestätigung per E-Mail geschickt und antworten auf jede Bewerbung innerhalb von 2 Werktagen." |
+| Thank-you screen | EN: "Thank you! Check your inbox: we've sent you a confirmation. We'll be in touch before we launch." · DE: "Danke! Wir haben Ihnen eine Bestätigung per E-Mail geschickt und melden uns vor unserem Start." |
 
 Use one form per language (EN and DE), so the confirmation goes out in the right language.
 
@@ -71,6 +72,7 @@ Use one form per language (EN and DE), so the confirmation goes out in the right
 | Name, Email, Phone | From the lead |
 | Business, Industry, Team size | Custom answers |
 | Problem, How often, Who deals with it, What it costs | Custom answers |
+| Timing, Founding benefits | Custom answers (always store the English wording: As soon as possible / In the next 3 months / This year / Just curious for now, and Yes / No) |
 | Status | `New` (fixed) |
 
 When the website is online, link the ads to `pilot.html?utm_source=facebook&utm_medium=paid&utm_campaign=pilot` (German: `de/pilot.html?...`). Website applications from the ads are then marked "Facebook" in the Source column.
@@ -87,6 +89,8 @@ When the website is online, link the ads to `pilot.html?utm_source=facebook&utm_
 | On-site day + 5 working days | Report, then one-hour walkthrough | Discovery done | Ask for feedback and, if agreed, a quote for the case study |
 
 The Overview tab shows places left, applications by status, industry and source, and how many reach the shortlist threshold.
+
+**Interest test (go / no-go).** The Overview also counts urgent registrations (as soon as possible or within 3 months), founding benefits reserved, and strong leads (both). The go target (5 strong leads by default) is an input you can change. Agree on it with the team before the ads start.
 
 ## Still open
 

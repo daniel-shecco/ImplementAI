@@ -17,8 +17,8 @@ var CONFIG = {
   SPREADSHEET_ID: '1rBI76hgVDs0AlgDZo-9r6d9259FILZjBvhjEaBE-X7A',
   REPLY_TO: '',              // e.g. 'hello@implementai.at' (replies go here); empty = the sending account
   SENDER_NAME: 'ImplementAI',
-  SELECTION_DATE_EN: '',     // e.g. '15 December' -> "by 15 December"; empty -> "in the coming weeks"
-  SELECTION_DATE_DE: '',     // e.g. '15. Dezember' -> "bis 15. Dezember"; empty -> "in den nächsten Wochen"
+  SELECTION_DATE_EN: '',     // e.g. '15 December' -> "by 15 December"; empty -> "before we launch"
+  SELECTION_DATE_DE: '',     // e.g. '15. Dezember' -> "bis 15. Dezember"; empty -> "vor unserem Start"
   BOOKING_LINK: '',          // e.g. a Google Calendar booking page; empty -> ask for times by reply
   NOTIFY_TEAM: '',           // optional: comma-separated addresses that get a short notice per new application
 };
@@ -30,7 +30,7 @@ var ENQUIRIES = 'Enquiries';
 // Applicants columns (1-based)
 var A = { id: 1, received: 2, source: 3, lang: 4, name: 5, business: 6, email: 7, phone: 8, industry: 9, team: 10,
           software: 11, problem: 12, often: 13, who: 14, cost: 15, solved: 16, problem2: 17, caseStudy: 18,
-          status: 19, confirmed: 20, nextDate: 28, notes: 29 };
+          status: 19, confirmed: 20, nextDate: 28, notes: 29, timing: 30, perk: 31 };
 // Enquiries columns (1-based)
 var E = { id: 1, received: 2, form: 3, source: 4, lang: 5, name: 6, business: 7, email: 8, phone: 9, industry: 10,
           team: 11, message: 12, status: 13, confirmed: 14, notes: 18 };
@@ -81,6 +81,8 @@ function addApplicant_(p) {
   row[A.confirmed - 1] = '';
   for (var i = A.confirmed; i < A.notes - 1; i++) row[i] = '';
   row[A.notes - 1] = industry ? 'Industry as entered: ' + industry : '';
+  row[A.timing - 1] = timing_(pick_(p, 'timing', 'zeitplan'));
+  row[A.perk - 1] = pick_(p, 'founding_perk', 'gruender_vorteil') ? 'Yes' : 'No';
   writeRow_(sh, row);
   notifyTeam_('New pilot application: ' + row[A.business - 1] + ' (' + row[A.industry - 1] + ')', row[A.problem - 1]);
 }
@@ -192,8 +194,8 @@ function render_(key, lang, data) {
     DiscoveryDate: data.DiscoveryDate || '[date]',
     Signature: TEMPLATE_VARS.Signature[lang],
     SelectionWhen: lang === 'DE'
-      ? (CONFIG.SELECTION_DATE_DE ? 'bis ' + CONFIG.SELECTION_DATE_DE : 'in den nächsten Wochen')
-      : (CONFIG.SELECTION_DATE_EN ? 'by ' + CONFIG.SELECTION_DATE_EN : 'in the coming weeks'),
+      ? (CONFIG.SELECTION_DATE_DE ? 'bis ' + CONFIG.SELECTION_DATE_DE : 'vor unserem Start')
+      : (CONFIG.SELECTION_DATE_EN ? 'by ' + CONFIG.SELECTION_DATE_EN : 'before we launch'),
     BookingSentence: lang === 'DE'
       ? (CONFIG.BOOKING_LINK ? 'Bitte wählen Sie hier einen passenden Termin: ' + CONFIG.BOOKING_LINK
                              : 'Bitte antworten Sie mit zwei oder drei Terminen, die Ihnen diese oder nächste Woche passen.')
@@ -224,12 +226,19 @@ function sheet_(name) {
 function writeRow_(sh, row) {
   // Write below the last row that has any content (website rows, Facebook rows from Zapier/Make, manual rows).
   var r = sh.getLastRow();
-  // Write only up to "Confirmation sent" plus the Notes cell: the Score column holds a formula
-  // that fills the whole column, and writing into it (even an empty value) would break it.
-  var notesCol = row.length;
-  var firstPart = row.slice(0, sh.getName() === APPLICANTS ? A.confirmed : E.confirmed);
+  // Write only up to "Confirmation sent", then the filled cells after it (Notes, Timing, Founding benefits):
+  // the Score column holds a formula that fills the whole column, and writing into it (even an empty value) would break it.
+  var start = sh.getName() === APPLICANTS ? A.confirmed : E.confirmed;
+  var firstPart = row.slice(0, start);
   sh.getRange(r + 1, 1, 1, firstPart.length).setValues([firstPart]);
-  if (row[notesCol - 1]) sh.getRange(r + 1, notesCol).setValue(row[notesCol - 1]);
+  for (var c = start; c < row.length; c++) if (row[c]) sh.getRange(r + 1, c + 1).setValue(row[c]);
+}
+
+// Website answers come in English or German; the Sheet always stores the English wording.
+function timing_(v) {
+  var map = { 'So bald wie möglich': 'As soon as possible', 'In den nächsten 3 Monaten': 'In the next 3 months',
+              'Dieses Jahr': 'This year', 'Erst einmal nur neugierig': 'Just curious for now' };
+  return map[v] || v || '';
 }
 
 function nextId_(sh, prefix) {

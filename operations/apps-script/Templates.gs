@@ -2,32 +2,32 @@
 var TEMPLATES = {
  "pilot_confirmation": {
   "EN": {
-   "subject": "Your application to the ImplementAI pilot programme",
-   "body": "Hello {{Name}},\n\nThank you for applying for one of our 10 free Discovery Packs. We have received your application for {{Business}}.\n\nWhat happens next:\n1. We read every application ourselves and reply within 2 working days.\n2. If your use case is a good fit, we invite you to a 30-minute call to understand the problem better.\n3. We choose the 10 businesses {{SelectionWhen}} and let every applicant know.\n\nThe problem you described:\n\"{{Problem}}\"\n\nIf you would like to add anything, such as numbers or a second example, simply reply to this email.\n\n{{Signature}}"
+   "subject": "Your registration for a free ImplementAI Discovery Pack",
+   "body": "Hello {{Name}},\n\nThank you for registering your interest in one of our 10 free Discovery Packs. We have received your registration for {{Business}}.\n\nImplementAI is launching in Vienna in 2027, and we are not taking on work yet. What happens next:\n1. We read every registration ourselves.\n2. Before we launch, we invite the most promising registrations to a 30-minute call to understand the problem better.\n3. We choose the 10 businesses {{SelectionWhen}} and let everyone who registered know.\n\nThe problem you described:\n\"{{Problem}}\"\n\nIf you would like to add anything, such as numbers or a second example, simply reply to this email.\n\n{{Signature}}"
   },
   "DE": {
-   "subject": "Ihre Bewerbung für das ImplementAI-Pilotprogramm",
-   "body": "Guten Tag {{Name}},\n\ndanke für Ihre Bewerbung um eines unserer 10 kostenlosen Analyse-Pakete. Wir haben Ihre Bewerbung für {{Business}} erhalten.\n\nSo geht es weiter:\n1. Wir lesen jede Bewerbung selbst und melden uns innerhalb von 2 Werktagen.\n2. Wenn Ihr Anwendungsfall gut passt, laden wir Sie zu einem 30-minütigen Gespräch ein, um das Problem besser zu verstehen.\n3. Wir wählen die 10 Betriebe {{SelectionWhen}} aus und informieren alle Bewerber:innen.\n\nDas Problem, das Sie beschrieben haben:\n„{{Problem}}“\n\nWenn Sie etwas ergänzen möchten, etwa Zahlen oder ein zweites Beispiel, antworten Sie einfach auf diese E-Mail.\n\n{{Signature}}"
+   "subject": "Ihre Anmeldung für ein kostenloses ImplementAI-Analyse-Paket",
+   "body": "Guten Tag {{Name}},\n\ndanke für Ihr Interesse an einem unserer 10 kostenlosen Analyse-Pakete. Wir haben Ihre Anmeldung für {{Business}} erhalten.\n\nImplementAI startet 2027 in Wien, und noch nehmen wir keine Aufträge an. So geht es weiter:\n1. Wir lesen jede Anmeldung selbst.\n2. Vor dem Start laden wir die vielversprechendsten Anmeldungen zu einem 30-minütigen Gespräch ein, um das Problem besser zu verstehen.\n3. Wir wählen die 10 Betriebe {{SelectionWhen}} aus und informieren alle, die sich angemeldet haben.\n\nDas Problem, das Sie beschrieben haben:\n„{{Problem}}“\n\nWenn Sie etwas ergänzen möchten, etwa Zahlen oder ein zweites Beispiel, antworten Sie einfach auf diese E-Mail.\n\n{{Signature}}"
   }
  },
  "pilot_more_info": {
   "EN": {
-   "subject": "A quick question about your application",
-   "body": "Hello {{Name}},\n\nThank you for your application for {{Business}}. To assess it fairly, we need a little more detail:\n\n- How often does the problem happen, per day or per week?\n- Roughly how much time or money does it cost you?\n- Which software or tools do you use for it today?\n\nA few lines are enough. Just reply to this email.\n\n{{Signature}}"
+   "subject": "A quick question about your registration",
+   "body": "Hello {{Name}},\n\nThank you for your registration for {{Business}}. To assess it fairly, we need a little more detail:\n\n- How often does the problem happen, per day or per week?\n- Roughly how much time or money does it cost you?\n- Which software or tools do you use for it today?\n\nA few lines are enough. Just reply to this email.\n\n{{Signature}}"
   },
   "DE": {
-   "subject": "Eine kurze Frage zu Ihrer Bewerbung",
-   "body": "Guten Tag {{Name}},\n\ndanke für Ihre Bewerbung für {{Business}}. Damit wir sie fair beurteilen können, brauchen wir noch ein paar Details:\n\n- Wie oft tritt das Problem auf, pro Tag oder pro Woche?\n- Wie viel Zeit oder Geld kostet es Sie ungefähr?\n- Welche Software oder Tools verwenden Sie dafür heute?\n\nEin paar Zeilen genügen. Antworten Sie einfach auf diese E-Mail.\n\n{{Signature}}"
+   "subject": "Eine kurze Frage zu Ihrer Anmeldung",
+   "body": "Guten Tag {{Name}},\n\ndanke für Ihre Anmeldung für {{Business}}. Damit wir sie fair beurteilen können, brauchen wir noch ein paar Details:\n\n- Wie oft tritt das Problem auf, pro Tag oder pro Woche?\n- Wie viel Zeit oder Geld kostet es Sie ungefähr?\n- Welche Software oder Tools verwenden Sie dafür heute?\n\nEin paar Zeilen genügen. Antworten Sie einfach auf diese E-Mail.\n\n{{Signature}}"
   }
  },
  "pilot_shortlisted": {
   "EN": {
-   "subject": "Your application is on our shortlist",
-   "body": "Hello {{Name}},\n\nGood news: your application for {{Business}} is on our shortlist for the pilot programme.\n\nBefore we make the final choice, we would like to talk with you for 30 minutes, by video or in person in Vienna. We will ask about the problem you described, how your day runs and which tools you use today.\n\n{{BookingSentence}}\n\n{{Signature}}"
+   "subject": "Your registration is on our shortlist",
+   "body": "Hello {{Name}},\n\nGood news: your registration for {{Business}} is on our shortlist for the pilot programme.\n\nBefore we make the final choice, we would like to talk with you for 30 minutes, by video or in person in Vienna. We will ask about the problem you described, how your day runs and which tools you use today.\n\n{{BookingSentence}}\n\n{{Signature}}"
   },
   "DE": {
-   "subject": "Ihre Bewerbung ist in der engeren Auswahl",
-   "body": "Guten Tag {{Name}},\n\ngute Nachrichten: Ihre Bewerbung für {{Business}} ist in der engeren Auswahl für unser Pilotprogramm.\n\nBevor wir endgültig entscheiden, möchten wir 30 Minuten mit Ihnen sprechen, per Video oder persönlich in Wien. Wir fragen nach dem Problem, das Sie beschrieben haben, nach Ihrem Arbeitsalltag und nach den Tools, die Sie heute verwenden.\n\n{{BookingSentence}}\n\n{{Signature}}"
+   "subject": "Ihre Anmeldung ist in der engeren Auswahl",
+   "body": "Guten Tag {{Name}},\n\ngute Nachrichten: Ihre Anmeldung für {{Business}} ist in der engeren Auswahl für unser Pilotprogramm.\n\nBevor wir endgültig entscheiden, möchten wir 30 Minuten mit Ihnen sprechen, per Video oder persönlich in Wien. Wir fragen nach dem Problem, das Sie beschrieben haben, nach Ihrem Arbeitsalltag und nach den Tools, die Sie heute verwenden.\n\n{{BookingSentence}}\n\n{{Signature}}"
   }
  },
  "pilot_selected": {
@@ -42,12 +42,12 @@ var TEMPLATES = {
  },
  "pilot_not_selected": {
   "EN": {
-   "subject": "Your application to the ImplementAI pilot programme",
-   "body": "Hello {{Name}},\n\nThank you for applying with {{Business}} and for taking the time to describe your problem.\n\nWe received many good applications and could only choose 10. This time your business is not among them. We chose a mix of industries and problems that ready-made AI tools can solve within a few weeks.\n\nIf you would still like to explore AI for your business, you can book a free one-hour Quick-Check with us at any time. Just reply to this email.\n\n{{Signature}}"
+   "subject": "Your registration for a free ImplementAI Discovery Pack",
+   "body": "Hello {{Name}},\n\nThank you for registering with {{Business}} and for taking the time to describe your problem.\n\nWe received many good registrations and could only choose 10. This time your business is not among them. We chose a mix of industries and problems that ready-made AI tools can solve within a few weeks.\n\nIf you would still like to explore AI for your business, you can book a free one-hour Quick-Check with us once we have launched. Just reply to this email.\n\n{{Signature}}"
   },
   "DE": {
-   "subject": "Ihre Bewerbung für das ImplementAI-Pilotprogramm",
-   "body": "Guten Tag {{Name}},\n\ndanke, dass Sie sich mit {{Business}} beworben und Ihr Problem so genau beschrieben haben.\n\nWir haben viele gute Bewerbungen erhalten und konnten nur 10 auswählen. Diesmal ist Ihr Betrieb nicht dabei. Wir haben eine Mischung aus Branchen und Problemen gewählt, die fertige KI-Tools innerhalb weniger Wochen lösen können.\n\nWenn Sie KI für Ihren Betrieb trotzdem ausloten möchten, können Sie jederzeit einen kostenlosen einstündigen Quick-Check mit uns vereinbaren. Antworten Sie einfach auf diese E-Mail.\n\n{{Signature}}"
+   "subject": "Ihre Anmeldung für ein kostenloses ImplementAI-Analyse-Paket",
+   "body": "Guten Tag {{Name}},\n\ndanke, dass Sie sich mit {{Business}} angemeldet und Ihr Problem so genau beschrieben haben.\n\nWir haben viele gute Anmeldungen erhalten und konnten nur 10 auswählen. Diesmal ist Ihr Betrieb nicht dabei. Wir haben eine Mischung aus Branchen und Problemen gewählt, die fertige KI-Tools innerhalb weniger Wochen lösen können.\n\nWenn Sie KI für Ihren Betrieb trotzdem ausloten möchten, können Sie nach unserem Start einen kostenlosen einstündigen Quick-Check mit uns vereinbaren. Antworten Sie einfach auf diese E-Mail.\n\n{{Signature}}"
   }
  },
  "discovery_prep": {
@@ -73,7 +73,7 @@ var TEMPLATES = {
 };
 var TEMPLATE_VARS = {
  "Signature": {
-  "EN": "Kind regards,\nDaniel, Tibor and Jean Christoph\nImplementAI · Vienna",
-  "DE": "Freundliche Grüße\nDaniel, Tibor und Jean Christoph\nImplementAI · Wien"
+  "EN": "Kind regards,\nThe ImplementAI team\nVienna",
+  "DE": "Freundliche Grüße\nIhr ImplementAI-Team\nWien"
  }
 };

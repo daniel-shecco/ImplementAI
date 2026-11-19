@@ -15,31 +15,31 @@ Generated from `operations/src/make_templates.py`; edit the texts there and run 
 **Signature (EN)**
 ```
 Kind regards,
-Daniel, Tibor and Jean Christoph
-ImplementAI · Vienna
+The ImplementAI team
+Vienna
 ```
 **Signature (DE)**
 ```
 Freundliche Grüße
-Daniel, Tibor und Jean Christoph
-ImplementAI · Wien
+Ihr ImplementAI-Team
+Wien
 ```
 
 ## 1. `pilot_confirmation`
 
-*Sent automatically when a pilot application arrives (status New → Confirmation sent).*
+*Sent automatically when a pilot registration arrives (status New → Confirmation sent).*
 
-**English: subject** Your application to the ImplementAI pilot programme
+**English: subject** Your registration for a free ImplementAI Discovery Pack
 
 ```
 Hello {{Name}},
 
-Thank you for applying for one of our 10 free Discovery Packs. We have received your application for {{Business}}.
+Thank you for registering your interest in one of our 10 free Discovery Packs. We have received your registration for {{Business}}.
 
-What happens next:
-1. We read every application ourselves and reply within 2 working days.
-2. If your use case is a good fit, we invite you to a 30-minute call to understand the problem better.
-3. We choose the 10 businesses {{SelectionWhen}} and let every applicant know.
+ImplementAI is launching in Vienna in 2027, and we are not taking on work yet. What happens next:
+1. We read every registration ourselves.
+2. Before we launch, we invite the most promising registrations to a 30-minute call to understand the problem better.
+3. We choose the 10 businesses {{SelectionWhen}} and let everyone who registered know.
 
 The problem you described:
 "{{Problem}}"
@@ -49,17 +49,17 @@ If you would like to add anything, such as numbers or a second example, simply r
 {{Signature}}
 ```
 
-**German: subject** Ihre Bewerbung für das ImplementAI-Pilotprogramm
+**German: subject** Ihre Anmeldung für ein kostenloses ImplementAI-Analyse-Paket
 
 ```
 Guten Tag {{Name}},
 
-danke für Ihre Bewerbung um eines unserer 10 kostenlosen Analyse-Pakete. Wir haben Ihre Bewerbung für {{Business}} erhalten.
+danke für Ihr Interesse an einem unserer 10 kostenlosen Analyse-Pakete. Wir haben Ihre Anmeldung für {{Business}} erhalten.
 
-So geht es weiter:
-1. Wir lesen jede Bewerbung selbst und melden uns innerhalb von 2 Werktagen.
-2. Wenn Ihr Anwendungsfall gut passt, laden wir Sie zu einem 30-minütigen Gespräch ein, um das Problem besser zu verstehen.
-3. Wir wählen die 10 Betriebe {{SelectionWhen}} aus und informieren alle Bewerber:innen.
+ImplementAI startet 2027 in Wien, und noch nehmen wir keine Aufträge an. So geht es weiter:
+1. Wir lesen jede Anmeldung selbst.
+2. Vor dem Start laden wir die vielversprechendsten Anmeldungen zu einem 30-minütigen Gespräch ein, um das Problem besser zu verstehen.
+3. Wir wählen die 10 Betriebe {{SelectionWhen}} aus und informieren alle, die sich angemeldet haben.
 
 Das Problem, das Sie beschrieben haben:
 „{{Problem}}“
@@ -73,12 +73,12 @@ Wenn Sie etwas ergänzen möchten, etwa Zahlen oder ein zweites Beispiel, antwor
 
 *Draft for status Needs more info: the description is too vague to score.*
 
-**English: subject** A quick question about your application
+**English: subject** A quick question about your registration
 
 ```
 Hello {{Name}},
 
-Thank you for your application for {{Business}}. To assess it fairly, we need a little more detail:
+Thank you for your registration for {{Business}}. To assess it fairly, we need a little more detail:
 
 - How often does the problem happen, per day or per week?
 - Roughly how much time or money does it cost you?
@@ -89,12 +89,12 @@ A few lines are enough. Just reply to this email.
 {{Signature}}
 ```
 
-**German: subject** Eine kurze Frage zu Ihrer Bewerbung
+**German: subject** Eine kurze Frage zu Ihrer Anmeldung
 
 ```
 Guten Tag {{Name}},
 
-danke für Ihre Bewerbung für {{Business}}. Damit wir sie fair beurteilen können, brauchen wir noch ein paar Details:
+danke für Ihre Anmeldung für {{Business}}. Damit wir sie fair beurteilen können, brauchen wir noch ein paar Details:
 
 - Wie oft tritt das Problem auf, pro Tag oder pro Woche?
 - Wie viel Zeit oder Geld kostet es Sie ungefähr?
@@ -109,12 +109,12 @@ Ein paar Zeilen genügen. Antworten Sie einfach auf diese E-Mail.
 
 *Draft for status Shortlisted: invite to a 30-minute call.*
 
-**English: subject** Your application is on our shortlist
+**English: subject** Your registration is on our shortlist
 
 ```
 Hello {{Name}},
 
-Good news: your application for {{Business}} is on our shortlist for the pilot programme.
+Good news: your registration for {{Business}} is on our shortlist for the pilot programme.
 
 Before we make the final choice, we would like to talk with you for 30 minutes, by video or in person in Vienna. We will ask about the problem you described, how your day runs and which tools you use today.
 
@@ -123,12 +123,12 @@ Before we make the final choice, we would like to talk with you for 30 minutes, 
 {{Signature}}
 ```
 
-**German: subject** Ihre Bewerbung ist in der engeren Auswahl
+**German: subject** Ihre Anmeldung ist in der engeren Auswahl
 
 ```
 Guten Tag {{Name}},
 
-gute Nachrichten: Ihre Bewerbung für {{Business}} ist in der engeren Auswahl für unser Pilotprogramm.
+gute Nachrichten: Ihre Anmeldung für {{Business}} ist in der engeren Auswahl für unser Pilotprogramm.
 
 Bevor wir endgültig entscheiden, möchten wir 30 Minuten mit Ihnen sprechen, per Video oder persönlich in Wien. Wir fragen nach dem Problem, das Sie beschrieben haben, nach Ihrem Arbeitsalltag und nach den Tools, die Sie heute verwenden.
 
@@ -183,30 +183,30 @@ Für die Analyse brauchen wir keine personenbezogenen Daten Ihrer Gäste, Kund:i
 
 *Draft for status Not selected.*
 
-**English: subject** Your application to the ImplementAI pilot programme
+**English: subject** Your registration for a free ImplementAI Discovery Pack
 
 ```
 Hello {{Name}},
 
-Thank you for applying with {{Business}} and for taking the time to describe your problem.
+Thank you for registering with {{Business}} and for taking the time to describe your problem.
 
-We received many good applications and could only choose 10. This time your business is not among them. We chose a mix of industries and problems that ready-made AI tools can solve within a few weeks.
+We received many good registrations and could only choose 10. This time your business is not among them. We chose a mix of industries and problems that ready-made AI tools can solve within a few weeks.
 
-If you would still like to explore AI for your business, you can book a free one-hour Quick-Check with us at any time. Just reply to this email.
+If you would still like to explore AI for your business, you can book a free one-hour Quick-Check with us once we have launched. Just reply to this email.
 
 {{Signature}}
 ```
 
-**German: subject** Ihre Bewerbung für das ImplementAI-Pilotprogramm
+**German: subject** Ihre Anmeldung für ein kostenloses ImplementAI-Analyse-Paket
 
 ```
 Guten Tag {{Name}},
 
-danke, dass Sie sich mit {{Business}} beworben und Ihr Problem so genau beschrieben haben.
+danke, dass Sie sich mit {{Business}} angemeldet und Ihr Problem so genau beschrieben haben.
 
-Wir haben viele gute Bewerbungen erhalten und konnten nur 10 auswählen. Diesmal ist Ihr Betrieb nicht dabei. Wir haben eine Mischung aus Branchen und Problemen gewählt, die fertige KI-Tools innerhalb weniger Wochen lösen können.
+Wir haben viele gute Anmeldungen erhalten und konnten nur 10 auswählen. Diesmal ist Ihr Betrieb nicht dabei. Wir haben eine Mischung aus Branchen und Problemen gewählt, die fertige KI-Tools innerhalb weniger Wochen lösen können.
 
-Wenn Sie KI für Ihren Betrieb trotzdem ausloten möchten, können Sie jederzeit einen kostenlosen einstündigen Quick-Check mit uns vereinbaren. Antworten Sie einfach auf diese E-Mail.
+Wenn Sie KI für Ihren Betrieb trotzdem ausloten möchten, können Sie nach unserem Start einen kostenlosen einstündigen Quick-Check mit uns vereinbaren. Antworten Sie einfach auf diese E-Mail.
 
 {{Signature}}
 ```
