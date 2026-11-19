@@ -55,6 +55,18 @@ H = {
 <p class="sub" style="margin-top:30px">Start with the right tools, not the hype. 10 businesses get a free analysis when we launch in 2027.</p>
 <p class="note">Businesses with 10+ staff, 2025 (Statistik Austria).</p></div>{FOOT}'''),
 }
+V3 = {
+ "3a-evenings": "Get your <i>evenings</i> back.",
+ "3b-desk": "Less time at the desk. <i>More time for guests.</i>",
+ "3c-laptop": "Close the laptop. <i>Open the doors.</i>",
+ "3d-first-guest": "Admin done <i>before the first guest arrives.</i>",
+}
+SUB3 = "We find the admin a tool can take off your plate. Free for the first 10 Vienna businesses when we launch in 2027."
+for k, h in V3.items():
+    H[k] = ('', f'''{brand()}<div class="mid">
+<div class="clock" style="width:260px;height:260px"></div>
+<h1 style="font-size:112px;margin-top:56px">{h}</h1>
+<p class="sub" style="margin-top:40px">{SUB3}</p></div>{FOOT}''')
 jobs = []
 for name, (cls, body) in H.items():
     (OUT / f"{name}.html").write_text(head(1080, 1350, False) + EXTRA + f'<div class="frame {cls}">{body}</div></body></html>')
