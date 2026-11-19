@@ -4,7 +4,7 @@ LIM = {"headline": 40, "description": 30, "hook": 125}
 C = {
 "English": {
  "primary": [
-  ("Offer", "We're giving 10 Vienna restaurants, hotels and health & beauty businesses our AI Starter package for free (normally €3,900).",
+  ("Offer", "We're giving 10 Vienna restaurants, hotels and wellness & beauty businesses our AI Starter package free (normally €3,900).",
    "Tell us one real problem that costs you time every week: missed booking calls, no-shows, rotas, endless emails. We pick the 10 strongest use cases, set up the right tools and train your team until it runs without us.\n\nApply in 10 minutes. No AI knowledge needed."),
   ("Pain", "40 booking calls a week during dinner service, and a quarter go unanswered. That's the kind of problem we want to hear about.",
    "Describe your biggest daily headache. We'll choose 10 businesses and solve it with them for free: setup, training and 30 days of help.\n\nWe read every application ourselves, and everyone gets a reply."),
@@ -19,7 +19,7 @@ C = {
 },
 "German": {
  "primary": [
-  ("Angebot", "Wir schenken 10 Wiener Restaurants, Hotels und Betrieben aus Gesundheit & Beauty unser KI-Starter-Paket (regulär € 3.900).",
+  ("Angebot", "Wir schenken 10 Wiener Restaurants, Hotels und Betrieben aus Wellness & Beauty unser KI-Starter-Paket (regulär € 3.900).",
    "Erzählen Sie uns ein echtes Problem, das Sie jede Woche Zeit kostet: verpasste Reservierungsanrufe, No-Shows, Dienstpläne, endlose E-Mails. Wir wählen die 10 stärksten Anwendungsfälle, richten die passenden Tools ein und schulen Ihr Team, bis alles ohne uns läuft.\n\nBewerbung in 10 Minuten. Kein KI-Wissen nötig."),
   ("Problem", "40 Reservierungsanrufe pro Woche im Abendservice, ein Viertel bleibt unbeantwortet. Genau solche Probleme suchen wir.",
    "Beschreiben Sie Ihr größtes Alltagsproblem. Wir wählen 10 Betriebe aus und lösen es gemeinsam mit ihnen, kostenlos: Einrichtung, Schulung und 30 Tage Unterstützung.\n\nWir lesen jede Bewerbung selbst und antworten allen."),
@@ -59,7 +59,7 @@ out += ["", "Stories images keep text out of the top 250 px and bottom 360 px, w
 "## Suggested setup", "",
 "- **Objective:** Leads. Use an Instant Form (lead form inside Facebook), because the website is not online yet. Switch to the landing page later.",
 "- **Instant Form type:** \"Higher intent\" (adds a review step, so fewer but better applications).",
-"- **Custom questions** (same as the pilot page): business name; industry (Gastronomy / Hospitality / Health & Beauty); team size; software used today; *What's the problem?*; *How often does it happen?*; *Who deals with it?*; *What does it cost you?*",
+"- **Custom questions** (same as the pilot page): business name; industry (Gastronomy / Hospitality / Wellness & Beauty); team size; software used today; *What's the problem?*; *How often does it happen?*; *Who deals with it?*; *What does it cost you?*",
 "- **Location:** Vienna + about 20 km. **Languages:** create the German ads for German speakers and the English ads for everyone else.",
 "- **Audience:** start broad (Advantage+ audience) with age 25–65; the creatives and questions filter for business owners.",
 "- **Placements:** Facebook and Instagram feeds (4:5) and Stories/Reels (9:16).",

@@ -8,10 +8,10 @@ Character counts are checked by `ads/src/copy.py`. Limits: headline ≤ 40, desc
 
 ### Primary text (3 variants)
 
-**Offer** (opening line: 124 characters)
+**Offer** (opening line: 122 characters)
 
 ```
-We're giving 10 Vienna restaurants, hotels and health & beauty businesses our AI Starter package for free (normally €3,900).
+We're giving 10 Vienna restaurants, hotels and wellness & beauty businesses our AI Starter package free (normally €3,900).
 
 Tell us one real problem that costs you time every week: missed booking calls, no-shows, rotas, endless emails. We pick the 10 strongest use cases, set up the right tools and train your team until it runs without us.
 
@@ -64,10 +64,10 @@ We work in English, German, French and Slovak.
 
 ### Primary text (3 variants)
 
-**Angebot** (opening line: 122 characters)
+**Angebot** (opening line: 120 characters)
 
 ```
-Wir schenken 10 Wiener Restaurants, Hotels und Betrieben aus Gesundheit & Beauty unser KI-Starter-Paket (regulär € 3.900).
+Wir schenken 10 Wiener Restaurants, Hotels und Betrieben aus Wellness & Beauty unser KI-Starter-Paket (regulär € 3.900).
 
 Erzählen Sie uns ein echtes Problem, das Sie jede Woche Zeit kostet: verpasste Reservierungsanrufe, No-Shows, Dienstpläne, endlose E-Mails. Wir wählen die 10 stärksten Anwendungsfälle, richten die passenden Tools ein und schulen Ihr Team, bis alles ohne uns läuft.
 
@@ -133,7 +133,7 @@ Stories images keep text out of the top 250 px and bottom 360 px, which the Stor
 
 - **Objective:** Leads. Use an Instant Form (lead form inside Facebook), because the website is not online yet. Switch to the landing page later.
 - **Instant Form type:** "Higher intent" (adds a review step, so fewer but better applications).
-- **Custom questions** (same as the pilot page): business name; industry (Gastronomy / Hospitality / Health & Beauty); team size; software used today; *What's the problem?*; *How often does it happen?*; *Who deals with it?*; *What does it cost you?*
+- **Custom questions** (same as the pilot page): business name; industry (Gastronomy / Hospitality / Wellness & Beauty); team size; software used today; *What's the problem?*; *How often does it happen?*; *Who deals with it?*; *What does it cost you?*
 - **Location:** Vienna + about 20 km. **Languages:** create the German ads for German speakers and the English ads for everyone else.
 - **Audience:** start broad (Advantage+ audience) with age 25–65; the creatives and questions filter for business owners.
 - **Placements:** Facebook and Instagram feeds (4:5) and Stories/Reels (9:16).
