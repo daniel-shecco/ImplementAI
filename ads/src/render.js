@@ -2,7 +2,8 @@
 const { chromium } = require('playwright');
 const path = require('path'); const fs = require('fs');
 (async () => {
-  const dir = path.join(__dirname, 'html'); const out = path.join(__dirname, '..', 'images');
+  // Optional arguments: HTML folder and output folder (defaults: ./html and ../images).
+  const dir = process.argv[2] || path.join(__dirname, 'html'); const out = process.argv[3] || path.join(__dirname, '..', 'images');
   const jobs = JSON.parse(fs.readFileSync(path.join(dir, 'jobs.json')));
   const b = await chromium.launch();
   for (const j of jobs) {

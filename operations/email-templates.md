@@ -266,7 +266,9 @@ Wir brauchen keine personenbezogenen Daten Ihrer Gäste, Kund:innen oder Patient
 ```
 Hello {{Name}},
 
-Thank you for your message. We have received it and will reply within one working day with a few times for a free one-hour Quick-Check, in person in Vienna or by video.
+Thank you for your message. We have received it and will reply within one working day.
+
+ImplementAI is launching in Vienna in 2027. If you reserved a free Quick-Check, we will contact you before we start to arrange it, in person in Vienna or by video.
 
 If you would like to add anything in the meantime, simply reply to this email.
 
@@ -278,7 +280,9 @@ If you would like to add anything in the meantime, simply reply to this email.
 ```
 Guten Tag {{Name}},
 
-danke für Ihre Nachricht. Wir haben sie erhalten und melden uns innerhalb eines Werktags mit Terminvorschlägen für einen kostenlosen einstündigen Quick-Check, persönlich in Wien oder per Video.
+danke für Ihre Nachricht. Wir haben sie erhalten und melden uns innerhalb eines Werktags.
+
+ImplementAI startet 2027 in Wien. Wenn Sie einen kostenlosen Quick-Check vorgemerkt haben, melden wir uns vor dem Start, um ihn zu vereinbaren, persönlich in Wien oder per Video.
 
 Wenn Sie in der Zwischenzeit etwas ergänzen möchten, antworten Sie einfach auf diese E-Mail.
 

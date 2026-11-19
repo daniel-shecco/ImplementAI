@@ -1,37 +1,38 @@
 """Generate Facebook/Instagram ad creatives as HTML, then render them to PNG with render.js.
 Run: python3 make_ads.py && node render.js
 """
-import json, pathlib
-OUT = pathlib.Path(__file__).parent / "html"; OUT.mkdir(exist_ok=True)
+import json, pathlib, sys
+# Optional argument: output folder for the HTML (default ./html). Mock-ups go to ../mocks/html.
+OUT = pathlib.Path(sys.argv[1]) if len(sys.argv) > 1 else pathlib.Path(__file__).parent / "html"; OUT.mkdir(parents=True, exist_ok=True)
 SIZES = {"feed": (1080, 1350), "story": (1080, 1920)}
 
 T = {
  "en": dict(
-   kicker="FREE DISCOVERY PACK · 10 PLACES",
+   kicker="LAUNCHING 2027 · 10 FREE PLACES",
    pack_t="What's in the Discovery Pack", pack=["A day on-site","Map of your biggest pains","Right AI tools + costs","Time-saving estimate","Report + walkthrough"],
    a_h="Your AI plan. <i>On us.</i>",
    a_sub="For 10 restaurants, hotels and wellness &amp; beauty businesses.",
-   a_worth="Normally €1,490", a_free="Free for 10",
+   a_worth="Planned €1,490", a_free="Free for 10",
    b_q="“40 booking calls a week during service. A quarter go unanswered.”",
-   b_h="Tell us your biggest daily headache. <i>We analyse 10 for free.</i>",
-   b_sub="The 10 strongest use cases get our Discovery Pack free (normally €1,490).",
+   b_h="Tell us your biggest daily headache. <i>We'll analyse 10 for free.</i>",
+   b_sub="When we launch in 2027, the 10 strongest use cases get our Discovery Pack free (planned price €1,490).",
    c_h="Less admin. <i>More time for guests.</i>",
-   c_sub="Our Discovery Pack, free for 10 businesses (normally €1,490).",
+   c_sub="Launching 2027: our Discovery Pack, free for the first 10 businesses (planned price €1,490).",
    arches=("Dine","Stay","Care"), labels=("Gastronomy","Hospitality","Wellness &amp; Beauty"),
-   cta="Apply now", lang="EN · DE · FR · SK", brand_line="Vienna"),
+   cta="Register interest", lang="EN · DE · FR · SK", brand_line="Vienna"),
  "de": dict(
-   kicker="GRATIS ANALYSE-PAKET · 10 PLÄTZE",
+   kicker="START 2027 · 10 GRATIS-PLÄTZE",
    pack_t="Das steckt im Analyse-Paket", pack=["Ein Tag vor Ort","Ihre größten Baustellen","Passende KI-Tools + Kosten","Schätzung der Ersparnis","Bericht + Besprechung"],
    a_h="Ihr KI-Plan. <i>Auf uns.</i>",
    a_sub="Für 10 Restaurants, Hotels und Betriebe aus Wellness &amp; Beauty.",
-   a_worth="Regulär € 1.490", a_free="Gratis für 10",
+   a_worth="Geplant € 1.490", a_free="Gratis für 10",
    b_q="„40 Reservierungsanrufe pro Woche im Service. Ein Viertel bleibt unbeantwortet.“",
    b_h="Erzählen Sie uns Ihr größtes Alltagsproblem. <i>Wir analysieren 10 gratis.</i>",
-   b_sub="Die 10 stärksten Anwendungsfälle erhalten unser Analyse-Paket gratis (regulär € 1.490).",
+   b_sub="Ab Start 2027: Analyse-Paket gratis für die 10 stärksten Fälle (geplant € 1.490).",
    c_h="Weniger Papierkram. <i>Mehr Zeit für Gäste.</i>",
-   c_sub="Unser Analyse-Paket, gratis für 10 Betriebe (regulär € 1.490).",
+   c_sub="Start 2027: unser Analyse-Paket, gratis für die ersten 10 Betriebe (geplanter Preis € 1.490).",
    arches=("Essen","Wohnen","Pflege"), labels=("Gastronomie","Hotellerie","Wellness &amp; Beauty"),
-   cta="Jetzt bewerben", lang="DE · EN · FR · SK", brand_line="Wien"),
+   cta="Interesse anmelden", lang="DE · EN · FR · SK", brand_line="Wien"),
 }
 
 CSS = """

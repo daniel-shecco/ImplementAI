@@ -63,11 +63,11 @@ var TEMPLATES = {
  "enquiry_confirmation": {
   "EN": {
    "subject": "Thanks for getting in touch with ImplementAI",
-   "body": "Hello {{Name}},\n\nThank you for your message. We have received it and will reply within one working day with a few times for a free one-hour Quick-Check, in person in Vienna or by video.\n\nIf you would like to add anything in the meantime, simply reply to this email.\n\n{{Signature}}"
+   "body": "Hello {{Name}},\n\nThank you for your message. We have received it and will reply within one working day.\n\nImplementAI is launching in Vienna in 2027. If you reserved a free Quick-Check, we will contact you before we start to arrange it, in person in Vienna or by video.\n\nIf you would like to add anything in the meantime, simply reply to this email.\n\n{{Signature}}"
   },
   "DE": {
    "subject": "Danke für Ihre Nachricht an ImplementAI",
-   "body": "Guten Tag {{Name}},\n\ndanke für Ihre Nachricht. Wir haben sie erhalten und melden uns innerhalb eines Werktags mit Terminvorschlägen für einen kostenlosen einstündigen Quick-Check, persönlich in Wien oder per Video.\n\nWenn Sie in der Zwischenzeit etwas ergänzen möchten, antworten Sie einfach auf diese E-Mail.\n\n{{Signature}}"
+   "body": "Guten Tag {{Name}},\n\ndanke für Ihre Nachricht. Wir haben sie erhalten und melden uns innerhalb eines Werktags.\n\nImplementAI startet 2027 in Wien. Wenn Sie einen kostenlosen Quick-Check vorgemerkt haben, melden wir uns vor dem Start, um ihn zu vereinbaren, persönlich in Wien oder per Video.\n\nWenn Sie in der Zwischenzeit etwas ergänzen möchten, antworten Sie einfach auf diese E-Mail.\n\n{{Signature}}"
   }
  }
 };
