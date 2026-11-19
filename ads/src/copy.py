@@ -33,6 +33,23 @@ C = {
  "cta": "Registrieren (Sign Up)",
 },
 }
+# Opening lines (shown before "See more") to pair with the five hook images in ads/images/hooks/
+HOOKS = {
+ "English": [
+  ("1 Ten hours", "Restaurants and hotels spend about 10 hours a week on paperwork (WKO survey, 2024). How much could a tool take over?"),
+  ("2 Sound familiar", "The phone rings mid-service, no-shows again, the rota takes all evening? Tell us. 10 businesses get it analysed free."),
+  ("3 More time for clients", "Less time at the desk, more time for clients. We find the admin a tool can take off your plate, free for 10 businesses."),
+  ("4 Founding places", "Only 10 founding places in Vienna: a free AI analysis (planned €1,490), first in line when we launch in 2027."),
+  ("5 Three in ten", "3 in 10 Austrian businesses already use AI (Statistik Austria, 2025). Start with the right tools, not the hype."),
+ ],
+ "German": [
+  ("1 Zehn Stunden", "Gastronomie und Hotellerie: rund 10 Stunden pro Woche für Papierkram (WKO-Umfrage 2024). Wie viel kann ein Tool übernehmen?"),
+  ("2 Bekannt", "Das Telefon läutet mitten im Service, schon wieder No-Shows? Erzählen Sie es uns. 10 Betriebe bekommen es gratis analysiert."),
+  ("3 Mehr Zeit", "Weniger Zeit am Schreibtisch, mehr Zeit für Ihre Kund:innen. Wir finden, was ein Tool Ihnen abnimmt, gratis für 10 Betriebe."),
+  ("4 Gründungsplätze", "Nur 10 Gründungsplätze in Wien: Gratis-KI-Analyse (geplant € 1.490), als Erste an der Reihe zum Start 2027."),
+  ("5 Drei von zehn", "3 von 10 Betrieben in Österreich nutzen bereits KI (Statistik Austria, 2025). Starten Sie mit den richtigen Tools."),
+ ],
+}
 problems = []
 out = ["# Facebook / Instagram ads: pilot programme", "",
        "Interest test before the launch in 2027: people register interest; nothing is sold or delivered yet. Offer at launch: free Discovery Pack (German: Analyse-Paket), planned price €1,490: a day on-site, map of the biggest pains, recommended AI tools with licence costs, time-saving estimate, written report and walkthrough. For the first 10 selected businesses. Landing page: `pilot.html` / `de/pilot.html`.", "",
@@ -50,6 +67,15 @@ for lang, c in C.items():
             out.append(f"| {i} | {h} | {len(h)} |")
         out.append("")
     out += [f"**Button:** {c['cta']}", ""]
+out += ["## Hook ads (`ads/images/hooks/`)", "",
+        "Five hooks to test against each other. Pair each image with its opening line; the rest of the primary text can be any variant above.", ""]
+for lang, hs in HOOKS.items():
+    out += [f"### {lang}", "", "| Hook | Opening line | Characters |", "|---|---|---|"]
+    for name, line in hs:
+        if len(line) > LIM["hook"]: problems.append(f"{lang} hook line '{name}' {len(line)}")
+        out.append(f"| {name} | {line} | {len(line)} |")
+    out.append("")
+out += ["Files: `{en,de}-{1-ten-hours,2-sound-familiar,3-more-time-for-clients,4-founding-places,5-three-in-ten}-{feed,story}.png`.", ""]
 out += ["## Images (`ads/images/`)", "",
         "| Concept | Feed 4:5 (1080×1350) | Stories/Reels 9:16 (1080×1920) |", "|---|---|---|"]
 for lang in ("en", "de"):
