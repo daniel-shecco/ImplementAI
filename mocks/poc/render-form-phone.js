@@ -1,4 +1,4 @@
-// Phone-size screenshots of the pilot form, split into three readable parts per language.
+// Phone-size screenshots of the pilot form: the whole form, and split into three parts, per language.
 const { chromium } = require('playwright'); const path = require('path');
 const R = path.resolve(__dirname, '../..');
 (async () => {
@@ -17,6 +17,7 @@ const R = path.resolve(__dirname, '../..');
     });
     for (const [i, clip] of parts.entries())
       await p.screenshot({ path: path.join(__dirname, 'form-phone', `${tag}-${i + 1}.png`), clip, fullPage: true });
+    await p.locator('#apply form').screenshot({ path: path.join(__dirname, 'form-phone', `${tag}-full.png`) });
   }
   await b.close();
 })();
