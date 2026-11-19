@@ -1,0 +1,88 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;1,500&family=Montserrat:wght@400;500;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--theme:#1f3b33;--bg:#e4e9e6}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Montserrat,Roboto,sans-serif;color:#202124}
+.page{max-width:640px;margin:12px auto 40px;padding:0 12px}
+.banner{height:160px;border-radius:8px;overflow:hidden;background:#1f3b33;position:relative;display:flex;align-items:center;padding:0 34px;gap:26px;margin-bottom:12px}
+.banner img{height:34px}
+.banner .tag{margin-left:auto;text-align:right;color:#fbf8f2;font-family:Lora,serif;font-size:21px;line-height:1.25}
+.banner .tag i{color:#f0d690}
+.banner .tag small{display:block;font-family:Montserrat;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#f0d690;margin-top:8px}
+.banner::after{content:"";position:absolute;right:-40px;bottom:-60px;width:180px;height:180px;border-radius:50%;background:#c4623f;opacity:.9;z-index:0}
+.banner>*{position:relative;z-index:1}
+.card{background:#fff;border:1px solid #dadce0;border-radius:8px;padding:24px;margin-bottom:12px}
+.title{border-top:10px solid var(--theme);padding-top:22px}
+.title h1{font-family:Lora,serif;font-weight:500;font-size:30px;margin:0 0 12px;line-height:1.2}
+.title p{font-size:14px;line-height:1.6;margin:0 0 10px;color:#202124}
+.title .meta{border-top:1px solid #dadce0;margin:16px -24px 0;padding:14px 24px 0;font-size:14px;color:#5f6368;display:flex;justify-content:space-between}
+.req{color:#d93025}
+.section{background:var(--theme);color:#fff;border-radius:8px 8px 0 0;display:inline-block;padding:8px 16px;font-size:13px;margin-top:4px}
+.sec{border-top-left-radius:0;padding:22px 24px}
+.sec h2{font-family:Lora,serif;font-weight:500;font-size:22px;margin:0 0 6px}
+.sec p{margin:0;font-size:14px;color:#5f6368}
+.q h3{font-size:16px;font-weight:500;margin:0 0 6px;line-height:1.45}
+.q .help{font-size:12px;color:#5f6368;margin:-2px 0 6px}
+.ans{border-bottom:1px solid #dadce0;width:50%;padding:12px 0 6px;font-size:14px;color:#70757a;margin-top:10px}
+.ans.long{width:100%}
+.opt{display:flex;align-items:center;gap:14px;font-size:14px;padding:9px 0}
+.radio{width:20px;height:20px;border:2px solid #5f6368;border-radius:50%;flex:none}
+.check{width:18px;height:18px;border:2px solid #5f6368;border-radius:2px;flex:none}
+.foot{display:flex;align-items:center;justify-content:space-between;margin:20px 0 8px}
+.btn{background:var(--theme);color:#fff;border-radius:4px;padding:10px 24px;font-size:14px;font-weight:500}
+.btn.ghost{background:#fff;color:var(--theme);border:1px solid #dadce0;margin-right:12px}
+.prog{display:flex;align-items:center;gap:10px;font-size:12px;color:#5f6368}
+.bar{width:110px;height:10px;border-radius:5px;background:#dadce0;overflow:hidden}.bar b{display:block;height:100%;background:var(--theme)}
+.clear{color:var(--theme);font-size:14px;font-weight:500}
+.legal{text-align:center;font-size:12px;color:#5f6368;margin-top:18px;line-height:1.6}
+.legal b{display:block;font-family:"Product Sans",Roboto;font-size:22px;color:#5f6368;font-weight:400;margin-top:8px}
+@media(max-width:500px){.banner{height:auto;aspect-ratio:4/1;padding:0 14px;gap:10px}.banner img{height:18px}.banner .tag{font-size:11px}.banner .tag small{font-size:7px}.foot{flex-wrap:wrap;gap:10px}.ans{width:100%}}
+.gbar{background:#fff;height:6px}
+</style></head><body>
+<div class="page">
+ <div class="banner"><img src="../../brand/logo-on-green.svg" alt=""><div class="tag">Your biggest daily headache,<br><i>analysed free</i><small>Discovery Pack · 10 places</small></div></div>
+ <div class="card title">
+  <h1>Apply for a free Discovery Pack</h1>
+  <p>10 businesses in gastronomy, hospitality and wellness &amp; beauty get our Discovery Pack free (normally €1,490): a day on-site, a report with tool recommendations and licence costs, and a walkthrough meeting.</p>
+  <p>It takes about 10 minutes. Write the way you'd explain it to a colleague. We read every application ourselves and reply within 2 working days.</p>
+  <div class="meta"><span>applicant@gmail.com <span style="color:#1a73e8">Switch account</span></span><span>☁</span></div>
+  <div style="font-size:14px;color:#d93025;margin-top:12px">* Indicates required question</div>
+ </div>
+
+ <div class="section">Section 1 of 3</div>
+ <div class="card sec"><h2>About your business</h2><p>So we know who you are and how to reach you.</p></div>
+ <div class="card q"><h3>Your name <span class="req">*</span></h3><div class="ans">Your answer</div></div>
+ <div class="card q"><h3>Business name <span class="req">*</span></h3><div class="ans">Your answer</div></div>
+ <div class="card q"><h3>Email <span class="req">*</span></h3><div class="ans">Your answer</div></div>
+ <div class="card q"><h3>Phone</h3><div class="ans">Your answer</div></div>
+ <div class="card q"><h3>Industry <span class="req">*</span></h3>
+  <div class="opt"><span class="radio"></span>Restaurant / café / bar</div>
+  <div class="opt"><span class="radio"></span>Hotel / guesthouse</div>
+  <div class="opt"><span class="radio"></span>Medical practice / clinic</div>
+  <div class="opt"><span class="radio"></span>Beauty salon / hairdresser / spa / aesthetics</div>
+  <div class="opt"><span class="radio"></span>Other: <span style="border-bottom:1px solid #dadce0;width:200px;display:inline-block">&nbsp;</span></div></div>
+ <div class="card q"><h3>Team size</h3>
+  <div class="opt"><span class="radio"></span>1–10</div><div class="opt"><span class="radio"></span>11–50</div><div class="opt"><span class="radio"></span>51–250</div></div>
+ <div class="card q"><h3>Software you use today</h3><div class="help">e.g. booking system, POS, Microsoft 365, WhatsApp, Excel</div><div class="ans">Your answer</div></div>
+ <div class="foot"><div><span class="btn">Next</span></div><div class="prog"><span class="bar"><b style="width:33%"></b></span>Page 1 of 3</div><span class="clear">Clear form</span></div>
+
+ <div style="text-align:center;font-size:12px;letter-spacing:.14em;color:#5f6368;margin:34px 0 14px">— PAGE 2 (AFTER "NEXT") —</div>
+ <div class="section">Section 2 of 3</div>
+ <div class="card sec"><h2>Your main pain</h2><p>One real problem that costs you time every week. A rough estimate is fine.</p></div>
+ <div class="card q"><h3>What's the problem? <span class="req">*</span></h3><div class="help">Describe the task or situation in your own words.</div><div class="ans long">Your answer</div></div>
+ <div class="card q"><h3>How often does it happen? <span class="req">*</span></h3><div class="help">e.g. 40 calls a week</div><div class="ans">Your answer</div></div>
+ <div class="card q"><h3>Who deals with it? <span class="req">*</span></h3><div class="help">e.g. reception, two waiters</div><div class="ans">Your answer</div></div>
+ <div class="card q"><h3>What does it cost you? <span class="req">*</span></h3><div class="help">Hours per week, lost bookings, mistakes, stress…</div><div class="ans long">Your answer</div></div>
+ <div class="card q"><h3>What would "solved" look like?</h3><div class="help">e.g. no missed calls, rota done in 30 minutes instead of 3 hours</div><div class="ans long">Your answer</div></div>
+ <div class="foot"><div><span class="btn ghost">Back</span><span class="btn">Next</span></div><div class="prog"><span class="bar"><b style="width:66%"></b></span>Page 2 of 3</div><span class="clear">Clear form</span></div>
+
+ <div style="text-align:center;font-size:12px;letter-spacing:.14em;color:#5f6368;margin:34px 0 14px">— PAGE 3 —</div>
+ <div class="section">Section 3 of 3</div>
+ <div class="card sec"><h2>A second pain (optional) and consent</h2></div>
+ <div class="card q"><h3>Another problem you'd like to solve</h3><div class="ans long">Your answer</div></div>
+ <div class="card q"><h3>Agreement <span class="req">*</span></h3>
+  <div class="opt"><span class="check"></span>I agree that my details are used to assess this application. No newsletter, no spam.</div>
+  <div class="opt"><span class="check"></span>If selected, you may share the findings as a case study (it can be anonymous).</div></div>
+ <div class="foot"><div><span class="btn ghost">Back</span><span class="btn">Submit</span></div><div class="prog"><span class="bar"><b style="width:100%"></b></span>Page 3 of 3</div><span class="clear">Clear form</span></div>
+ <div class="legal">Never submit passwords through Google Forms.<br>This content is neither created nor endorsed by Google. Report Abuse · Terms of Service · Privacy Policy<b>Google Forms</b></div>
+</div></body></html>
