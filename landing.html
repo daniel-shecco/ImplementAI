@@ -44,7 +44,8 @@
       </div>
     </div>
 
-    <form class="form lp-form reveal d1" data-contact data-subject="AI Quick-Check request">
+    <form class="form lp-form reveal d1" data-contact data-form="quickcheck" data-subject="AI Quick-Check request">
+        <div class="hp" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div>
       <div class="head"><h3>Book your <i style="color:var(--butter)">Quick-Check</i></h3><p>We reply within one working day with time slots.</p></div>
       <div class="two">
         <div><label for="ln">Name</label><input id="ln" name="name" required autocomplete="name"></div>
@@ -61,7 +62,7 @@
       <div><label for="lm">Biggest time-waster right now?</label><textarea id="lm" name="challenge" placeholder="Booking calls, no-shows, ordering stock, rota planning…"></textarea></div>
       <label class="consent"><input type="checkbox" name="consent" required> I agree my details are used to arrange the Quick-Check. No newsletter, no spam.</label>
       <button class="btn btn-terra" type="submit">Request my free Quick-Check <span class="dot">↗</span></button>
-      <div class="form-ok" hidden>Thank you! Your email app should open with your request — just hit send.</div>
+      <div class="form-ok" hidden data-sent="Thank you! We've received your request and will reply within one working day with a few times for your Quick-Check.">Thank you! Your email app should open with your request — just hit send.</div>
     </form>
   </div>
 </section>

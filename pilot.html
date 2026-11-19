@@ -94,7 +94,8 @@
       </div>
     </div>
 
-    <form class="form reveal d1" data-contact data-subject="Pilot programme application">
+    <form class="form reveal d1" data-contact data-form="pilot" data-subject="Pilot programme application">
+        <div class="hp" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div>
       <fieldset>
         <legend>About your business</legend>
         <div class="two">
@@ -131,7 +132,7 @@
       <label class="consent"><input type="checkbox" name="case_study_ok" value="yes"> If selected, we're happy to share the findings as a case study (it can be anonymous).</label>
       <label class="consent"><input type="checkbox" name="consent" required> I agree that my details are used to assess this application. No newsletter, no spam.</label>
       <button class="btn btn-terra" type="submit">Send my application <span class="dot">↗</span></button>
-      <div class="form-ok" hidden>Thank you! Your email app should open with your application. Just hit send. We reply to every application.</div>
+      <div class="form-ok" hidden data-sent="Thank you! We've received your application and sent you a confirmation email. We reply to every application within 2 working days.">Thank you! Your email app should open with your application. Just hit send. We reply to every application.</div>
     </form>
   </div>
 </section>

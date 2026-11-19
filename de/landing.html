@@ -44,7 +44,8 @@
       </div>
     </div>
 
-    <form class="form lp-form reveal d1" data-contact data-subject="Anfrage KI-Quick-Check">
+    <form class="form lp-form reveal d1" data-contact data-form="quickcheck" data-subject="Anfrage KI-Quick-Check">
+        <div class="hp" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div>
       <div class="head"><h3>Ihren <i style="color:var(--butter)">Quick-Check</i> buchen</h3><p>Wir melden uns innerhalb eines Werktags mit Terminvorschlägen.</p></div>
       <div class="two">
         <div><label for="ln">Name</label><input id="ln" name="name" required autocomplete="name"></div>
@@ -61,7 +62,7 @@
       <div><label for="lm">Was kostet Sie derzeit am meisten Zeit?</label><textarea id="lm" name="herausforderung" placeholder="Reservierungsanrufe, No-Shows, Bestellungen, Dienstplanung…"></textarea></div>
       <label class="consent"><input type="checkbox" name="consent" required> Ich bin einverstanden, dass meine Angaben zur Terminvereinbarung verwendet werden. Kein Newsletter, kein Spam.</label>
       <button class="btn btn-terra" type="submit">Gratis-Quick-Check anfragen <span class="dot">↗</span></button>
-      <div class="form-ok" hidden>Danke! Ihr E-Mail-Programm sollte sich mit Ihrer Anfrage öffnen — einfach absenden. Wir melden uns innerhalb eines Werktags.</div>
+      <div class="form-ok" hidden data-sent="Danke! Wir haben Ihre Anfrage erhalten und melden uns innerhalb eines Werktags mit Terminvorschlägen für Ihren Quick-Check.">Danke! Ihr E-Mail-Programm sollte sich mit Ihrer Anfrage öffnen — einfach absenden. Wir melden uns innerhalb eines Werktags.</div>
     </form>
   </div>
 </section>

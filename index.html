@@ -236,7 +236,8 @@
         <p>Tell us about your business — we'll reply within one working day to schedule a free one-hour Quick-Check — in person in Vienna or by video.</p>
         <p>Or write to <a href="mailto:hello@implementai.example">hello@implementai.example</a> — in English, Deutsch, Français or Slovenčina.</p>
       </div>
-      <form class="form" data-contact data-subject="Website enquiry">
+      <form class="form" data-contact data-form="contact" data-subject="Website enquiry">
+        <div class="hp" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div>
         <div class="two">
           <div><label for="n">Name</label><input id="n" name="name" required autocomplete="name"></div>
           <div><label for="e">Email</label><input id="e" name="email" type="email" required autocomplete="email"></div>
@@ -245,7 +246,7 @@
         <div><label for="m">What would you like to improve?</label><textarea id="m" name="message"></textarea></div>
         <label class="consent"><input type="checkbox" name="consent" required> I agree that my details are used to respond to my enquiry.</label>
         <button class="btn btn-dark" type="submit">Send enquiry <span class="dot">↗</span></button>
-        <div class="form-ok" hidden>Thanks! Your email app should open with your message — just hit send.</div>
+        <div class="form-ok" hidden data-sent="Thank you! We've received your message and will reply within one working day.">Thanks! Your email app should open with your message — just hit send.</div>
       </form>
     </div>
   </div>

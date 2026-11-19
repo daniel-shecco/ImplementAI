@@ -236,7 +236,8 @@
         <p>Erzählen Sie uns von Ihrem Betrieb — wir melden uns innerhalb eines Werktags und vereinbaren einen kostenlosen einstündigen Quick-Check, persönlich in Wien oder per Video.</p>
         <p>Oder schreiben Sie an <a href="mailto:hello@implementai.example">hello@implementai.example</a> — auf Deutsch, English, Français oder Slovenčina.</p>
       </div>
-      <form class="form" data-contact data-subject="Anfrage über die Website">
+      <form class="form" data-contact data-form="contact" data-subject="Anfrage über die Website">
+        <div class="hp" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div>
         <div class="two">
           <div><label for="n">Name</label><input id="n" name="name" required autocomplete="name"></div>
           <div><label for="e">E-Mail</label><input id="e" name="email" type="email" required autocomplete="email"></div>
@@ -245,7 +246,7 @@
         <div><label for="m">Was möchten Sie verbessern?</label><textarea id="m" name="nachricht"></textarea></div>
         <label class="consent"><input type="checkbox" name="consent" required> Ich bin einverstanden, dass meine Angaben zur Beantwortung meiner Anfrage verwendet werden.</label>
         <button class="btn btn-dark" type="submit">Anfrage senden <span class="dot">↗</span></button>
-        <div class="form-ok" hidden>Danke! Ihr E-Mail-Programm sollte sich mit Ihrer Nachricht öffnen — einfach absenden.</div>
+        <div class="form-ok" hidden data-sent="Danke! Wir haben Ihre Nachricht erhalten und melden uns innerhalb eines Werktags.">Danke! Ihr E-Mail-Programm sollte sich mit Ihrer Nachricht öffnen — einfach absenden.</div>
       </form>
     </div>
   </div>

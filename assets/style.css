@@ -421,3 +421,6 @@ img.av { object-fit: cover; object-position: 50% 30%; }
 .brand-logo { height: 30px; width: auto; display: block; }
 .footer .brand-logo { height: 34px; }
 @media (max-width: 720px) { .brand-logo { height: 26px; } }
+
+/* Spam trap field for the forms (hidden from people) */
+.hp { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }

@@ -29,3 +29,6 @@ python3 build.py
 - Add Imprint and Privacy policy pages (required in DE/AT/CH).
 - Forms currently open the visitor's email app. To collect submissions directly, add `data-endpoint="https://formspree.io/f/…"` (or similar) to each `<form>`.
 - Review the indicative prices and target metrics.
+
+## Applications and emails
+`operations/` holds the application workflow: the Google Sheet tracker, the Apps Script that receives the website forms and sends confirmations (`operations/apps-script/`), the email templates (`operations/email-templates.md`) and the setup guide (`operations/SETUP.md`).

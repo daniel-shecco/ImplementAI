@@ -54,18 +54,33 @@
     [calls, value, hours].forEach(i => i.addEventListener('input', run)); run();
   });
 
-  // Forms: mailto fallback until a form backend is configured via data-endpoint.
+  // Forms: sent to the Google Apps Script web app (operations/apps-script/Code.gs), which writes them
+  // into the "ImplementAI – Pilot applications" Google Sheet and sends the confirmation email.
+  // Until FORM_ENDPOINT is set, or if sending fails, the visitor's email app opens instead.
+  const FORM_ENDPOINT = '';               // Apps Script web app URL (.../exec), see operations/SETUP.md
   const EMAIL = 'hello@implementai.example';
+  const utm = new URLSearchParams(location.search);
   $$('form[data-contact]').forEach(form => form.addEventListener('submit', async e => {
     e.preventDefault();
-    const data = new FormData(form), ok = $('.form-ok', form);
-    if (form.dataset.endpoint) {
+    const data = new FormData(form), ok = $('.form-ok', form), btn = $('button[type="submit"]', form);
+    const endpoint = form.dataset.endpoint || FORM_ENDPOINT;
+    if (endpoint) {
+      const params = new URLSearchParams(data);
+      params.set('form', form.dataset.form || 'contact');
+      params.set('lang', document.documentElement.lang || 'en');
+      params.set('page', location.pathname.split('/').pop() || 'index.html');
+      ['utm_source', 'utm_medium', 'utm_campaign'].forEach(k => utm.get(k) && params.set(k, utm.get(k)));
+      if (btn) btn.disabled = true;
       try {
-        const r = await fetch(form.dataset.endpoint, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
-        if (r.ok) { form.reset(); if (ok) ok.hidden = false; return; }
-      } catch {}
+        // Apps Script sends no CORS headers, so the response is opaque; only a network error means failure.
+        await fetch(endpoint, { method: 'POST', mode: 'no-cors', body: params });
+        form.reset();
+        if (ok) { ok.textContent = ok.dataset.sent || ok.textContent; ok.hidden = false; }
+        return;
+      } catch { /* fall back to email below */ }
+      finally { if (btn) btn.disabled = false; }
     }
-    const body = [...data.entries()].filter(([k, v]) => k !== 'consent' && v).map(([k, v]) => `${k}: ${v}`).join('\n');
+    const body = [...data.entries()].filter(([k, v]) => !['consent', 'website'].includes(k) && v).map(([k, v]) => `${k}: ${v}`).join('\n');
     location.href = `mailto:${EMAIL}?subject=${encodeURIComponent(form.dataset.subject || 'Website enquiry')}&body=${encodeURIComponent(body)}`;
     if (ok) ok.hidden = false;
   }));

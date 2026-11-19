@@ -57,7 +57,7 @@ for lang in ("en", "de"):
         out.append(f"| {label} ({lang.upper()}) | `{lang}-{cn}-feed.png` | `{lang}-{cn}-story.png` |")
 out += ["", "Stories images keep text out of the top 250 px and bottom 360 px, which the Stories interface covers.", "",
 "## Suggested setup", "",
-"- **Objective:** Leads. Use an Instant Form (lead form inside Facebook), because the website is not online yet. Switch to the landing page later.",
+"- **Objective:** Leads with an Instant Form (lead form inside Facebook). Form settings, the connection to the applications Sheet and the follow-up process: `operations/SETUP.md`.",
 "- **Instant Form type:** \"Higher intent\" (adds a review step, so fewer but better applications).",
 "- **Custom questions** (same as the pilot page): business name; industry (Gastronomy / Hospitality / Wellness & Beauty); team size; software used today; *What's the problem?*; *How often does it happen?*; *Who deals with it?*; *What does it cost you?*",
 "- **Location:** Vienna + about 20 km. **Languages:** create the German ads for German speakers and the English ads for everyone else.",
