@@ -142,6 +142,8 @@ Five hooks to test against each other. Pair each image with its opening line; th
 
 Files: `{en,de}-{1-ten-hours,2-sound-familiar,3-more-time-for-clients,4-founding-places,5-three-in-ten}-{feed,story}.png`.
 
+**Links:** give each hook ad its own link, ending in `utm_content=hook1` … `hook5`, for example `pilot.html?utm_source=facebook&utm_medium=paid&utm_campaign=pilot&utm_content=hook3` (German: `de/pilot.html?...`). The Sheet then shows registrations, founding benefits and strong leads per hook (Overview tab).
+
 ## Images (`ads/images/`)
 
 | Concept | Feed 4:5 (1080×1350) | Stories/Reels 9:16 (1080×1920) |

@@ -889,7 +889,7 @@ img.av { object-fit: cover; object-position: 50% 30%; }
       params.set('form', form.dataset.form || 'contact');
       params.set('lang', document.documentElement.lang || 'en');
       params.set('page', location.pathname.split('/').pop() || 'index.html');
-      ['utm_source', 'utm_medium', 'utm_campaign'].forEach(k => utm.get(k) && params.set(k, utm.get(k)));
+      ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content'].forEach(k => utm.get(k) && params.set(k, utm.get(k)));
       if (btn) btn.disabled = true;
       try {
         // Apps Script sends no CORS headers, so the response is opaque; only a network error means failure.

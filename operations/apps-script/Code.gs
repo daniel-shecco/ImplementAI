@@ -30,7 +30,7 @@ var ENQUIRIES = 'Enquiries';
 // Applicants columns (1-based)
 var A = { id: 1, received: 2, source: 3, lang: 4, name: 5, business: 6, email: 7, phone: 8, industry: 9, team: 10,
           software: 11, problem: 12, often: 13, who: 14, cost: 15, solved: 16, problem2: 17, caseStudy: 18,
-          status: 19, confirmed: 20, nextDate: 28, notes: 29, timing: 30, perk: 31 };
+          status: 19, confirmed: 20, nextDate: 28, notes: 29, timing: 30, perk: 31, hook: 32 };
 // Enquiries columns (1-based)
 var E = { id: 1, received: 2, form: 3, source: 4, lang: 5, name: 6, business: 7, email: 8, phone: 9, industry: 10,
           team: 11, message: 12, status: 13, confirmed: 14, notes: 18 };
@@ -83,6 +83,7 @@ function addApplicant_(p) {
   row[A.notes - 1] = industry ? 'Industry as entered: ' + industry : '';
   row[A.timing - 1] = timing_(pick_(p, 'timing', 'zeitplan'));
   row[A.perk - 1] = pick_(p, 'founding_perk', 'gruender_vorteil') ? 'Yes' : 'No';
+  row[A.hook - 1] = hook_(p.utm_content);
   writeRow_(sh, row);
   notifyTeam_('New pilot application: ' + row[A.business - 1] + ' (' + row[A.industry - 1] + ')', row[A.problem - 1]);
 }
@@ -232,6 +233,12 @@ function writeRow_(sh, row) {
   var firstPart = row.slice(0, start);
   sh.getRange(r + 1, 1, 1, firstPart.length).setValues([firstPart]);
   for (var c = start; c < row.length; c++) if (row[c]) sh.getRange(r + 1, c + 1).setValue(row[c]);
+}
+
+// Which ad brought the registration: utm_content of the ad link (hook1 ... hook5), stored as "Hook 1" ... "Hook 5".
+function hook_(v) {
+  var m = String(v || '').match(/hook\s*-?\s*(\d)/i);
+  return m ? 'Hook ' + m[1] : String(v || '');
 }
 
 // Website answers come in English or German; the Sheet always stores the English wording.

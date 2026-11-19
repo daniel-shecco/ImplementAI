@@ -73,9 +73,12 @@ Use one form per language (EN and DE), so the confirmation goes out in the right
 | Business, Industry, Team size | Custom answers |
 | Problem, How often, Who deals with it, What it costs | Custom answers |
 | Timing, Founding benefits | Custom answers (always store the English wording: As soon as possible / In the next 3 months / This year / Just curious for now, and Yes / No) |
+| Hook (ad) | `Hook 1` … `Hook 5`: name each ad after its hook (for example "Hook 3 – More time for clients") and map the ad name, or use one form per hook |
 | Status | `New` (fixed) |
 
 When the website is online, link the ads to `pilot.html?utm_source=facebook&utm_medium=paid&utm_campaign=pilot` (German: `de/pilot.html?...`). Website applications from the ads are then marked "Facebook" in the Source column.
+
+Give each hook ad its own link so the Sheet records which ad brought each registration (column Hook, and the "Registrations by hook" table on the Overview): `pilot.html?utm_source=facebook&utm_medium=paid&utm_campaign=pilot&utm_content=hook1` … `hook5`. Compare hooks by strong leads, not by clicks.
 
 ## The process
 
