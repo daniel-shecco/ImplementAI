@@ -1,6 +1,6 @@
 # Facebook / Instagram ads: pilot programme
 
-Offer: free Starter package (normally €3,900) for 10 selected businesses. Landing page: `pilot.html` / `de/pilot.html`.
+Offer: free Starter Pack (normally €3,900: a day on-site, 1–2 AI tools set up, 2 team trainings, playbook, 30 days of help) for 10 selected businesses. Landing page: `pilot.html` / `de/pilot.html`.
 
 Character counts are checked by `ads/src/copy.py`. Limits: headline ≤ 40, description ≤ 30, first part of primary text ≤ 125 (shown before "See more").
 
@@ -8,12 +8,12 @@ Character counts are checked by `ads/src/copy.py`. Limits: headline ≤ 40, desc
 
 ### Primary text (3 variants)
 
-**Offer** (opening line: 122 characters)
+**Offer** (opening line: 119 characters)
 
 ```
-We're giving 10 Vienna restaurants, hotels and wellness & beauty businesses our AI Starter package free (normally €3,900).
+We're giving 10 Vienna restaurants, hotels and wellness & beauty businesses our AI Starter Pack free (normally €3,900).
 
-Tell us one real problem that costs you time every week: missed booking calls, no-shows, rotas, endless emails. We pick the 10 strongest use cases, set up the right tools and train your team until it runs without us.
+Tell us one real problem that costs you time every week: missed booking calls, no-shows, rotas, endless emails. We pick the 10 strongest use cases and give them our Starter Pack: a day on-site, 1–2 AI tools set up, 2 team trainings, a step-by-step playbook and 30 days of help.
 
 Apply in 10 minutes. No AI knowledge needed.
 ```
@@ -23,7 +23,7 @@ Apply in 10 minutes. No AI knowledge needed.
 ```
 40 booking calls a week during dinner service, and a quarter go unanswered. That's the kind of problem we want to hear about.
 
-Describe your biggest daily headache. We'll choose 10 businesses and solve it with them for free: setup, training and 30 days of help.
+Describe your biggest daily headache. The 10 strongest use cases get our Starter Pack free (normally €3,900): a day on-site, 1–2 AI tools set up, 2 team trainings, a playbook and 30 days of help.
 
 We read every application ourselves, and everyone gets a reply.
 ```
@@ -33,7 +33,7 @@ We read every application ourselves, and everyone gets a reply.
 ```
 Curious about AI but not sure where to start? Start with one problem, and let us solve it for free.
 
-In our pilot programme we set up ready-made tools such as Microsoft Copilot or a booking chatbot for 10 businesses, train the team and step back. Every tool stays in your name. No subscription.
+With our free Starter Pack (normally €3,900) we set up ready-made tools such as Microsoft Copilot or a booking chatbot for 10 businesses, train the team and step back. Every tool stays in your name. No subscription.
 
 We work in English, German, French and Slovak.
 ```
@@ -42,10 +42,10 @@ We work in English, German, French and Slovak.
 
 | # | Text | Characters |
 |---|---|---|
-| 1 | 10 free AI Starter packs | 24 |
+| 1 | 10 free AI Starter Packs | 24 |
 | 2 | Your first AI project, on us | 28 |
 | 3 | Tell us your biggest daily headache | 35 |
-| 4 | Free AI setup for 10 Vienna businesses | 38 |
+| 4 | Free Starter Pack for 10 businesses | 35 |
 | 5 | Less admin. More time for guests. | 33 |
 
 ### Descriptions
@@ -55,7 +55,7 @@ We work in English, German, French and Slovak.
 | 1 | Worth €3,900. Free for 10. | 26 |
 | 2 | Apply in 10 minutes | 19 |
 | 3 | Setup, training, 30 days help | 29 |
-| 4 | No AI knowledge needed | 22 |
+| 4 | Starter Pack worth €3,900 | 25 |
 | 5 | English · Deutsch · FR · SK | 27 |
 
 **Button:** Apply Now
@@ -69,7 +69,7 @@ We work in English, German, French and Slovak.
 ```
 Wir schenken 10 Wiener Restaurants, Hotels und Betrieben aus Wellness & Beauty unser KI-Starter-Paket (regulär € 3.900).
 
-Erzählen Sie uns ein echtes Problem, das Sie jede Woche Zeit kostet: verpasste Reservierungsanrufe, No-Shows, Dienstpläne, endlose E-Mails. Wir wählen die 10 stärksten Anwendungsfälle, richten die passenden Tools ein und schulen Ihr Team, bis alles ohne uns läuft.
+Erzählen Sie uns ein echtes Problem, das Sie jede Woche Zeit kostet: verpasste Reservierungsanrufe, No-Shows, Dienstpläne, endlose E-Mails. Die 10 stärksten Anwendungsfälle erhalten unser Starter-Paket: ein Tag vor Ort, 1–2 KI-Tools eingerichtet, 2 Team-Schulungen, eine Schritt-für-Schritt-Anleitung und 30 Tage Unterstützung.
 
 Bewerbung in 10 Minuten. Kein KI-Wissen nötig.
 ```
@@ -79,7 +79,7 @@ Bewerbung in 10 Minuten. Kein KI-Wissen nötig.
 ```
 40 Reservierungsanrufe pro Woche im Abendservice, ein Viertel bleibt unbeantwortet. Genau solche Probleme suchen wir.
 
-Beschreiben Sie Ihr größtes Alltagsproblem. Wir wählen 10 Betriebe aus und lösen es gemeinsam mit ihnen, kostenlos: Einrichtung, Schulung und 30 Tage Unterstützung.
+Beschreiben Sie Ihr größtes Alltagsproblem. Die 10 stärksten Anwendungsfälle erhalten unser Starter-Paket gratis (regulär € 3.900): ein Tag vor Ort, 1–2 KI-Tools eingerichtet, 2 Team-Schulungen, eine Anleitung und 30 Tage Unterstützung.
 
 Wir lesen jede Bewerbung selbst und antworten allen.
 ```
@@ -89,7 +89,7 @@ Wir lesen jede Bewerbung selbst und antworten allen.
 ```
 Neugierig auf KI, aber unsicher, wo Sie anfangen sollen? Beginnen Sie mit einem Problem, wir lösen es gratis.
 
-Im Pilotprogramm richten wir für 10 Betriebe fertige Tools wie Microsoft Copilot oder einen Reservierungs-Chatbot ein, schulen das Team und ziehen uns zurück. Alle Tools laufen auf Ihren Namen. Kein Abo.
+Mit unserem Gratis-Starter-Paket (regulär € 3.900) richten wir für 10 Betriebe fertige Tools wie Microsoft Copilot oder einen Reservierungs-Chatbot ein, schulen das Team und ziehen uns zurück. Alle Tools laufen auf Ihren Namen. Kein Abo.
 
 Wir arbeiten auf Deutsch, Englisch, Französisch und Slowakisch.
 ```
@@ -101,7 +101,7 @@ Wir arbeiten auf Deutsch, Englisch, Französisch und Slowakisch.
 | 1 | 10 gratis KI-Starter-Pakete | 27 |
 | 2 | Ihr erstes KI-Projekt, auf uns | 30 |
 | 3 | Ihr Alltagsproblem, gratis gelöst | 33 |
-| 4 | Gratis KI-Einrichtung für 10 Betriebe | 37 |
+| 4 | Gratis Starter-Paket für 10 Betriebe | 36 |
 | 5 | Weniger Papierkram, mehr Zeit für Gäste | 39 |
 
 ### Descriptions
@@ -111,7 +111,7 @@ Wir arbeiten auf Deutsch, Englisch, Französisch und Slowakisch.
 | 1 | Wert € 3.900, gratis für 10 | 27 |
 | 2 | Bewerbung in 10 Minuten | 23 |
 | 3 | Einrichtung, Schulung, Support | 30 |
-| 4 | Kein KI-Wissen nötig | 20 |
+| 4 | Starter-Paket, Wert € 3.900 | 27 |
 | 5 | Deutsch · English · FR · SK | 27 |
 
 **Button:** Jetzt bewerben (Apply Now)
@@ -144,4 +144,4 @@ Stories images keep text out of the top 250 px and bottom 360 px, which the Stor
 - A Facebook Page and a Meta Business account for ImplementAI.
 - A **privacy policy URL**: Instant Forms require one. The website's privacy page is still a placeholder.
 - Decide the deadline and whether the offer is Vienna-only, and add both to the pilot page.
-- Plan capacity: 10 free Starter packs are about 640 team hours by our estimate.
+- Plan capacity: 10 free Starter Packs are about 640 team hours by our estimate.
