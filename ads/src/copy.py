@@ -4,38 +4,38 @@ LIM = {"headline": 40, "description": 30, "hook": 125}
 C = {
 "English": {
  "primary": [
-  ("Offer", "We're giving 10 Vienna restaurants, hotels and wellness & beauty businesses our AI Starter Pack free (normally €3,900).",
-   "Tell us one real problem that costs you time every week: missed booking calls, no-shows, rotas, endless emails. We pick the 10 strongest use cases and give them our Starter Pack: a day on-site, 1–2 AI tools set up, 2 team trainings, a step-by-step playbook and 30 days of help.\n\nApply in 10 minutes. No AI knowledge needed."),
+  ("Offer", "We're giving 10 Vienna restaurants, hotels and wellness & beauty businesses our AI Discovery Pack free (normally €1,490).",
+   "Tell us one real problem that costs you time every week: missed booking calls, no-shows, rotas, endless emails. We pick the 10 strongest use cases and spend a day on-site with each. You get a written plan: your biggest time drains, the AI tools that fix them, what they cost and how much time you could save.\n\nApply in 10 minutes. No AI knowledge needed, no obligation afterwards."),
   ("Pain", "40 booking calls a week during dinner service, and a quarter go unanswered. That's the kind of problem we want to hear about.",
-   "Describe your biggest daily headache. The 10 strongest use cases get our Starter Pack free (normally €3,900): a day on-site, 1–2 AI tools set up, 2 team trainings, a playbook and 30 days of help.\n\nWe read every application ourselves, and everyone gets a reply."),
-  ("No risk", "Curious about AI but not sure where to start? Start with one problem, and let us solve it for free.",
-   "With our free Starter Pack (normally €3,900) we set up ready-made tools such as Microsoft Copilot or a booking chatbot for 10 businesses, train the team and step back. Every tool stays in your name. No subscription.\n\nWe work in English, German, French and Slovak."),
+   "Describe your biggest daily headache. The 10 strongest use cases get our Discovery Pack free (normally €1,490): a day on-site, a map of your biggest pains, the right AI tools with their costs, and a walkthrough of the plan.\n\nWe read every application ourselves, and everyone gets a reply."),
+  ("No risk", "Curious about AI but not sure where to start? Find out for free what it could do for your business.",
+   "With our free Discovery Pack (normally €1,490) we spend a day in your business, then show you which ready-made tools, such as Microsoft Copilot or a booking chatbot, would fix your biggest problems and what they cost. The report is yours, with no obligation.\n\nWe work in English, German, French and Slovak."),
  ],
- "headline": ["10 free AI Starter Packs", "Your first AI project, on us", "Tell us your biggest daily headache",
-              "Free Starter Pack for 10 businesses", "Less admin. More time for guests."],
- "description": ["Worth €3,900. Free for 10.", "Apply in 10 minutes", "Setup, training, 30 days help",
-                 "Starter Pack worth €3,900", "English · Deutsch · FR · SK"],
+ "headline": ["10 free AI Discovery Packs", "Your AI plan, on us", "Tell us your biggest daily headache",
+              "Free Discovery Pack for 10 businesses", "Less admin. More time for guests."],
+ "description": ["Worth €1,490. Free for 10.", "Apply in 10 minutes", "A day on-site + written plan",
+                 "No obligation afterwards", "English · Deutsch · FR · SK"],
  "cta": "Apply Now",
 },
 "German": {
  "primary": [
-  ("Angebot", "Wir schenken 10 Wiener Restaurants, Hotels und Betrieben aus Wellness & Beauty unser KI-Starter-Paket (regulär € 3.900).",
-   "Erzählen Sie uns ein echtes Problem, das Sie jede Woche Zeit kostet: verpasste Reservierungsanrufe, No-Shows, Dienstpläne, endlose E-Mails. Die 10 stärksten Anwendungsfälle erhalten unser Starter-Paket: ein Tag vor Ort, 1–2 KI-Tools eingerichtet, 2 Team-Schulungen, eine Schritt-für-Schritt-Anleitung und 30 Tage Unterstützung.\n\nBewerbung in 10 Minuten. Kein KI-Wissen nötig."),
+  ("Angebot", "Wir schenken 10 Wiener Restaurants, Hotels und Betrieben aus Wellness & Beauty unser KI-Analyse-Paket (regulär € 1.490).",
+   "Erzählen Sie uns ein echtes Problem, das Sie jede Woche Zeit kostet: verpasste Reservierungsanrufe, No-Shows, Dienstpläne, endlose E-Mails. Wir wählen die 10 stärksten Anwendungsfälle und verbringen mit jedem Betrieb einen Tag vor Ort. Sie erhalten einen schriftlichen Plan: Ihre größten Zeitfresser, die passenden KI-Tools, ihre Kosten und die mögliche Zeitersparnis.\n\nBewerbung in 10 Minuten. Kein KI-Wissen nötig, danach keine Verpflichtung."),
   ("Problem", "40 Reservierungsanrufe pro Woche im Abendservice, ein Viertel bleibt unbeantwortet. Genau solche Probleme suchen wir.",
-   "Beschreiben Sie Ihr größtes Alltagsproblem. Die 10 stärksten Anwendungsfälle erhalten unser Starter-Paket gratis (regulär € 3.900): ein Tag vor Ort, 1–2 KI-Tools eingerichtet, 2 Team-Schulungen, eine Anleitung und 30 Tage Unterstützung.\n\nWir lesen jede Bewerbung selbst und antworten allen."),
-  ("Ohne Risiko", "Neugierig auf KI, aber unsicher, wo Sie anfangen sollen? Beginnen Sie mit einem Problem, wir lösen es gratis.",
-   "Mit unserem Gratis-Starter-Paket (regulär € 3.900) richten wir für 10 Betriebe fertige Tools wie Microsoft Copilot oder einen Reservierungs-Chatbot ein, schulen das Team und ziehen uns zurück. Alle Tools laufen auf Ihren Namen. Kein Abo.\n\nWir arbeiten auf Deutsch, Englisch, Französisch und Slowakisch."),
+   "Beschreiben Sie Ihr größtes Alltagsproblem. Die 10 stärksten Anwendungsfälle erhalten unser Analyse-Paket gratis (regulär € 1.490): ein Tag vor Ort, eine Übersicht Ihrer größten Baustellen, die passenden KI-Tools mit Kosten und eine Besprechung des Plans.\n\nWir lesen jede Bewerbung selbst und antworten allen."),
+  ("Ohne Risiko", "Neugierig auf KI, aber unsicher, wo Sie anfangen sollen? Finden Sie gratis heraus, was sie Ihrem Betrieb bringt.",
+   "Mit unserem Gratis-Analyse-Paket (regulär € 1.490) verbringen wir einen Tag in Ihrem Betrieb und zeigen Ihnen dann, welche fertigen Tools, etwa Microsoft Copilot oder ein Reservierungs-Chatbot, Ihre größten Probleme lösen und was sie kosten. Der Bericht gehört Ihnen, ohne Verpflichtung.\n\nWir arbeiten auf Deutsch, Englisch, Französisch und Slowakisch."),
  ],
- "headline": ["10 gratis KI-Starter-Pakete", "Ihr erstes KI-Projekt, auf uns", "Ihr Alltagsproblem, gratis gelöst",
-              "Gratis Starter-Paket für 10 Betriebe", "Weniger Papierkram, mehr Zeit für Gäste"],
- "description": ["Wert € 3.900, gratis für 10", "Bewerbung in 10 Minuten", "Einrichtung, Schulung, Support",
-                 "Starter-Paket, Wert € 3.900", "Deutsch · English · FR · SK"],
+ "headline": ["10 gratis KI-Analyse-Pakete", "Ihr KI-Plan, auf uns", "Ihr Alltagsproblem, gratis analysiert",
+              "Gratis Analyse-Paket für 10 Betriebe", "Weniger Papierkram, mehr Zeit für Gäste"],
+ "description": ["Wert € 1.490, gratis für 10", "Bewerbung in 10 Minuten", "Ein Tag vor Ort + Plan",
+                 "Danach keine Verpflichtung", "Deutsch · English · FR · SK"],
  "cta": "Jetzt bewerben (Apply Now)",
 },
 }
 problems = []
 out = ["# Facebook / Instagram ads: pilot programme", "",
-       "Offer: free Starter Pack (normally €3,900: a day on-site, 1–2 AI tools set up, 2 team trainings, playbook, 30 days of help) for 10 selected businesses. Landing page: `pilot.html` / `de/pilot.html`.", "",
+       "Offer: free Discovery Pack (German: Analyse-Paket), normally €1,490: a day on-site, map of the biggest pains, recommended AI tools with licence costs, time-saving estimate, written report and walkthrough. For 10 selected businesses. Landing page: `pilot.html` / `de/pilot.html`.", "",
        "Character counts are checked by `ads/src/copy.py`. Limits: headline ≤ 40, description ≤ 30, first part of primary text ≤ 125 (shown before \"See more\").", ""]
 for lang, c in C.items():
     out += [f"## {lang}", "", "### Primary text (3 variants)", ""]
@@ -68,7 +68,7 @@ out += ["", "Stories images keep text out of the top 250 px and bottom 360 px, w
 "- A Facebook Page and a Meta Business account for ImplementAI.",
 "- A **privacy policy URL**: Instant Forms require one. The website's privacy page is still a placeholder.",
 "- Decide the deadline and whether the offer is Vienna-only, and add both to the pilot page.",
-"- Plan capacity: 10 free Starter Packs are about 640 team hours by our estimate.",
+"- Plan capacity: 10 free Discovery Packs are about 180 team hours by our estimate (about 60 hours each).",
 ]
 pathlib.Path(__file__).parent.parent.joinpath("AD-COPY.md").write_text("\n".join(out) + "\n")
 print("problems:", problems or "none")

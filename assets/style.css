@@ -416,3 +416,8 @@ img.av { object-fit: cover; object-position: 50% 30%; }
 /* Logo mark (from brand/logo-mark.svg) */
 .brand-mark { width: 27px !important; height: 30px !important; border-radius: 0 !important; background: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 112' width='100' height='112' role='img' aria-label='ImplementAI'%3E%3Cpath fill='%23C4623F' fill-rule='evenodd' d='M0.00,112.00 V50.00 A50.00,50.00 0 0 1 100.00,50.00 V112.00 Z M30.00,112.00 V66.00 A20.00,20.00 0 0 1 70.00,66.00 V112.00 Z'/%3E%3Cpath fill='%23C4623F' d='M50.00,67.00 Q53.20,74.80 61.00,78.00 Q53.20,81.20 50.00,89.00 Q46.80,81.20 39.00,78.00 Q46.80,74.80 50.00,67.00 Z'/%3E%3C/svg%3E") center / contain no-repeat !important; }
 .brand-mark::after { display: none !important; }
+
+/* Spark i logo */
+.brand-logo { height: 30px; width: auto; display: block; }
+.footer .brand-logo { height: 34px; }
+@media (max-width: 720px) { .brand-logo { height: 26px; } }

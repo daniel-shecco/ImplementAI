@@ -1,16 +1,16 @@
-# ImplementAI brand
+# ImplementAI brand: "Spark i"
 
-**Mark:** an arch (open doorway, for hospitality) with a spark inside (AI). **Wordmark:** "Implement" in Newsreader Medium, "AI" in Newsreader Medium Italic. The SVGs use outlined letters, so no font is needed to display them.
+**Logo:** the wordmark "implementai" (Manrope ExtraBold, letters converted to outlines) with a four-point spark as the dot of the "i". "ai" is in the accent colour. **Icon:** the spark on dark green.
 
 | File | Use |
 |---|---|
-| `logo-horizontal.svg` / `png/logo-horizontal.png` | Default logo on light backgrounds |
-| `logo-horizontal-dark.svg` / `png/logo-horizontal-dark.png` | On the dark green background |
-| `logo-stacked.svg` / `png/logo-stacked.png` | Square-ish spaces, documents, slides |
-| `logo-mark.svg` / `png/logo-mark.png` | Mark only |
-| `png/profile-picture-cream-1080.png`, `png/profile-picture-forest-1080.png` | Facebook / Instagram / LinkedIn profile picture (safe for circle crop) |
-| `favicon.svg`, `png/favicon-32.png`, `png/favicon-512.png` | Browser tab icon, app icon |
+| `logo.svg` / `png/logo.png` | Default logo on light backgrounds (ink + terracotta) |
+| `logo-dark.svg` / `png/logo-dark.png` | On dark backgrounds, transparent (cream + butter) |
+| `logo-on-green.svg` / `png/logo-on-green.png` | Logo on a dark green background |
+| `profile-picture.svg` / `png/profile-picture-1080.png` | Facebook / Instagram / LinkedIn profile picture (dark green, butter spark) |
+| `favicon.svg`, `png/favicon-32.png`, `png/favicon-180.png`, `png/favicon-512.png` | Browser tab and app icon (dark green, butter spark) |
+| `spark.svg` / `png/spark.png` | The spark alone (terracotta) |
 
-**Colours:** terracotta `#C4623F` · ink `#1E1C17` · cream `#F5F0E7` · forest `#1F3B33` · butter `#F0D690` · olive `#6B7442`
+**Colours:** ink `#1E1C17` · terracotta `#C4623F` · cream `#F5F0E7` · dark green `#1F3B33` · butter `#F0D690` · olive `#6B7442`
 
-Regenerate: `python3 brand/src/make_logo.py <folder with Newsreader.ttf + NewsreaderItalic.ttf>` then `node brand/src/export.js`.
+**Regenerate:** `python3 brand/src/make_logo.py <folder with Manrope.ttf (ExtraBold)>`, then `node brand/src/export.js`. Mock-ups of the logo options are in `brand/mocks/`.

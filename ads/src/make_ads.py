@@ -7,29 +7,29 @@ SIZES = {"feed": (1080, 1350), "story": (1080, 1920)}
 
 T = {
  "en": dict(
-   kicker="FREE STARTER PACK · 10 PLACES",
-   pack_t="What's in the Starter Pack", pack=["A day on-site","1–2 AI tools set up","2 team trainings","Step-by-step playbook","30 days of help"],
-   a_h="Your first AI project. <i>On us.</i>",
+   kicker="FREE DISCOVERY PACK · 10 PLACES",
+   pack_t="What's in the Discovery Pack", pack=["A day on-site","Map of your biggest pains","Right AI tools + costs","Time-saving estimate","Report + walkthrough"],
+   a_h="Your AI plan. <i>On us.</i>",
    a_sub="For 10 restaurants, hotels and wellness &amp; beauty businesses.",
-   a_worth="Normally €3,900", a_free="Free for 10",
+   a_worth="Normally €1,490", a_free="Free for 10",
    b_q="“40 booking calls a week during service. A quarter go unanswered.”",
-   b_h="Tell us your biggest daily headache. <i>We solve 10 for free.</i>",
-   b_sub="The 10 strongest use cases get our Starter Pack free (normally €3,900).",
+   b_h="Tell us your biggest daily headache. <i>We analyse 10 for free.</i>",
+   b_sub="The 10 strongest use cases get our Discovery Pack free (normally €1,490).",
    c_h="Less admin. <i>More time for guests.</i>",
-   c_sub="Our Starter Pack, free for 10 businesses (normally €3,900).",
+   c_sub="Our Discovery Pack, free for 10 businesses (normally €1,490).",
    arches=("Dine","Stay","Care"), labels=("Gastronomy","Hospitality","Wellness &amp; Beauty"),
    cta="Apply now", lang="EN · DE · FR · SK", brand_line="Vienna"),
  "de": dict(
-   kicker="GRATIS STARTER-PAKET · 10 PLÄTZE",
-   pack_t="Das steckt im Starter-Paket", pack=["Ein Tag vor Ort","1–2 KI-Tools eingerichtet","2 Team-Schulungen","Schritt-für-Schritt-Anleitung","30 Tage Unterstützung"],
-   a_h="Ihr erstes KI-Projekt. <i>Auf uns.</i>",
+   kicker="GRATIS ANALYSE-PAKET · 10 PLÄTZE",
+   pack_t="Das steckt im Analyse-Paket", pack=["Ein Tag vor Ort","Ihre größten Baustellen","Passende KI-Tools + Kosten","Schätzung der Ersparnis","Bericht + Besprechung"],
+   a_h="Ihr KI-Plan. <i>Auf uns.</i>",
    a_sub="Für 10 Restaurants, Hotels und Betriebe aus Wellness &amp; Beauty.",
-   a_worth="Regulär € 3.900", a_free="Gratis für 10",
+   a_worth="Regulär € 1.490", a_free="Gratis für 10",
    b_q="„40 Reservierungsanrufe pro Woche im Service. Ein Viertel bleibt unbeantwortet.“",
-   b_h="Erzählen Sie uns Ihr größtes Alltagsproblem. <i>Wir lösen 10 gratis.</i>",
-   b_sub="Die 10 stärksten Anwendungsfälle erhalten unser Starter-Paket gratis (regulär € 3.900).",
+   b_h="Erzählen Sie uns Ihr größtes Alltagsproblem. <i>Wir analysieren 10 gratis.</i>",
+   b_sub="Die 10 stärksten Anwendungsfälle erhalten unser Analyse-Paket gratis (regulär € 1.490).",
    c_h="Weniger Papierkram. <i>Mehr Zeit für Gäste.</i>",
-   c_sub="Unser Starter-Paket, gratis für 10 Betriebe (regulär € 3.900).",
+   c_sub="Unser Analyse-Paket, gratis für 10 Betriebe (regulär € 1.490).",
    arches=("Essen","Wohnen","Pflege"), labels=("Gastronomie","Hotellerie","Wellness &amp; Beauty"),
    cta="Jetzt bewerben", lang="DE · EN · FR · SK", brand_line="Wien"),
 }
@@ -58,7 +58,7 @@ h1 i{color:var(--terra)}
 .packt{font-size:22px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--ink2);margin-bottom:14px}
 .a .pack span{background:rgba(245,240,231,.08);border-color:rgba(245,240,231,.22);color:var(--cream)}
 .a .pack span:before{color:var(--butter)} .a .packt{color:rgba(245,240,231,.7)}
-.logo{height:52px;width:auto;display:block;align-self:flex-start}
+.logo{height:56px;width:auto;display:block;align-self:flex-start}
 /* A: offer */
 .a{background:var(--forest);color:var(--cream)}
 .a .kicker{color:var(--butter)} .a h1 i{color:var(--butter)} .a .sub{color:rgba(245,240,231,.82)}
@@ -96,7 +96,7 @@ def head(w, h, story):
 
 import base64
 _LOGO = {k: base64.b64encode((pathlib.Path(__file__).parents[2] / "brand" / f).read_bytes()).decode()
-         for k, f in (("light", "logo-horizontal.svg"), ("dark", "logo-horizontal-dark.svg"))}
+         for k, f in (("light", "logo.svg"), ("dark", "logo-dark.svg"))}
 def brand(dark=False):
     return f'<img class="logo" alt="ImplementAI" src="data:image/svg+xml;base64,{_LOGO["dark" if dark else "light"]}">'
 def pack(t, story):
