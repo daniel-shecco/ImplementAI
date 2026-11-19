@@ -67,6 +67,18 @@ for k, h in V3.items():
 <div class="clock" style="width:260px;height:260px"></div>
 <h1 style="font-size:112px;margin-top:56px">{h}</h1>
 <p class="sub" style="margin-top:40px">{SUB3}</p></div>{FOOT}''')
+# Approved wording of hook 3 ("clients" covers wellness & beauty too), English and German
+FINAL3 = {
+ "3-final-en": ("Less time at the desk. <i>More time for clients.</i>", SUB3, FOOT),
+ "3-final-de": ("Weniger Zeit am Schreibtisch. <i>Mehr Zeit für Ihre Kund:innen.</i>",
+                "Wir finden die Büroarbeit, die ein Tool Ihnen abnehmen kann. Gratis für die ersten 10 Wiener Betriebe zum Start 2027.",
+                '<div class="foot"><span class="cta">Interesse anmelden →</span><span class="langs">Wien · ab 2027</span></div>'),
+}
+for k, (h, sub, foot) in FINAL3.items():
+    H[k] = ('', f'''{brand()}<div class="mid">
+<div class="clock" style="width:260px;height:260px"></div>
+<h1 style="font-size:{112 if k.endswith("en") else 100}px;margin-top:56px">{h}</h1>
+<p class="sub" style="margin-top:40px">{sub}</p></div>{foot}''')
 jobs = []
 for name, (cls, body) in H.items():
     (OUT / f"{name}.html").write_text(head(1080, 1350, False) + EXTRA + f'<div class="frame {cls}">{body}</div></body></html>')
