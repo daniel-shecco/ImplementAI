@@ -1,0 +1,107 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#F5F0E7;--ink:#1E1C17;--terra:#C4623F;--forest:#1F3B33;--butter:#F0D690;--olive:#6B7442;--ink2:#5C564B}
+*{box-sizing:border-box;margin:0}
+body{background:#e9e5dd;font-family:Manrope,sans-serif;padding:36px;width:1600px}
+h1{font-family:Newsreader,serif;font-weight:500;font-size:40px;margin-bottom:6px}
+.intro{color:var(--ink2);font-size:17px;margin-bottom:26px}
+.row{display:grid;grid-template-columns:270px 1fr 1fr 250px;gap:14px;margin-bottom:14px}
+.cell{border-radius:18px;display:flex;align-items:center;justify-content:center;min-height:190px;padding:24px}
+.info{background:#fff;flex-direction:column;align-items:flex-start;justify-content:center}
+.info b{font-size:15px;letter-spacing:.12em;color:var(--terra)}
+.info h2{font-family:Newsreader,serif;font-weight:500;font-size:30px;margin:4px 0 8px}
+.info p{font-size:15px;color:var(--ink2);line-height:1.45}
+.light{background:var(--cream)} .dark{background:var(--forest)}
+.icons{background:#fff;gap:22px}
+.circle{width:120px;height:120px;border-radius:50%;display:grid;place-items:center;overflow:hidden}
+.fav{display:flex;flex-direction:column;align-items:center;gap:10px;font-size:11px;color:var(--ink2)}
+
+/* 1 Spark i */
+.w1{font-family:Manrope;font-weight:800;font-size:58px;letter-spacing:-.04em;color:var(--ink);position:relative;display:inline-flex;align-items:baseline}
+.w1 .i{position:relative;display:inline-block}
+.w1 .i .sp{position:absolute;left:50%;top:.13em;width:.36em;height:.36em;transform:translateX(-50%)}
+.w1 .ai{color:var(--terra)}
+.dark .w1{color:var(--cream)} .dark .w1 .ai{color:var(--butter)}
+/* 2 Monogram tile */
+.tile{width:84px;height:84px;border-radius:22px;background:var(--forest);display:grid;place-items:center;font-family:Newsreader,serif;font-size:54px;line-height:1;color:var(--cream);letter-spacing:-.04em}
+.tile i{color:var(--butter)}
+.dark .tile{background:var(--terra)} .dark .tile i{color:var(--cream)}
+.lock2{display:flex;align-items:center;gap:20px}
+.w2{font-family:Manrope;font-weight:700;font-size:44px;letter-spacing:-.03em;color:var(--ink)}
+.w2 span{color:var(--terra)} .dark .w2{color:var(--cream)} .dark .w2 span{color:var(--butter)}
+/* 3 Editorial + pill */
+.lock3{display:flex;align-items:center;gap:14px}
+.w3{font-family:Newsreader,serif;font-weight:400;font-size:64px;letter-spacing:-.03em;color:var(--ink);line-height:1}
+.pill3{font-family:Manrope;font-weight:800;font-size:26px;letter-spacing:.08em;background:var(--terra);color:#fff;border-radius:999px;padding:8px 16px 8px 18px}
+.dark .w3{color:var(--cream)} .dark .pill3{background:var(--butter);color:var(--forest)}
+/* 4 Slash / tech */
+.w4{font-family:"Space Grotesk";font-weight:700;font-size:56px;letter-spacing:-.04em;color:var(--ink);display:flex;align-items:center}
+.w4 .sl{display:inline-block;width:10px;height:62px;background:var(--terra);transform:skewX(-18deg);margin:0 12px 0 10px;border-radius:2px}
+.w4 .ai{color:var(--terra)} .dark .w4{color:var(--cream)} .dark .w4 .sl{background:var(--butter)} .dark .w4 .ai{color:var(--butter)}
+/* 5 Seal */
+.lock5{display:flex;align-items:center;gap:22px}
+.w5{font-family:Newsreader,serif;font-size:46px;letter-spacing:-.02em;color:var(--ink);line-height:1}
+.w5 i{color:var(--terra)} .w5 small{display:block;font-family:Manrope;font-weight:700;font-size:13px;letter-spacing:.22em;color:var(--ink2);margin-top:8px}
+.dark .w5{color:var(--cream)} .dark .w5 i{color:var(--butter)} .dark .w5 small{color:rgba(245,240,231,.7)}
+</style></head><body>
+<h1>ImplementAI · five logo directions (mock-ups)</h1>
+<p class="intro">Each row: the idea, the logo on light and on dark green, and how it works as a round profile picture and as a tiny browser icon. Pick one (or mix), and I'll refine it before building.</p>
+
+<!-- spark svg -->
+<svg width="0" height="0" style="position:absolute"><defs>
+<symbol id="spark" viewBox="0 0 24 24"><path d="M12 0 Q13.6 10.4 24 12 Q13.6 13.6 12 24 Q10.4 13.6 0 12 Q10.4 10.4 12 0Z"/></symbol></defs></svg>
+
+<div class="row">
+ <div class="cell info"><b>01</b><h2>Spark i</h2><p>Clean modern wordmark. The dot on the "i" is a small AI spark. Friendly, simple, works anywhere.</p></div>
+ <div class="cell light"><span class="w1"><span class="i">ı<svg class="sp" fill="#C4623F"><use href="#spark"/></svg></span>mplement<span class="ai">ai</span></span></div>
+ <div class="cell dark"><span class="w1"><span class="i">ı<svg class="sp" fill="#F0D690"><use href="#spark"/></svg></span>mplement<span class="ai">ai</span></span></div>
+ <div class="cell icons"><div class="circle" style="background:var(--terra)"><svg width="62" height="62" fill="#F5F0E7"><use href="#spark"/></svg></div>
+  <div class="fav"><svg width="32" height="32" fill="#C4623F"><use href="#spark"/></svg><svg width="16" height="16" fill="#C4623F"><use href="#spark"/></svg>favicon</div></div>
+</div>
+
+<div class="row">
+ <div class="cell info"><b>02</b><h2>Monogram tile</h2><p>An "iA" monogram in a rounded tile, like an app icon, next to a plain wordmark. Strong as a profile picture.</p></div>
+ <div class="cell light"><div class="lock2"><div class="tile"><span>i<i>A</i></span></div><span class="w2">Implement<span>AI</span></span></div></div>
+ <div class="cell dark"><div class="lock2"><div class="tile"><span>i<i>A</i></span></div><span class="w2">Implement<span>AI</span></span></div></div>
+ <div class="cell icons"><div class="circle" style="background:var(--forest)"><span style="font-family:Newsreader;font-size:64px;color:var(--cream)">i<i style="color:var(--butter)">A</i></span></div>
+  <div class="fav"><div class="tile" style="width:32px;height:32px;border-radius:8px;font-size:20px"><span>i<i>A</i></span></div><div class="tile" style="width:16px;height:16px;border-radius:4px;font-size:10px"><span>i<i>A</i></span></div>favicon</div></div>
+</div>
+
+<div class="row">
+ <div class="cell info"><b>03</b><h2>Editorial + AI badge</h2><p>Elegant serif "Implement" with "AI" in a small pill, like a label. Matches the website's magazine style.</p></div>
+ <div class="cell light"><div class="lock3"><span class="w3">Implement</span><span class="pill3">AI</span></div></div>
+ <div class="cell dark"><div class="lock3"><span class="w3">Implement</span><span class="pill3">AI</span></div></div>
+ <div class="cell icons"><div class="circle" style="background:var(--cream);border:1px solid #ddd"><span class="pill3" style="font-size:34px">AI</span></div>
+  <div class="fav"><span class="pill3" style="font-size:12px;padding:3px 6px">AI</span><span class="pill3" style="font-size:7px;padding:2px 3px">AI</span>favicon</div></div>
+</div>
+
+<div class="row">
+ <div class="cell info"><b>04</b><h2>Implement / AI</h2><p>A bold, slightly technical wordmark with a slanted bar: "from your business, to AI". The most modern and tech-forward.</p></div>
+ <div class="cell light"><span class="w4">Implement<span class="sl"></span><span class="ai">AI</span></span></div>
+ <div class="cell dark"><span class="w4">Implement<span class="sl"></span><span class="ai">AI</span></span></div>
+ <div class="cell icons"><div class="circle" style="background:var(--ink)"><span class="w4" style="font-size:46px;color:var(--cream)">I<span class="sl" style="height:50px;width:8px"></span><span class="ai">A</span></span></div>
+  <div class="fav"><span class="w4" style="font-size:22px">I<span class="sl" style="height:24px;width:4px;margin:0 3px"></span><span class="ai">A</span></span><span class="w4" style="font-size:12px">I<span class="sl" style="height:12px;width:2px;margin:0 2px"></span><span class="ai">A</span></span>favicon</div></div>
+</div>
+
+<div class="row">
+ <div class="cell info"><b>05</b><h2>Vienna seal</h2><p>A round emblem with the name around a spark, plus a serif wordmark with "Vienna" underneath. Boutique, trustworthy, local.</p></div>
+ <div class="cell light"><div class="lock5">
+  <svg width="120" height="120" viewBox="0 0 120 120"><circle cx="60" cy="60" r="58" fill="#C4623F"/><circle cx="60" cy="60" r="44" fill="none" stroke="#F5F0E7" stroke-width="1.2" opacity=".6"/>
+   <defs><path id="ring1" d="M60,60 m-50,0 a50,50 0 1,1 100,0 a50,50 0 1,1 -100,0"/></defs>
+   <text font-family="Manrope" font-weight="800" font-size="10.5" letter-spacing="2.55" fill="#F5F0E7"><textPath href="#ring1">IMPLEMENTAI · VIENNA · IMPLEMENTAI · VIENNA ·</textPath></text>
+   <svg x="42" y="42" width="36" height="36" fill="#F5F0E7"><use href="#spark"/></svg></svg>
+  <span class="w5">Implement<i>AI</i><small>VIENNA</small></span></div></div>
+ <div class="cell dark"><div class="lock5">
+  <svg width="120" height="120" viewBox="0 0 120 120"><circle cx="60" cy="60" r="58" fill="#F0D690"/><circle cx="60" cy="60" r="44" fill="none" stroke="#1F3B33" stroke-width="1.2" opacity=".5"/>
+   <defs><path id="ring2" d="M60,60 m-50,0 a50,50 0 1,1 100,0 a50,50 0 1,1 -100,0"/></defs>
+   <text font-family="Manrope" font-weight="800" font-size="10.5" letter-spacing="2.55" fill="#1F3B33"><textPath href="#ring2">IMPLEMENTAI · VIENNA · IMPLEMENTAI · VIENNA ·</textPath></text>
+   <svg x="42" y="42" width="36" height="36" fill="#1F3B33"><use href="#spark"/></svg></svg>
+  <span class="w5">Implement<i>AI</i><small>VIENNA</small></span></div></div>
+ <div class="cell icons"><svg width="120" height="120" viewBox="0 0 120 120"><circle cx="60" cy="60" r="60" fill="#C4623F"/><circle cx="60" cy="60" r="44" fill="none" stroke="#F5F0E7" stroke-width="1.2" opacity=".6"/>
+   <defs><path id="ring3" d="M60,60 m-50,0 a50,50 0 1,1 100,0 a50,50 0 1,1 -100,0"/></defs>
+   <text font-family="Manrope" font-weight="800" font-size="10.5" letter-spacing="2.55" fill="#F5F0E7"><textPath href="#ring3">IMPLEMENTAI · VIENNA · IMPLEMENTAI · VIENNA ·</textPath></text>
+   <svg x="42" y="42" width="36" height="36" fill="#F5F0E7"><use href="#spark"/></svg></svg>
+  <div class="fav"><svg width="32" height="32" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#C4623F"/><svg x="8" y="8" width="16" height="16" fill="#F5F0E7"><use href="#spark"/></svg></svg><svg width="16" height="16" viewBox="0 0 32 32"><circle cx="16" cy="16" r="16" fill="#C4623F"/><svg x="8" y="8" width="16" height="16" fill="#F5F0E7"><use href="#spark"/></svg></svg>favicon</div></div>
+</div>
+</body></html>
