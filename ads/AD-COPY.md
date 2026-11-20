@@ -159,7 +159,7 @@ Stories images keep text out of the top 250 px and bottom 360 px, which the Stor
 
 ## Suggested setup
 
-- **Objective:** Leads with an Instant Form (lead form inside Facebook). Form settings, the connection to the applications Sheet and the follow-up process: `operations/SETUP.md`.
+- **Objective:** Leads or Traffic, with the website pilot page as destination (each hook with its own link). Registrations then go straight into the Sheet; no Zapier or Make needed. An Instant Form is optional; its leads are downloaded from Meta Leads Center by hand. Details: `operations/SETUP.md`.
 - **Instant Form type:** "Higher intent" (adds a review step, so fewer but better registrations).
 - **Custom questions** (same as the pilot page): business name; industry (Gastronomy / Hospitality / Wellness & Beauty); team size; software used today; *What's the problem?*; *How often does it happen?*; *Who deals with it?*; *What does it cost you?*; *When would you like this problem solved?*; *Reserve my founding-client benefits* (Yes / No)
 - **Location:** Vienna + about 20 km. **Languages:** create the German ads for German speakers and the English ads for everyone else.
