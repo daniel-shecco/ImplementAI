@@ -1,0 +1,11 @@
+// Cloudflare deployment: publish only the public website in docs/ (built by build.py).
+// Everything else in the repository (designs, mock-ups, ads, operations, notes) stays private.
+{
+  "name": "implementai",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./docs",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  }
+}
