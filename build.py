@@ -82,3 +82,19 @@ OUT.mkdir(exist_ok=True)
 for src, name, links in PAGES:
     (OUT / name).write_text(bundle(ROOT / src, links))
     print("built", OUT / name)
+
+# ---------------- Public website for GitHub Pages ----------------
+# Only these pages and the assets they use go into docs/, which GitHub Pages publishes
+# (Settings > Pages > Deploy from a branch > /docs). Designs, mock-ups, ads and notes stay out.
+import shutil
+SITE = ROOT / "docs"
+PUBLIC = ["index.html", "landing.html", "pilot.html", "imprint.html", "privacy.html",
+          "de/index.html", "de/landing.html", "de/pilot.html", "de/impressum.html", "de/datenschutz.html"]
+if SITE.exists():
+    shutil.rmtree(SITE)
+for page in PUBLIC:
+    (SITE / page).parent.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(ROOT / page, SITE / page)
+shutil.copytree(ROOT / "assets", SITE / "assets")
+(SITE / ".nojekyll").write_text("")   # serve files as they are, without Jekyll processing
+print("site", SITE, len(PUBLIC), "pages")

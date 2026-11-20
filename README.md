@@ -32,3 +32,6 @@ python3 build.py
 
 ## Applications and emails
 `operations/` holds the application workflow: the Google Sheet tracker, the Apps Script that receives the website forms and sends confirmations (`operations/apps-script/`), the email templates (`operations/email-templates.md`) and the setup guide (`operations/SETUP.md`).
+
+## Public website (GitHub Pages)
+`python3 build.py` also writes `docs/`: only the ten public pages (English and German home, Quick-Check, pilot, imprint, privacy) plus `assets/`. GitHub Pages publishes that folder (Settings › Pages › Deploy from a branch › `/docs`). Designs, mock-ups, ads, operations and notes are not published. Run `build.py` and commit after changing a page.
