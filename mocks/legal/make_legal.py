@@ -75,7 +75,7 @@ def other_label_footer(lang):
 def kv(rows): return '<dl class="kv">' + ''.join(f'<dt>{k}</dt><dd>{v}</dd>' for k, v in rows) + '</dl>'
 
 # ---------------- shared facts (fill in once) ----------------
-CO, ADDR, EMAIL, PHONE = 'Daniel Sheccoury', T('Business address service, street and number, 10xx Vienna'), T('hello@…'), T('+43 … (optional)')
+CO, ADDR, EMAIL, PHONE = 'Daniel Sheccoury', T('Business address service, street and number, 10xx Vienna'), '<a href="mailto:implementsai@gmail.com">implementsai@gmail.com</a>', T('+43 … (optional)')
 CO_DE, ADDR_DE = 'Daniel Sheccoury', T('Geschäftsadresse, Straße und Hausnummer, 10xx Wien')
 HOST = 'Cloudflare, Inc., 101 Townsend Street, San Francisco, CA 94107, USA'
 

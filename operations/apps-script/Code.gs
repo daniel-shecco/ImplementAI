@@ -15,7 +15,7 @@
 // ---------- Settings: fill these in ----------
 var CONFIG = {
   SPREADSHEET_ID: '1rBI76hgVDs0AlgDZo-9r6d9259FILZjBvhjEaBE-X7A',
-  REPLY_TO: '',              // e.g. 'hello@implementai.at' (replies go here); empty = the sending account
+  REPLY_TO: 'implementsai@gmail.com',            // e.g. 'hello@implementai.at' (replies go here); empty = the sending account
   SENDER_NAME: 'ImplementAI',
   SELECTION_DATE_EN: '',     // e.g. '15 December' -> "by 15 December"; empty -> "before we launch"
   SELECTION_DATE_DE: '',     // e.g. '15. Dezember' -> "bis 15. Dezember"; empty -> "vor unserem Start"

@@ -24,7 +24,7 @@ python3 build.py
 - `midnight-*.html`, `classic-*.html` — alternative design directions (sources in `designs/`)
 
 ## Before going live
-- Replace `hello@implementai.example` (in the English and German pages and `assets/site.js`).
+- Replace `implementsai@gmail.com` (in the English and German pages and `assets/site.js`).
 - Add team photos: put them in `assets/img/` and add `<img src="assets/img/name.jpg" alt="…">` inside each `.portrait` (add class `has-photo`); styles are ready.
 - Add Imprint and Privacy policy pages (required in DE/AT/CH).
 - Forms currently open the visitor's email app. To collect submissions directly, add `data-endpoint="https://formspree.io/f/…"` (or similar) to each `<form>`.
