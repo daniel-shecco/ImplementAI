@@ -51,7 +51,7 @@ def page(lang, title, eyebrow, h1, intro, sections, other_href, other_label, hom
 <link rel="stylesheet" href="{A}/style.css">{STYLE}
 </head>
 <body>
-<div class="draft"><div class="wrap">{draft_note}</div></div>
+{('<div class="draft"><div class="wrap">' + draft_note + '</div></div>') if draft_note else ""}
 <header class="header">
   <div class="wrap nav">
     <a href="{home}" class="brand"><img src="{A}/img/logo.svg" alt="ImplementAI" class="brand-logo"></a>
@@ -75,15 +75,15 @@ def other_label_footer(lang):
 def kv(rows): return '<dl class="kv">' + ''.join(f'<dt>{k}</dt><dd>{v}</dd>' for k, v in rows) + '</dl>'
 
 # ---------------- shared facts (fill in once) ----------------
-CO, ADDR, EMAIL, PHONE = 'Daniel Sheccoury', T('Business address service, street and number, 10xx Vienna'), '<a href="mailto:implementsai@gmail.com">implementsai@gmail.com</a>', T('+43 … (optional)')
-CO_DE, ADDR_DE = 'Daniel Sheccoury', T('Geschäftsadresse, Straße und Hausnummer, 10xx Wien')
+CO, ADDR, EMAIL, PHONE = 'Daniel Sheccoury', 'Gumpendorfer Straße 83–85/2/57, 1060 Vienna, Austria', '<a href="mailto:implementsai@gmail.com">implementsai@gmail.com</a>', T('+43 … (optional)')
+CO_DE, ADDR_DE = 'Daniel Sheccoury', 'Gumpendorfer Straße 83–85/2/57, 1060 Wien, Österreich'
 HOST = 'Cloudflare, Inc., 101 Townsend Street, San Francisco, CA 94107, USA'
 
 # ================= IMPRINT EN =================
 imprint_en = [
  ('provider', 'Responsible for this website', '<p>Information under § 5 E-Commerce Act (ECG) and disclosure under § 25 Media Act (MedienG).</p>' + kv([
    ('Name', CO), ('Project', 'ImplementAI, a consultancy in preparation (launch planned for 2027)'), ('Address', ADDR),
-   ('Email', EMAIL), ('Phone', PHONE)])),
+   ('Email', EMAIL)])),
  ('status', 'Status', '<p>ImplementAI is being prepared and is not yet a registered business. We do not offer or provide any services yet: this website collects registrations of interest for our planned launch. Before we start working with clients, we will register the business and its trade licence and update this page with the details.</p>'),
  ('media', 'Disclosure under § 25 MedienG', kv([
    ('Media owner', CO + ', ' + ADDR),
@@ -94,7 +94,7 @@ imprint_en = [
 imprint_de = [
  ('verantwortlich', 'Verantwortlich für diese Website', '<p>Informationen gemäß § 5 E-Commerce-Gesetz (ECG) und Offenlegung gemäß § 25 Mediengesetz (MedienG).</p>' + kv([
    ('Name', CO_DE), ('Projekt', 'ImplementAI, Beratungsunternehmen in Vorbereitung (Start für 2027 geplant)'), ('Anschrift', ADDR_DE),
-   ('E-Mail', EMAIL), ('Telefon', T('+43 … (freiwillig)'))])),
+   ('E-Mail', EMAIL)])),
  ('status', 'Status', '<p>ImplementAI befindet sich in Vorbereitung und ist noch kein angemeldetes Unternehmen. Wir bieten noch keine Leistungen an und erbringen keine: Diese Website sammelt Interessensbekundungen für unseren geplanten Start. Bevor wir mit Kund:innen arbeiten, melden wir das Unternehmen und die Gewerbeberechtigung an und ergänzen diese Seite um die Angaben.</p>'),
  ('medien', 'Offenlegung gemäß § 25 MedienG', kv([
    ('Medieninhaber', CO_DE + ', ' + ADDR_DE),
@@ -138,13 +138,13 @@ privacy_de = [
  ('rechte', 'Ihre Rechte', '<p>Sie haben das Recht auf Auskunft (Art. 15 DSGVO), Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung der Verarbeitung (Art. 18), Datenübertragbarkeit (Art. 20) und Widerspruch gegen Verarbeitungen auf Grundlage unseres berechtigten Interesses (Art. 21). Eine Einwilligung können Sie jederzeit widerrufen (Art. 7 Abs. 3). Eine E-Mail an uns genügt.</p><p>Wenn Sie meinen, dass wir Ihre Daten unrechtmäßig verarbeiten, können Sie sich bei der österreichischen Datenschutzbehörde beschweren: Datenschutzbehörde, Barichgasse 40–42, 1030 Wien, <a href="mailto:dsb@dsb.gv.at">dsb@dsb.gv.at</a>, <a href="https://www.dsb.gv.at">www.dsb.gv.at</a>.</p>'),
 ]
 
-DN_EN = '<b>Draft.</b> <mark>Yellow</mark> = still to fill in. Have it checked (WKO or a lawyer) before going online.'
-DN_DE = '<b>Entwurf.</b> <mark>Gelb</mark> = noch auszufüllen. Vor Veröffentlichung prüfen lassen (WKO oder Anwalt).'
+DN_EN = ''  # set a note here to show the green draft banner again
+DN_DE = ''
 pages = {
- 'imprint.html': page('en', 'Imprint', 'Legal', 'Imprint', 'Who is responsible for this website, as required by Austrian law.', imprint_en, 'impressum.html', 'DE', '../../index.html', DN_EN, 'On this page', 'Last updated: ' + T('date')),
- 'impressum.html': page('de', 'Impressum', 'Rechtliches', 'Impressum', 'Wer für diese Website verantwortlich ist, wie es das österreichische Recht verlangt.', imprint_de, 'imprint.html', 'EN', '../../de/index.html', DN_DE, 'Auf dieser Seite', 'Stand: ' + T('Datum')),
- 'privacy.html': page('en', 'Privacy policy', 'Legal', 'Privacy <i>policy</i>', 'What we do with your details when you visit this website or register your interest, in plain language.', privacy_en, 'datenschutz.html', 'DE', '../../index.html', DN_EN, 'On this page', 'Last updated: ' + T('date'), before=facts_en),
- 'datenschutz.html': page('de', 'Datenschutzerklärung', 'Rechtliches', 'Daten<i>schutz</i>', 'Was wir mit Ihren Daten machen, wenn Sie diese Website besuchen oder Ihr Interesse anmelden, in verständlicher Sprache.', privacy_de, 'privacy.html', 'EN', '../../de/index.html', DN_DE, 'Auf dieser Seite', 'Stand: ' + T('Datum'), before=facts_de),
+ 'imprint.html': page('en', 'Imprint', 'Legal', 'Imprint', 'Who is responsible for this website, as required by Austrian law.', imprint_en, 'impressum.html', 'DE', '../../index.html', DN_EN, 'On this page', 'Last updated: 20 November 2026'),
+ 'impressum.html': page('de', 'Impressum', 'Rechtliches', 'Impressum', 'Wer für diese Website verantwortlich ist, wie es das österreichische Recht verlangt.', imprint_de, 'imprint.html', 'EN', '../../de/index.html', DN_DE, 'Auf dieser Seite', 'Stand: 20. November 2026'),
+ 'privacy.html': page('en', 'Privacy policy', 'Legal', 'Privacy <i>policy</i>', 'What we do with your details when you visit this website or register your interest, in plain language.', privacy_en, 'datenschutz.html', 'DE', '../../index.html', DN_EN, 'On this page', 'Last updated: 20 November 2026', before=facts_en),
+ 'datenschutz.html': page('de', 'Datenschutzerklärung', 'Rechtliches', 'Daten<i>schutz</i>', 'Was wir mit Ihren Daten machen, wenn Sie diese Website besuchen oder Ihr Interesse anmelden, in verständlicher Sprache.', privacy_de, 'privacy.html', 'EN', '../../de/index.html', DN_DE, 'Auf dieser Seite', 'Stand: 20. November 2026', before=facts_de),
 }
 import re as _re
 ROOT = os.path.join(HERE, '..', '..')
