@@ -36,7 +36,7 @@ s = sub(s, "You can describe up to two problems. We read every application ourse
  "You can describe up to two problems. Registering is free and doesn't commit you to anything. We read every registration ourselves and get back to everyone before we launch.")
 s = sub(s, """        <div><span class="av" style="background:var(--terra)">DS</span><span><b>Daniel Sheccoury</b>MSc Oxford · AI implementation</span></div>
         <div><span class="av" style="background:var(--olive)">TS</span><span><b>Dr. Tibor Sekera</b>PhD Physics · Data science</span></div>
-        <div><span class="av" style="background:var(--forest)">JL</span><span><b>Jean Christoph Leob</b>Senior Data Scientist · Agentic AI</span></div>""",
+        <div><span class="av" style="background:var(--forest)">JL</span><span><b>Jean Christophe Loeb</b>Senior Data Scientist · Agentic AI</span></div>""",
 """        <div><span class="av" style="background:var(--terra)">i.</span><span><b>The engineer</b>MSc, University of Oxford · AI integration and training</span></div>
         <div><span class="av" style="background:var(--olive)">ii.</span><span><b>The physicist</b>PhD Physics · Data science</span></div>
         <div><span class="av" style="background:var(--forest)">iii.</span><span><b>The agent builder</b>Senior Data Scientist · Agentic AI</span></div>""")
@@ -76,7 +76,7 @@ s = sub(s, '<div class="announce">Now booking: free one-hour AI Quick-Checks for
         '<div class="announce">Launching in Vienna in 2027 — we\'re not taking on work yet. <a href="pilot-interest.html">Register your interest for one of 10 free Discovery Packs →</a></div>')
 for i, (ini, name, role) in enumerate([('DS', 'Daniel Sheccoury', 'AI Implementation Consultant · MSc, University of Oxford'),
                                         ('TS', 'Dr. Tibor Sekera', 'Data Scientist · PhD in Physics'),
-                                        ('JL', 'Jean Christoph Leob', 'Senior Data Scientist · Agentic AI')]):
+                                        ('JL', 'Jean Christophe Loeb', 'Senior Data Scientist · Agentic AI')]):
     new_name = ['The engineer', 'The physicist', 'The agent builder'][i]
     s = sub(s, f'<div class="portrait"><span>{ini}</span><em class="ph">Photo placeholder</em></div>\n        <h3>{name}</h3>',
             f'<div class="portrait"><span>{["MSc", "PhD", "AI"][i]}</span></div>\n        <h3>{new_name}</h3>')
