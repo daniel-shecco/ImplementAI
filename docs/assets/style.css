@@ -552,3 +552,7 @@ img.av { object-fit: cover; object-position: 50% 30%; }
 .form .perk ul { margin: 10px 0 0 28px; padding: 0; font-size: .86rem; color: var(--ink-2); line-height: 1.6; font-weight: 500; }
 .form .perk small { display: block; margin: 10px 0 0 28px; font-size: .78rem; color: var(--ink-3); font-weight: 500; }
 .form .consent a { color: inherit; }
+
+/* Team photos inside the coloured arch frame */
+.member .portrait.photo { padding: 14px; }
+.member .portrait.photo img { position: absolute; inset: 14px; width: calc(100% - 28px); height: calc(100% - 28px); object-fit: cover; border-radius: 999px 999px 12px 12px; }
