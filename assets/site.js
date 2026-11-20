@@ -57,7 +57,7 @@
   // Forms: sent to the Google Apps Script web app (operations/apps-script/Code.gs), which writes them
   // into the "ImplementAI – Pilot applications" Google Sheet and sends the confirmation email.
   // Until FORM_ENDPOINT is set, or if sending fails, the visitor's email app opens instead.
-  const FORM_ENDPOINT = '';               // Apps Script web app URL (.../exec), see operations/SETUP.md
+  const FORM_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzVpZUsqYAlxLmg5PVJ4dJRUx-uPiaZdQS7IYGtCCmRDV-Cj7w3DbmQgG8-17lWlhC1bQ/exec';               // Apps Script web app URL (.../exec), see operations/SETUP.md
   const EMAIL = 'hello@implementai.example';
   const utm = new URLSearchParams(location.search);
   $$('form[data-contact]').forEach(form => form.addEventListener('submit', async e => {
