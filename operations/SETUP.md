@@ -59,7 +59,7 @@ Use one form per language (EN and DE), so the confirmation goes out in the right
 
 **Getting Facebook applications into the Sheet** (no Zapier or Make):
 
-- **Chosen for the interest test: Leads with Instant forms** (full setup in `ads/CAMPAIGN.md`). in Meta Business Suite › Leads Center, download the leads as CSV once a day and paste them into Applicants, using the column values below with Status "New". The script sends the confirmation within 10 minutes. Leads stay downloadable in Meta for 90 days.
+- **Chosen for the interest test: Leads with Instant forms** (full setup in `ads/CAMPAIGN.md`). In Meta Business Suite › Leads Center, download the leads as CSV once a day and paste them into Applicants, using the column values below with Status "New". The script sends the confirmation within 10 minutes. Leads stay downloadable in Meta for 90 days.
 
 | Applicants column | Value |
 |---|---|
