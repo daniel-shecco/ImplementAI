@@ -9,9 +9,7 @@ Website form (pilot, Quick-Check, contact)
                                  └─ other ─► tab Enquiries
                               └─► confirmation email, straight away (English or German)
 
-Facebook/Instagram ad ─► website pilot page (recommended: same form, same Sheet, hook tracked automatically)
-
-Facebook lead form (optional) ─► download from Meta Leads Center once a day ─► paste into Applicants (Status "New")
+Facebook/Instagram ad ─► Instant form (lead form inside Facebook) ─► download from Meta Leads Center once a day ─► paste into Applicants (Status "New")
                                  └─► confirmation email within 10 minutes (the script checks every 10 minutes)
 
 Team ─► scores and sets the status in the Sheet ─► menu "ImplementAI › Create email draft" ─► Gmail draft ─► check and send
@@ -61,8 +59,7 @@ Use one form per language (EN and DE), so the confirmation goes out in the right
 
 **Getting Facebook applications into the Sheet** (no Zapier or Make):
 
-- **Recommended: skip the lead form.** Run the ads with the objective *Leads* or *Traffic* and the website as destination (each hook with its own link, see below). Everyone registers on the pilot page, so registrations land in the Sheet automatically, the confirmation goes out straight away and the hook is recorded.
-- **If you also use a lead form:** in Meta Business Suite › Leads Center, download the leads as CSV once a day and paste them into Applicants, using the column values below with Status "New". The script sends the confirmation within 10 minutes. Leads stay downloadable in Meta for 90 days.
+- **Chosen for the interest test: Leads with Instant forms** (full setup in `ads/CAMPAIGN.md`). in Meta Business Suite › Leads Center, download the leads as CSV once a day and paste them into Applicants, using the column values below with Status "New". The script sends the confirmation within 10 minutes. Leads stay downloadable in Meta for 90 days.
 
 | Applicants column | Value |
 |---|---|

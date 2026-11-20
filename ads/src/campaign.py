@@ -44,7 +44,7 @@ out = ["# Meta ads: campaign setup (interest test)", "",
  "## Campaign", "",
  "| Setting | Value |", "|---|---|",
  "| Campaign name | ImplementAI – interest test |",
- "| Objective | **Traffic** (optimise for *landing page views*). The site has no Meta Pixel, so Meta cannot optimise for sign-ups; the Sheet counts them instead. |",
+ "| Objective | **Leads**, conversion location **Instant forms** (people register inside Facebook/Instagram) |",
  "| Special ad category | None |",
  "| Budget | Set at **ad set** level: €5 per day per ad set (10 ad sets = €50 a day, about €500 for 10 days). Adjust to taste. |",
  "| A/B test / Advantage+ creative | Off, so each hook keeps its own image and text and the results stay comparable |",
@@ -57,9 +57,22 @@ out = ["# Meta ads: campaign setup (interest test)", "",
  "| Detailed targeting | None at first (broad); the images and texts select business owners |",
  "| Placements | Advantage+ placements, or manual: Facebook and Instagram feeds, Stories and Reels |",
  "| Images | Feed: `…-feed.png` (4:5). Stories/Reels: `…-story.png` (9:16) via *Customise per placement* |",
- "| Name | `Hook 1 EN`, `Hook 1 DE`, … (the number must match the link) |",
+ "| Name | `Hook 1 EN`, `Hook 1 DE`, … Name the **ads** the same way: the lead export shows the ad name, which tells you the hook. |",
+ "| Instant form | The English form for EN ad sets, the German form for DE ad sets (see below) |",
  "",
- "Same budget for every ad set, so the hooks compete fairly. After 7–10 days compare **strong leads per hook** on the Overview tab of the Sheet, then move the budget to the best one or two.", ""]
+ "Same budget for every ad set, so the hooks compete fairly. Ads Manager shows leads and cost per lead per hook; after 7–10 days also compare **strong leads per hook** on the Overview tab of the Sheet, then move the budget to the best one or two.", "",
+ "## Instant forms (create two: EN and DE)", "",
+ "| Setting | English form | German form |", "|---|---|---|",
+ "| Form name | ImplementAI EN | ImplementAI DE |",
+ "| Form type | Higher intent (review step: fewer, better leads) | same |",
+ "| Intro headline | Your biggest daily headache, analysed free | Ihr größtes Alltagsproblem, kostenlos analysiert |",
+ "| Intro text | Launching in Vienna in 2027. When we start, 10 businesses get our Discovery Pack free (planned price €1,490). Describe one real problem that costs you time every week. | Start in Wien 2027. Zum Start erhalten 10 Betriebe unser Analyse-Paket gratis (geplanter Preis € 1.490). Beschreiben Sie ein echtes Problem, das Sie jede Woche Zeit kostet. |",
+ "| Contact fields | Full name, Email, Phone (optional) | Vollständiger Name, E-Mail, Telefon (optional) |",
+ "| Questions | Business name · Industry (Gastronomy / Hospitality / Wellness & Beauty / Other) · Team size (1–10 / 11–50 / 51–250) · What's the problem? · How often does it happen? · Who deals with it? · What does it cost you? · When would you like this problem solved? (As soon as possible / In the next 3 months / This year / Just curious for now) · Reserve my founding-client benefits? First in line, a free follow-up visit 3 months after the analysis, a founding-client rate later (Yes / No) | Name des Betriebs · Branche (Gastronomie / Hotellerie / Wellness & Beauty / Andere) · Teamgröße · Worum geht es? · Wie oft kommt es vor? · Wer ist betroffen? · Was kostet es Sie? · Bis wann möchten Sie es gelöst haben? (So bald wie möglich / In den nächsten 3 Monaten / Dieses Jahr / Erst einmal nur neugierig) · Vorteile als Gründungskund:in reservieren? (Ja / Nein) |",
+ f"| Privacy policy | `{SITE}/privacy` | `{SITE}/de/datenschutz` |",
+ "| Thank-you screen | Thank you! We'll email you a confirmation and be in touch before we launch. Button: *View website* → the pilot page | Danke! Sie erhalten eine Bestätigung per E-Mail, und wir melden uns vor dem Start. Button: *Website ansehen* → die Pilotseite |",
+ "",
+ "**Getting leads into the Sheet:** Meta Business Suite › *Leads Center* (or the form in Ads Manager) › *Download* as CSV, once a day. Paste each lead into the Applicants tab: Source `Facebook`, Language `EN`/`DE`, Status `New`, Timing and Founding benefits in English (`As soon as possible` …, `Yes`/`No`), Hook from the ad name (`Hook 3`). The script sends the confirmation email within 10 minutes. Leads stay downloadable for 90 days.", ""]
 for lang, label in (("en", "English"), ("de", "German")):
     page = "pilot" if lang == "en" else "de/pilot"
     out += [f"## {label} ads", ""]
@@ -73,10 +86,12 @@ for lang, label in (("en", "English"), ("de", "German")):
                 f"- **Headline:** {head} ({len(head)} characters)",
                 f"- **Description:** {DESC[lang]}",
                 f"- **Call to action:** {CTA[lang]}",
-                f"- **Website URL:** `{url}`", ""]
+                f"- **Instant form:** ImplementAI {lang.upper()}",
+                f"- **Ad name:** Hook {n} {lang.upper()}", ""]
 out += ["## Before you publish", "",
  "- A Facebook Page for ImplementAI (the ads run from it) and an ad account with a payment method.",
- "- Open two of the links above on your phone and send a test registration; check it arrives in the Sheet with the right hook, then delete the row.",
+ "- Preview both Instant forms and submit one test lead each (Ads Manager › form › *Preview*, or Meta's Lead Ads Testing Tool); download it to check the columns, then delete the test row in the Sheet.",
+ "- The website stays as a backup: anyone who finds the site directly registers there and lands in the Sheet automatically.",
  "- **Imprint:** Austrian law (§ 5 ECG, § 25 MedienG) requires a complete imprint, with a postal address, as soon as the site is used commercially, and Meta's review may reject ads whose landing page looks unfinished. The legal pages still show the Draft banner and the address placeholder.",
  "- Agree the go / no-go target with Tibor and Jean Christophe (Overview tab, default 5 strong leads).", ""]
 pathlib.Path(__file__).parent.parent.joinpath("CAMPAIGN.md").write_text("\n".join(out))
