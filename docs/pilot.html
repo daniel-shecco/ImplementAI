@@ -83,8 +83,8 @@
     <div class="reveal">
       <span class="eyebrow"><b>02</b> Register</span>
       <h2>Tell us what <i>slows you down</i>.</h2>
-      <p class="muted">It takes about 10 minutes. Write the way you'd explain it to a colleague; there are no wrong answers and no technical knowledge needed.</p>
-      <p class="muted">You can describe up to two problems. Registering is free and doesn't commit you to anything. We read every registration ourselves and get back to everyone before we launch.</p>
+      <p class="muted">It takes about 2 minutes. Write the way you'd explain it to a colleague; there are no wrong answers and no technical knowledge needed.</p>
+      <p class="muted">Five short questions. Registering is free and doesn't commit you to anything. We read every registration ourselves and get back to everyone before we launch.</p>
       <div class="mini-team">
         <div><img class="av" src="assets/img/team/daniel.jpg" alt=""><span><b>Daniel Sheccoury</b>MSc, University of Oxford · AI integration and training</span></div>
         <div><img class="av" src="assets/img/team/tibor.jpg" alt=""><span><b>Dr. Tibor Sekera</b>PhD Physics · AI agents</span></div>
@@ -94,49 +94,15 @@
 
     <form class="form reveal d1" data-contact data-form="pilot" data-subject="Pilot programme registration">
         <div class="hp" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div>
-      <fieldset>
-        <legend>About your business</legend>
-        <div class="two">
-          <div><label for="pn">Your name</label><input id="pn" name="name" required autocomplete="name"></div>
-          <div><label for="pb">Business name</label><input id="pb" name="business" required autocomplete="organization"></div>
-        </div>
-        <div class="two">
-          <div><label for="pe">Email</label><input id="pe" name="email" type="email" required autocomplete="email"></div>
-          <div><label for="pp">Phone (optional)</label><input id="pp" name="phone" type="tel" autocomplete="tel"></div>
-        </div>
-        <div class="two">
-          <div><label for="pi">Industry</label><select id="pi" name="industry" required><option value="">Choose…</option><option>Restaurant / café / bar</option><option>Hotel / guesthouse</option><option>Medical practice / clinic</option><option>Beauty salon / hairdresser / spa / aesthetics</option><option>Other</option></select></div>
-          <div><label for="ps">Team size</label><select id="ps" name="team_size"><option>1–10</option><option>11–50</option><option>51–250</option></select></div>
-        </div>
-        <div><label for="pt">Software you use today</label><input id="pt" name="current_tools" placeholder="e.g. booking system, POS, Microsoft 365, WhatsApp, Excel"></div>
-      </fieldset>
-
-      <fieldset>
-        <legend>Your main pain</legend>
-        <div><label for="p1">What's the problem?</label><textarea id="p1" name="pain_what" class="tall" required placeholder="Describe the task or situation in your own words."></textarea></div>
-        <div class="two">
-          <div><label for="p2">How often does it happen?</label><input id="p2" name="pain_frequency" required placeholder="e.g. 40 calls a week"></div>
-          <div><label for="p3">Who deals with it?</label><input id="p3" name="pain_who" required placeholder="e.g. reception, two waiters"></div>
-        </div>
-        <div><label for="p4">What does it cost you?</label><textarea id="p4" name="pain_cost" required placeholder="Hours per week, lost bookings, mistakes, stress…"></textarea><div class="hint">A rough estimate is fine.</div></div>
-        <div><label for="p5">What would "solved" look like?</label><textarea id="p5" name="pain_solved" placeholder="e.g. no missed calls, rota done in 30 minutes instead of 3 hours"></textarea></div>
-      </fieldset>
-
-      <fieldset>
-        <legend>Your timing</legend>
-        <div><label>When would you like this problem solved?</label>
-          <div class="chips"><label><input type="radio" name="timing" value="As soon as possible" required><span>As soon as possible</span></label><label><input type="radio" name="timing" value="In the next 3 months"><span>In the next 3 months</span></label><label><input type="radio" name="timing" value="This year"><span>This year</span></label><label><input type="radio" name="timing" value="Just curious for now"><span>Just curious for now</span></label></div></div>
-        <label class="perk"><span class="perk-head"><input type="checkbox" name="founding_perk" value="yes"> Reserve my founding-client benefits</span>
-          <ul><li>First in line when we start</li><li>A free follow-up visit 3 months after the analysis</li><li>Founding-client rate if you later want help putting the plan into practice</li></ul>
-          <small>Optional and free. It doesn't commit you to anything.</small></label>
-      </fieldset>
-
-      <fieldset>
-        <legend>A second pain (optional)</legend>
-        <div><label for="p6">Another problem you'd like to solve</label><textarea id="p6" name="pain_2"></textarea></div>
-      </fieldset>
-
-      <label class="consent"><input type="checkbox" name="case_study_ok" value="yes"> If selected, we're happy to share the findings as a case study (it can be anonymous).</label>
+      <div><label for="pn">1 · Your name</label><input id="pn" name="name" required autocomplete="name"></div>
+      <div><label for="pe">2 · Email</label><input id="pe" name="email" type="email" required autocomplete="email"></div>
+      <div><label for="pb">3 · Business name</label><input id="pb" name="business" required autocomplete="organization" placeholder="e.g. Trattoria Roma, Salon Lena"></div>
+      <div><label for="p1">4 · Which task eats the most time each week?</label><textarea id="p1" name="pain_what" required placeholder="In your own words, e.g. booking calls during service, no-shows, the rota"></textarea></div>
+      <div><label>5 · When would you like it solved?</label>
+        <div class="chips"><label><input type="radio" name="timing" value="As soon as possible" required><span>As soon as possible</span></label><label><input type="radio" name="timing" value="In the next 3 months"><span>In the next 3 months</span></label><label><input type="radio" name="timing" value="This year"><span>This year</span></label><label><input type="radio" name="timing" value="Just curious for now"><span>Just curious for now</span></label></div></div>
+      <label class="perk"><span class="perk-head"><input type="checkbox" name="founding_perk" value="yes"> Reserve my founding-client benefits</span>
+        <ul><li>First in line when we start</li><li>A free follow-up visit 3 months after the analysis</li><li>Founding-client rate if you later want help putting the plan into practice</li></ul>
+        <small>Optional and free. It doesn't commit you to anything.</small></label>
       <label class="consent"><input type="checkbox" name="consent" required> <span>I agree that my details are stored to contact me about the launch and the free Discovery Pack (<a href="privacy.html">privacy policy</a>). No newsletter, no spam.</span></label>
       <button class="btn btn-terra" type="submit">Register my interest <span class="dot">↗</span></button>
       <div class="form-ok" hidden data-sent="Thank you! We've received your registration and sent you a confirmation email. We'll be in touch before we launch.">Thank you! Your email app should open with your registration. Just hit send. We reply to everyone.</div>
@@ -165,7 +131,7 @@
     <div class="split-head"><div class="reveal"><span class="eyebrow"><b>03</b> Selection</span><h2>How we'll <i>choose</i> the 10.</h2></div>
       <p class="reveal d1">We aim for a mix of restaurants, hotels and wellness &amp; beauty businesses, so every industry gets examples it can learn from.</p></div>
     <div class="steps3 reveal">
-      <div><div class="big">1</div><span class="when">Now, 10 minutes</span><h3>You register</h3><p>Describe one or two real problems using the form above.</p></div>
+      <div><div class="big">1</div><span class="when">Now, 2 minutes</span><h3>You register</h3><p>Tell us about one real problem using the form above.</p></div>
       <div><div class="big">2</div><span class="when">Before launch</span><h3>Short call</h3><p>For the most promising registrations: a 30-minute call to understand the problem better.</p></div>
       <div><div class="big">3</div><span class="when">At launch, 2027</span><h3>We start</h3><p>The 10 selected businesses are notified and we plan the on-site day together.</p></div>
     </div>

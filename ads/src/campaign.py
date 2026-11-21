@@ -30,8 +30,8 @@ HOOKS = [  # (n, slug, EN hook line, EN headline, DE hook line, DE headline)
   "Mit den richtigen KI-Tools starten"),
 ]
 BODY = {
- "en": "When we launch in Vienna in 2027, the 10 strongest use cases get our Discovery Pack free (planned price €1,490): a day on-site with your team, a map of your biggest time drains, the right AI tools with their costs, and a walkthrough of the plan.\n\nFor restaurants, hotels and wellness & beauty businesses. Registering takes 10 minutes, no AI knowledge needed, no obligation.",
- "de": "Zum Start in Wien 2027 erhalten die 10 stärksten Anwendungsfälle unser Analyse-Paket gratis (geplanter Preis € 1.490): ein Tag vor Ort mit Ihrem Team, eine Übersicht Ihrer größten Zeitfresser, die passenden KI-Tools mit Kosten und eine Besprechung des Plans.\n\nFür Gastronomie, Hotellerie sowie Wellness & Beauty. Die Anmeldung dauert 10 Minuten, ohne KI-Wissen, ohne Verpflichtung.",
+ "en": "When we launch in Vienna in 2027, the 10 strongest use cases get our Discovery Pack free (planned price €1,490): a day on-site with your team, a map of your biggest time drains, the right AI tools with their costs, and a walkthrough of the plan.\n\nFor restaurants, hotels and wellness & beauty businesses. Registering takes 2 minutes, no AI knowledge needed, no obligation.",
+ "de": "Zum Start in Wien 2027 erhalten die 10 stärksten Anwendungsfälle unser Analyse-Paket gratis (geplanter Preis € 1.490): ein Tag vor Ort mit Ihrem Team, eine Übersicht Ihrer größten Zeitfresser, die passenden KI-Tools mit Kosten und eine Besprechung des Plans.\n\nFür Gastronomie, Hotellerie sowie Wellness & Beauty. Die Anmeldung dauert 2 Minuten, ohne KI-Wissen, ohne Verpflichtung.",
 }
 DESC = {"en": "Free for the first 10", "de": "Gratis für die ersten 10"}
 CTA = {"en": "Sign up", "de": "Registrieren"}

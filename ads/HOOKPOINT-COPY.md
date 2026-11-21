@@ -20,7 +20,7 @@ Don't buy AI. Not until someone has spent a day in your business and found the o
 
 That's what we do. We watch how your restaurant, hotel or salon really runs, find the task that eats the most time, and give you a plan: which tool fixes it, and what it costs.
 
-When we launch in 2027, the first 10 Vienna businesses get this free (planned price €1,490). Register in 10 minutes. No obligation.
+When we launch in 2027, the first 10 Vienna businesses get this free (planned price €1,490). Register in 2 minutes. No obligation.
 ```
 - Headline: Don't buy AI. Yet. (18)
 - Description: Free for the first 10
@@ -34,7 +34,7 @@ Kaufen Sie keine KI. Nicht bevor jemand einen Tag in Ihrem Betrieb war und das e
 
 Genau das machen wir. Wir sehen uns an, wie Ihr Restaurant, Hotel oder Salon wirklich läuft, finden die Aufgabe, die am meisten Zeit frisst, und geben Ihnen einen Plan: welches Tool sie löst und was es kostet.
 
-Zum Start 2027 ist das für die ersten 10 Wiener Betriebe gratis (geplanter Preis € 1.490). Anmeldung in 10 Minuten, ohne Verpflichtung.
+Zum Start 2027 ist das für die ersten 10 Wiener Betriebe gratis (geplanter Preis € 1.490). Anmeldung in 2 Minuten, ohne Verpflichtung.
 ```
 - Headline: Kaufen Sie keine KI. Noch nicht. (32)
 - Description: Gratis für die ersten 10
@@ -54,7 +54,7 @@ Primary text:
 
 That second shift is the part a tool can take over. Tell us about it: when we launch in 2027, we analyse the 10 strongest cases free, with a day on-site and a written plan of which tools fix it and what they cost.
 
-For restaurants, hotels and wellness & beauty businesses in Vienna. Register in 10 minutes.
+For restaurants, hotels and wellness & beauty businesses in Vienna. Register in 2 minutes.
 ```
 - Headline: Your second shift starts at closing (35)
 - Description: Free analysis for 10
@@ -68,7 +68,7 @@ Primary text:
 
 Diese zweite Schicht kann ein Tool übernehmen. Erzählen Sie uns davon: Zum Start 2027 analysieren wir die 10 stärksten Fälle gratis, mit einem Tag vor Ort und einem schriftlichen Plan, welche Tools helfen und was sie kosten.
 
-Für Gastronomie, Hotellerie sowie Wellness & Beauty in Wien. Anmeldung in 10 Minuten.
+Für Gastronomie, Hotellerie sowie Wellness & Beauty in Wien. Anmeldung in 2 Minuten.
 ```
 - Headline: Ihre zweite Schicht beginnt um 23 Uhr (37)
 - Description: Gratis-Analyse für 10
@@ -88,7 +88,7 @@ Restaurants and hotels spend about 10 hours a week on paperwork (WKO survey, 202
 
 We find out, free, for 10 Vienna businesses when we launch in 2027: one day on-site, a list of the tasks a tool can take over, the tools to do it and their costs.
 
-No AI knowledge needed. Register in 10 minutes, no obligation.
+No AI knowledge needed. Register in 2 minutes, no obligation.
 ```
 - Headline: Which of your 10 admin hours can go? (36)
 - Description: Free for the first 10
@@ -102,7 +102,7 @@ Gastronomie und Hotellerie: rund 10 Stunden pro Woche für Papierkram (WKO-Umfra
 
 Das finden wir heraus, gratis für 10 Wiener Betriebe zum Start 2027: ein Tag vor Ort, eine Liste der Aufgaben, die ein Tool übernehmen kann, die passenden Tools und ihre Kosten.
 
-Kein KI-Wissen nötig. Anmeldung in 10 Minuten, ohne Verpflichtung.
+Kein KI-Wissen nötig. Anmeldung in 2 Minuten, ohne Verpflichtung.
 ```
 - Headline: Welche Ihrer 10 Bürostunden können weg? (39)
 - Description: Gratis für die ersten 10
@@ -156,7 +156,7 @@ An Oxford engineer, a physicist and a data scientist walk into your restaurant. 
 
 We're Daniel, Tibor and Jean Christophe. When we launch in 2027, we'll spend a day each with 10 Vienna restaurants, hotels and salons, find what eats your time, and show you which tools fix it and what they cost. Free for those 10.
 
-Register in 10 minutes. We speak English, German, French and Slovak.
+Register in 2 minutes. We speak English, German, French and Slovak.
 ```
 - Headline: No joke: a free AI plan for 10 (30)
 - Description: Vienna · from 2027
@@ -170,7 +170,7 @@ Ein Oxford-Ingenieur, ein Physiker und ein Data Scientist betreten Ihr Lokal. Ke
 
 Wir sind Daniel, Tibor und Jean Christophe. Zum Start 2027 verbringen wir je einen Tag mit 10 Wiener Restaurants, Hotels und Salons, finden heraus, was Ihre Zeit frisst, und zeigen Ihnen, welche Tools helfen und was sie kosten. Gratis für diese 10.
 
-Anmeldung in 10 Minuten. Wir sprechen Deutsch, Englisch, Französisch und Slowakisch.
+Anmeldung in 2 Minuten. Wir sprechen Deutsch, Englisch, Französisch und Slowakisch.
 ```
 - Headline: Kein Witz: ein Gratis-KI-Plan für 10 (36)
 - Description: Wien · ab 2027

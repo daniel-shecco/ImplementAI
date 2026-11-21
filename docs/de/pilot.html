@@ -83,8 +83,8 @@
     <div class="reveal">
       <span class="eyebrow"><b>02</b> Anmeldung</span>
       <h2>Erzählen Sie uns, was Sie <i>ausbremst</i>.</h2>
-      <p class="muted">Das dauert etwa 10 Minuten. Schreiben Sie so, wie Sie es einer Kollegin erklären würden. Es gibt keine falschen Antworten, und Sie brauchen kein technisches Wissen.</p>
-      <p class="muted">Sie können bis zu zwei Probleme beschreiben. Die Anmeldung ist kostenlos und unverbindlich. Wir lesen jede Anmeldung selbst und melden uns vor dem Start bei allen.</p>
+      <p class="muted">Das dauert etwa 2 Minuten. Schreiben Sie so, wie Sie es einer Kollegin erklären würden. Es gibt keine falschen Antworten, und Sie brauchen kein technisches Wissen.</p>
+      <p class="muted">Fünf kurze Fragen. Die Anmeldung ist kostenlos und unverbindlich. Wir lesen jede Anmeldung selbst und melden uns vor dem Start bei allen.</p>
       <div class="mini-team">
         <div><img class="av" src="../assets/img/team/daniel.jpg" alt=""><span><b>Daniel Sheccoury</b>MSc, University of Oxford · KI-Integration und Schulung</span></div>
         <div><img class="av" src="../assets/img/team/tibor.jpg" alt=""><span><b>Dr. Tibor Sekera</b>PhD Physik · KI-Agenten</span></div>
@@ -94,49 +94,15 @@
 
     <form class="form reveal d1" data-contact data-form="pilot" data-subject="Anmeldung Pilotprogramm">
         <div class="hp" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div>
-      <fieldset>
-        <legend>Zu Ihrem Betrieb</legend>
-        <div class="two">
-          <div><label for="pn">Ihr Name</label><input id="pn" name="name" required autocomplete="name"></div>
-          <div><label for="pb">Betrieb</label><input id="pb" name="betrieb" required autocomplete="organization"></div>
-        </div>
-        <div class="two">
-          <div><label for="pe">E-Mail</label><input id="pe" name="email" type="email" required autocomplete="email"></div>
-          <div><label for="pp">Telefon (optional)</label><input id="pp" name="telefon" type="tel" autocomplete="tel"></div>
-        </div>
-        <div class="two">
-          <div><label for="pi">Branche</label><select id="pi" name="branche" required><option value="">Bitte wählen…</option><option>Restaurant / Café / Bar</option><option>Hotel / Pension</option><option>Ordination / Arztpraxis</option><option>Kosmetik / Friseur / Spa / Ästhetik</option><option>Andere</option></select></div>
-          <div><label for="ps">Teamgröße</label><select id="ps" name="teamgroesse"><option>1–10</option><option>11–50</option><option>51–250</option></select></div>
-        </div>
-        <div><label for="pt">Software, die Sie heute nutzen</label><input id="pt" name="software" placeholder="z. B. Reservierungssystem, Kassa, Microsoft 365, WhatsApp, Excel"></div>
-      </fieldset>
-
-      <fieldset>
-        <legend>Ihr Hauptproblem</legend>
-        <div><label for="p1">Worum geht es?</label><textarea id="p1" name="problem" class="tall" required placeholder="Beschreiben Sie die Aufgabe oder Situation in Ihren eigenen Worten."></textarea></div>
-        <div class="two">
-          <div><label for="p2">Wie oft kommt es vor?</label><input id="p2" name="haeufigkeit" required placeholder="z. B. 40 Anrufe pro Woche"></div>
-          <div><label for="p3">Wer ist betroffen?</label><input id="p3" name="betroffene" required placeholder="z. B. Rezeption, zwei Kellner"></div>
-        </div>
-        <div><label for="p4">Was kostet es Sie?</label><textarea id="p4" name="kosten" required placeholder="Stunden pro Woche, verlorene Buchungen, Fehler, Stress…"></textarea><div class="hint">Eine grobe Schätzung genügt.</div></div>
-        <div><label for="p5">Woran würden Sie merken, dass es gelöst ist?</label><textarea id="p5" name="ziel" placeholder="z. B. keine verpassten Anrufe, Dienstplan in 30 Minuten statt 3 Stunden"></textarea></div>
-      </fieldset>
-
-      <fieldset>
-        <legend>Ihr Zeitplan</legend>
-        <div><label>Bis wann möchten Sie dieses Problem gelöst haben?</label>
-          <div class="chips"><label><input type="radio" name="zeitplan" value="So bald wie möglich" required><span>So bald wie möglich</span></label><label><input type="radio" name="zeitplan" value="In den nächsten 3 Monaten"><span>In den nächsten 3 Monaten</span></label><label><input type="radio" name="zeitplan" value="Dieses Jahr"><span>Dieses Jahr</span></label><label><input type="radio" name="zeitplan" value="Erst einmal nur neugierig"><span>Erst einmal nur neugierig</span></label></div></div>
-        <label class="perk"><span class="perk-head"><input type="checkbox" name="gruender_vorteil" value="ja"> Meine Vorteile als Gründungskund:in reservieren</span>
-          <ul><li>Als Erste an der Reihe, wenn wir starten</li><li>Ein kostenloser Folgebesuch 3 Monate nach der Analyse</li><li>Gründungskund:innen-Tarif, falls Sie später Hilfe bei der Umsetzung möchten</li></ul>
-          <small>Freiwillig und kostenlos. Ohne jede Verpflichtung.</small></label>
-      </fieldset>
-
-      <fieldset>
-        <legend>Ein zweites Problem (optional)</legend>
-        <div><label for="p6">Ein weiteres Problem, das Sie lösen möchten</label><textarea id="p6" name="problem_2"></textarea></div>
-      </fieldset>
-
-      <label class="consent"><input type="checkbox" name="fallstudie_ok" value="ja"> Falls wir ausgewählt werden, dürfen die Ergebnisse als Fallstudie geteilt werden (auch anonym möglich).</label>
+      <div><label for="pn">1 · Ihr Name</label><input id="pn" name="name" required autocomplete="name"></div>
+      <div><label for="pe">2 · E-Mail</label><input id="pe" name="email" type="email" required autocomplete="email"></div>
+      <div><label for="pb">3 · Name des Betriebs</label><input id="pb" name="betrieb" required autocomplete="organization" placeholder="z. B. Trattoria Roma, Salon Lena"></div>
+      <div><label for="p1">4 · Welche Aufgabe kostet Sie jede Woche am meisten Zeit?</label><textarea id="p1" name="problem" required placeholder="In Ihren eigenen Worten, z. B. Reservierungsanrufe im Service, No-Shows, der Dienstplan"></textarea></div>
+      <div><label>5 · Bis wann möchten Sie es gelöst haben?</label>
+        <div class="chips"><label><input type="radio" name="zeitplan" value="So bald wie möglich" required><span>So bald wie möglich</span></label><label><input type="radio" name="zeitplan" value="In den nächsten 3 Monaten"><span>In den nächsten 3 Monaten</span></label><label><input type="radio" name="zeitplan" value="Dieses Jahr"><span>Dieses Jahr</span></label><label><input type="radio" name="zeitplan" value="Erst einmal nur neugierig"><span>Erst einmal nur neugierig</span></label></div></div>
+      <label class="perk"><span class="perk-head"><input type="checkbox" name="gruender_vorteil" value="ja"> Meine Vorteile als Gründungskund:in reservieren</span>
+        <ul><li>Als Erste an der Reihe, wenn wir starten</li><li>Ein kostenloser Folgebesuch 3 Monate nach der Analyse</li><li>Gründungskund:innen-Tarif, falls Sie später Hilfe bei der Umsetzung möchten</li></ul>
+        <small>Freiwillig und kostenlos. Ohne jede Verpflichtung.</small></label>
       <label class="consent"><input type="checkbox" name="consent" required> <span>Ich bin einverstanden, dass meine Angaben gespeichert werden, um mich über den Start und das kostenlose Analyse-Paket zu kontaktieren (<a href="datenschutz.html">Datenschutzerklärung</a>). Kein Newsletter, kein Spam.</span></label>
       <button class="btn btn-terra" type="submit">Interesse anmelden <span class="dot">↗</span></button>
       <div class="form-ok" hidden data-sent="Danke! Wir haben Ihre Anmeldung erhalten und Ihnen eine Bestätigung per E-Mail geschickt. Wir melden uns vor dem Start bei Ihnen.">Danke! Ihr E-Mail-Programm sollte sich mit Ihrer Anmeldung öffnen. Einfach absenden. Wir antworten allen.</div>
@@ -165,7 +131,7 @@
     <div class="split-head"><div class="reveal"><span class="eyebrow"><b>03</b> Auswahl</span><h2>So wählen wir die <i>10</i> aus.</h2></div>
       <p class="reveal d1">Wir achten auf eine Mischung aus Restaurants, Hotels und Betrieben aus Wellness &amp; Beauty, damit jede Branche Beispiele bekommt, von denen sie lernen kann.</p></div>
     <div class="steps3 reveal">
-      <div><div class="big">1</div><span class="when">Jetzt, 10 Minuten</span><h3>Sie melden sich an</h3><p>Beschreiben Sie ein oder zwei echte Probleme im Formular oben.</p></div>
+      <div><div class="big">1</div><span class="when">Jetzt, 2 Minuten</span><h3>Sie melden sich an</h3><p>Erzählen Sie uns im Formular oben von einem echten Problem.</p></div>
       <div><div class="big">2</div><span class="when">Vor dem Start</span><h3>Kurzes Gespräch</h3><p>Für die vielversprechendsten Anmeldungen: ein 30-minütiges Gespräch, um das Problem besser zu verstehen.</p></div>
       <div><div class="big">3</div><span class="when">Zum Start 2027</span><h3>Wir starten</h3><p>Die 10 ausgewählten Betriebe werden verständigt, und wir planen gemeinsam den Tag vor Ort.</p></div>
     </div>

@@ -5,7 +5,7 @@ C = {
 "English": {
  "primary": [
   ("Offer", "Launching in Vienna in 2027: 10 restaurants, hotels and wellness & beauty businesses get our AI Discovery Pack free.",
-   "Register your interest now and tell us one real problem that costs you time every week: missed booking calls, no-shows, rotas, endless emails. When we launch, we pick the 10 strongest use cases and spend a day on-site with each. You get a written plan: your biggest time drains, the AI tools that fix them, what they cost and how much time you could save.\n\nRegistering takes 10 minutes. No AI knowledge needed, no obligation. Planned price €1,490, free for the first 10."),
+   "Register your interest now and tell us one real problem that costs you time every week: missed booking calls, no-shows, rotas, endless emails. When we launch, we pick the 10 strongest use cases and spend a day on-site with each. You get a written plan: your biggest time drains, the AI tools that fix them, what they cost and how much time you could save.\n\nRegistering takes 2 minutes. No AI knowledge needed, no obligation. Planned price €1,490, free for the first 10."),
   ("Pain", "40 booking calls a week during dinner service, and a quarter go unanswered. That's the kind of problem we want to hear about.",
    "Describe your biggest daily headache. When we launch in 2027, the 10 strongest use cases get our Discovery Pack free (planned price €1,490): a day on-site, a map of your biggest pains, the right AI tools with their costs, and a walkthrough of the plan.\n\nWe read every registration ourselves, and everyone gets a reply."),
   ("No risk", "Curious about AI but not sure where to start? Find out for free what it could do for your business.",
@@ -13,14 +13,14 @@ C = {
  ],
  "headline": ["10 free AI Discovery Packs", "Your AI plan, on us", "Tell us your biggest daily headache",
               "Launching 2027: 10 free places", "Less admin. More time for guests."],
- "description": ["Planned €1,490. Free for 10.", "Register in 10 minutes", "A day on-site + written plan",
+ "description": ["Planned €1,490. Free for 10.", "Register in 2 minutes", "A day on-site + written plan",
                  "No obligation", "English · Deutsch · FR · SK"],
  "cta": "Sign Up (Meta has no \"Register interest\" button; the image and landing page say it)",
 },
 "German": {
  "primary": [
   ("Angebot", "Start in Wien 2027: 10 Restaurants, Hotels und Betriebe aus Wellness & Beauty erhalten unser KI-Analyse-Paket gratis.",
-   "Melden Sie jetzt Ihr Interesse an und erzählen Sie uns ein echtes Problem, das Sie jede Woche Zeit kostet: verpasste Reservierungsanrufe, No-Shows, Dienstpläne, endlose E-Mails. Zum Start wählen wir die 10 stärksten Anwendungsfälle und verbringen mit jedem Betrieb einen Tag vor Ort. Sie erhalten einen schriftlichen Plan: Ihre größten Zeitfresser, die passenden KI-Tools, ihre Kosten und die mögliche Zeitersparnis.\n\nAnmeldung in 10 Minuten. Kein KI-Wissen nötig, keine Verpflichtung. Geplanter Preis € 1.490, für die ersten 10 gratis."),
+   "Melden Sie jetzt Ihr Interesse an und erzählen Sie uns ein echtes Problem, das Sie jede Woche Zeit kostet: verpasste Reservierungsanrufe, No-Shows, Dienstpläne, endlose E-Mails. Zum Start wählen wir die 10 stärksten Anwendungsfälle und verbringen mit jedem Betrieb einen Tag vor Ort. Sie erhalten einen schriftlichen Plan: Ihre größten Zeitfresser, die passenden KI-Tools, ihre Kosten und die mögliche Zeitersparnis.\n\nAnmeldung in 2 Minuten. Kein KI-Wissen nötig, keine Verpflichtung. Geplanter Preis € 1.490, für die ersten 10 gratis."),
   ("Problem", "40 Reservierungsanrufe pro Woche im Abendservice, ein Viertel bleibt unbeantwortet. Genau solche Probleme suchen wir.",
    "Beschreiben Sie Ihr größtes Alltagsproblem. Zum Start 2027 erhalten die 10 stärksten Anwendungsfälle unser Analyse-Paket gratis (geplanter Preis € 1.490): ein Tag vor Ort, eine Übersicht Ihrer größten Baustellen, die passenden KI-Tools mit Kosten und eine Besprechung des Plans.\n\nWir lesen jede Anmeldung selbst und antworten allen."),
   ("Ohne Risiko", "Neugierig auf KI, aber unsicher, wo Sie anfangen sollen? Finden Sie gratis heraus, was sie Ihrem Betrieb bringt.",
@@ -28,7 +28,7 @@ C = {
  ],
  "headline": ["10 gratis KI-Analyse-Pakete", "Ihr KI-Plan, auf uns", "Ihr Alltagsproblem, gratis analysiert",
               "Start 2027: 10 Gratis-Plätze", "Weniger Papierkram, mehr Zeit für Gäste"],
- "description": ["Geplant € 1.490, gratis für 10", "Anmeldung in 10 Minuten", "Ein Tag vor Ort + Plan",
+ "description": ["Geplant € 1.490, gratis für 10", "Anmeldung in 2 Minuten", "Ein Tag vor Ort + Plan",
                  "Ohne Verpflichtung", "Deutsch · English · FR · SK"],
  "cta": "Registrieren (Sign Up)",
 },

@@ -38,7 +38,7 @@ Restaurants and hotels spend about 10 hours a week on paperwork (WKO survey, 202
 
 When we launch in Vienna in 2027, the 10 strongest use cases get our Discovery Pack free (planned price €1,490): a day on-site with your team, a map of your biggest time drains, the right AI tools with their costs, and a walkthrough of the plan.
 
-For restaurants, hotels and wellness & beauty businesses. Registering takes 10 minutes, no AI knowledge needed, no obligation.
+For restaurants, hotels and wellness & beauty businesses. Registering takes 2 minutes, no AI knowledge needed, no obligation.
 ```
 
 - **Headline:** 10 hours a week on paperwork? (29 characters)
@@ -56,7 +56,7 @@ The phone rings mid-service, no-shows again, the rota takes all evening? Tell us
 
 When we launch in Vienna in 2027, the 10 strongest use cases get our Discovery Pack free (planned price €1,490): a day on-site with your team, a map of your biggest time drains, the right AI tools with their costs, and a walkthrough of the plan.
 
-For restaurants, hotels and wellness & beauty businesses. Registering takes 10 minutes, no AI knowledge needed, no obligation.
+For restaurants, hotels and wellness & beauty businesses. Registering takes 2 minutes, no AI knowledge needed, no obligation.
 ```
 
 - **Headline:** Sound familiar? Tell us. (24 characters)
@@ -74,7 +74,7 @@ Less time at the desk, more time for clients. We find the admin a tool can take 
 
 When we launch in Vienna in 2027, the 10 strongest use cases get our Discovery Pack free (planned price €1,490): a day on-site with your team, a map of your biggest time drains, the right AI tools with their costs, and a walkthrough of the plan.
 
-For restaurants, hotels and wellness & beauty businesses. Registering takes 10 minutes, no AI knowledge needed, no obligation.
+For restaurants, hotels and wellness & beauty businesses. Registering takes 2 minutes, no AI knowledge needed, no obligation.
 ```
 
 - **Headline:** More time for clients (21 characters)
@@ -92,7 +92,7 @@ Only 10 founding places in Vienna: a free AI analysis (planned €1,490), first 
 
 When we launch in Vienna in 2027, the 10 strongest use cases get our Discovery Pack free (planned price €1,490): a day on-site with your team, a map of your biggest time drains, the right AI tools with their costs, and a walkthrough of the plan.
 
-For restaurants, hotels and wellness & beauty businesses. Registering takes 10 minutes, no AI knowledge needed, no obligation.
+For restaurants, hotels and wellness & beauty businesses. Registering takes 2 minutes, no AI knowledge needed, no obligation.
 ```
 
 - **Headline:** Only 10 founding places (23 characters)
@@ -110,7 +110,7 @@ For restaurants, hotels and wellness & beauty businesses. Registering takes 10 m
 
 When we launch in Vienna in 2027, the 10 strongest use cases get our Discovery Pack free (planned price €1,490): a day on-site with your team, a map of your biggest time drains, the right AI tools with their costs, and a walkthrough of the plan.
 
-For restaurants, hotels and wellness & beauty businesses. Registering takes 10 minutes, no AI knowledge needed, no obligation.
+For restaurants, hotels and wellness & beauty businesses. Registering takes 2 minutes, no AI knowledge needed, no obligation.
 ```
 
 - **Headline:** Start with the right AI tools (29 characters)
@@ -130,7 +130,7 @@ Gastronomie und Hotellerie: rund 10 Stunden pro Woche für Papierkram (WKO-Umfra
 
 Zum Start in Wien 2027 erhalten die 10 stärksten Anwendungsfälle unser Analyse-Paket gratis (geplanter Preis € 1.490): ein Tag vor Ort mit Ihrem Team, eine Übersicht Ihrer größten Zeitfresser, die passenden KI-Tools mit Kosten und eine Besprechung des Plans.
 
-Für Gastronomie, Hotellerie sowie Wellness & Beauty. Die Anmeldung dauert 10 Minuten, ohne KI-Wissen, ohne Verpflichtung.
+Für Gastronomie, Hotellerie sowie Wellness & Beauty. Die Anmeldung dauert 2 Minuten, ohne KI-Wissen, ohne Verpflichtung.
 ```
 
 - **Headline:** 10 Stunden pro Woche Papierkram? (32 characters)
@@ -148,7 +148,7 @@ Das Telefon läutet mitten im Service, schon wieder No-Shows? Erzählen Sie es u
 
 Zum Start in Wien 2027 erhalten die 10 stärksten Anwendungsfälle unser Analyse-Paket gratis (geplanter Preis € 1.490): ein Tag vor Ort mit Ihrem Team, eine Übersicht Ihrer größten Zeitfresser, die passenden KI-Tools mit Kosten und eine Besprechung des Plans.
 
-Für Gastronomie, Hotellerie sowie Wellness & Beauty. Die Anmeldung dauert 10 Minuten, ohne KI-Wissen, ohne Verpflichtung.
+Für Gastronomie, Hotellerie sowie Wellness & Beauty. Die Anmeldung dauert 2 Minuten, ohne KI-Wissen, ohne Verpflichtung.
 ```
 
 - **Headline:** Kommt Ihnen das bekannt vor? (28 characters)
@@ -166,7 +166,7 @@ Weniger Zeit am Schreibtisch, mehr Zeit für Ihre Kund:innen. Wir finden, was ei
 
 Zum Start in Wien 2027 erhalten die 10 stärksten Anwendungsfälle unser Analyse-Paket gratis (geplanter Preis € 1.490): ein Tag vor Ort mit Ihrem Team, eine Übersicht Ihrer größten Zeitfresser, die passenden KI-Tools mit Kosten und eine Besprechung des Plans.
 
-Für Gastronomie, Hotellerie sowie Wellness & Beauty. Die Anmeldung dauert 10 Minuten, ohne KI-Wissen, ohne Verpflichtung.
+Für Gastronomie, Hotellerie sowie Wellness & Beauty. Die Anmeldung dauert 2 Minuten, ohne KI-Wissen, ohne Verpflichtung.
 ```
 
 - **Headline:** Mehr Zeit für Ihre Kund:innen (29 characters)
@@ -184,7 +184,7 @@ Nur 10 Gründungsplätze in Wien: Gratis-KI-Analyse (geplant € 1.490), als Ers
 
 Zum Start in Wien 2027 erhalten die 10 stärksten Anwendungsfälle unser Analyse-Paket gratis (geplanter Preis € 1.490): ein Tag vor Ort mit Ihrem Team, eine Übersicht Ihrer größten Zeitfresser, die passenden KI-Tools mit Kosten und eine Besprechung des Plans.
 
-Für Gastronomie, Hotellerie sowie Wellness & Beauty. Die Anmeldung dauert 10 Minuten, ohne KI-Wissen, ohne Verpflichtung.
+Für Gastronomie, Hotellerie sowie Wellness & Beauty. Die Anmeldung dauert 2 Minuten, ohne KI-Wissen, ohne Verpflichtung.
 ```
 
 - **Headline:** Nur 10 Gründungsplätze (22 characters)
@@ -202,7 +202,7 @@ Für Gastronomie, Hotellerie sowie Wellness & Beauty. Die Anmeldung dauert 10 Mi
 
 Zum Start in Wien 2027 erhalten die 10 stärksten Anwendungsfälle unser Analyse-Paket gratis (geplanter Preis € 1.490): ein Tag vor Ort mit Ihrem Team, eine Übersicht Ihrer größten Zeitfresser, die passenden KI-Tools mit Kosten und eine Besprechung des Plans.
 
-Für Gastronomie, Hotellerie sowie Wellness & Beauty. Die Anmeldung dauert 10 Minuten, ohne KI-Wissen, ohne Verpflichtung.
+Für Gastronomie, Hotellerie sowie Wellness & Beauty. Die Anmeldung dauert 2 Minuten, ohne KI-Wissen, ohne Verpflichtung.
 ```
 
 - **Headline:** Mit den richtigen KI-Tools starten (34 characters)

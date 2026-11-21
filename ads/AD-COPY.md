@@ -15,7 +15,7 @@ Launching in Vienna in 2027: 10 restaurants, hotels and wellness & beauty busine
 
 Register your interest now and tell us one real problem that costs you time every week: missed booking calls, no-shows, rotas, endless emails. When we launch, we pick the 10 strongest use cases and spend a day on-site with each. You get a written plan: your biggest time drains, the AI tools that fix them, what they cost and how much time you could save.
 
-Registering takes 10 minutes. No AI knowledge needed, no obligation. Planned price €1,490, free for the first 10.
+Registering takes 2 minutes. No AI knowledge needed, no obligation. Planned price €1,490, free for the first 10.
 ```
 
 **Pain** (opening line: 125 characters)
@@ -53,7 +53,7 @@ Register your interest now. We work in English, German, French and Slovak.
 | # | Text | Characters |
 |---|---|---|
 | 1 | Planned €1,490. Free for 10. | 28 |
-| 2 | Register in 10 minutes | 22 |
+| 2 | Register in 2 minutes | 21 |
 | 3 | A day on-site + written plan | 28 |
 | 4 | No obligation | 13 |
 | 5 | English · Deutsch · FR · SK | 27 |
@@ -71,7 +71,7 @@ Start in Wien 2027: 10 Restaurants, Hotels und Betriebe aus Wellness & Beauty er
 
 Melden Sie jetzt Ihr Interesse an und erzählen Sie uns ein echtes Problem, das Sie jede Woche Zeit kostet: verpasste Reservierungsanrufe, No-Shows, Dienstpläne, endlose E-Mails. Zum Start wählen wir die 10 stärksten Anwendungsfälle und verbringen mit jedem Betrieb einen Tag vor Ort. Sie erhalten einen schriftlichen Plan: Ihre größten Zeitfresser, die passenden KI-Tools, ihre Kosten und die mögliche Zeitersparnis.
 
-Anmeldung in 10 Minuten. Kein KI-Wissen nötig, keine Verpflichtung. Geplanter Preis € 1.490, für die ersten 10 gratis.
+Anmeldung in 2 Minuten. Kein KI-Wissen nötig, keine Verpflichtung. Geplanter Preis € 1.490, für die ersten 10 gratis.
 ```
 
 **Problem** (opening line: 117 characters)
@@ -109,7 +109,7 @@ Melden Sie jetzt Ihr Interesse an. Wir arbeiten auf Deutsch, Englisch, Französi
 | # | Text | Characters |
 |---|---|---|
 | 1 | Geplant € 1.490, gratis für 10 | 30 |
-| 2 | Anmeldung in 10 Minuten | 23 |
+| 2 | Anmeldung in 2 Minuten | 22 |
 | 3 | Ein Tag vor Ort + Plan | 22 |
 | 4 | Ohne Verpflichtung | 18 |
 | 5 | Deutsch · English · FR · SK | 27 |
