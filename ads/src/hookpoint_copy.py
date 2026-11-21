@@ -39,7 +39,7 @@ ADS = [
   en=dict(open="An Oxford engineer, a physicist and a data scientist walk into your restaurant. No joke: they want to fix your admin.",
           body="We're Daniel, Tibor and Jean Christophe. When we launch in 2027, we'll spend a day each with 10 Vienna restaurants, hotels and salons, find what eats your time, and show you which tools fix it and what they cost. Free for those 10.\n\nRegister in 10 minutes. We speak English, German, French and Slovak.",
           head="No joke: a free AI plan for 10", desc="Vienna · from 2027"),
-  de=dict(open="Ein Oxford-Ingenieur, ein Physiker und ein Data Scientist kommen in Ihr Restaurant. Kein Witz: Sie wollen Ihnen Arbeit abnehmen.",
+  de=dict(open="Ein Oxford-Ingenieur, ein Physiker und ein Data Scientist betreten Ihr Lokal. Kein Witz: Sie wollen Ihnen Arbeit abnehmen.",
           body="Wir sind Daniel, Tibor und Jean Christophe. Zum Start 2027 verbringen wir je einen Tag mit 10 Wiener Restaurants, Hotels und Salons, finden heraus, was Ihre Zeit frisst, und zeigen Ihnen, welche Tools helfen und was sie kosten. Gratis für diese 10.\n\nAnmeldung in 10 Minuten. Wir sprechen Deutsch, Englisch, Französisch und Slowakisch.",
           head="Kein Witz: ein Gratis-KI-Plan für 10", desc="Wien · ab 2027")),
 ]

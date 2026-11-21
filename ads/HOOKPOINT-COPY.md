@@ -166,7 +166,7 @@ Register in 10 minutes. We speak English, German, French and Slovak.
 
 Primary text:
 ```
-Ein Oxford-Ingenieur, ein Physiker und ein Data Scientist kommen in Ihr Restaurant. Kein Witz: Sie wollen Ihnen Arbeit abnehmen.
+Ein Oxford-Ingenieur, ein Physiker und ein Data Scientist betreten Ihr Lokal. Kein Witz: Sie wollen Ihnen Arbeit abnehmen.
 
 Wir sind Daniel, Tibor und Jean Christophe. Zum Start 2027 verbringen wir je einen Tag mit 10 Wiener Restaurants, Hotels und Salons, finden heraus, was Ihre Zeit frisst, und zeigen Ihnen, welche Tools helfen und was sie kosten. Gratis für diese 10.
 
@@ -174,4 +174,4 @@ Anmeldung in 10 Minuten. Wir sprechen Deutsch, Englisch, Französisch und Slowak
 ```
 - Headline: Kein Witz: ein Gratis-KI-Plan für 10 (36)
 - Description: Wien · ab 2027
-- Opening line: 128 characters
+- Opening line: 122 characters
